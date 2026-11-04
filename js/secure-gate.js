@@ -2,7 +2,8 @@
 (function () {
   'use strict';
   var SKEY = 'maru_pages_key_v2';           // sessionStorage: {salt, key(raw base64)} — 탭 닫으면 삭제
-  var BASE = '/maru-dashboard/';
+  // 사이트 루트 = 이 스크립트(<루트>/js/secure-gate.js)의 한 단계 위. 저장소 이름·호스팅 경로와 무관
+  var BASE = new URL('..', (document.currentScript && document.currentScript.src) || location.href).pathname;
   var ITER = 600000;
   var MAGIC = 'MENC1';
   function b64(u8) { var s = ''; for (var i = 0; i < u8.length; i++) s += String.fromCharCode(u8[i]); return btoa(s); }
