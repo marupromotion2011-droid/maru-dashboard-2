@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>염색 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#kinds">염색칸</a><a href="#temp">온도</a><a href="#why">왜</a><a href="#map">염료</a><a href="#when">시점</a>
+  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 염색</p>
+<h1>염색</h1>
+<p class="lede">쉬운 말: <b>색을 언제 넣느냐</b>. 실 먼저(선염), 원단 짠 뒤(후염), 옷 만든 뒤(가먼트). 무슨 물감인지는 <a href="../dyestuff/index.html">염료</a> 칸. 온도 숫자는 공개 업계 창이지 공장 셋팅이 아니다.</p>
+<div class="pills">
+  <span class="pill">실 / 원단 / 옷</span>
+  <span class="pill">공개 온도 창</span>
+  <span class="pill">작지·바이어</span>
+</div>
+
+<figure class="hero">
+  <img src="img/dye-when-hq.png" alt="염색 시점">
+  <figcaption>그림 A. 쉬운 말: 실 먼저 · 원단 뒤 · 옷 뒤.</figcaption>
+</figure>
+
+<figure class="hero">
+  <img src="img/dye-when-hq.png" alt="색 넣는 시점 — 선염·후염·가먼트">
+  <figcaption>그림 1. 쉬운 말 맵: 실 먼저 · 원단 뒤 · 옷 뒤. 이미지 영문 라벨은 도식용. 한글 이름은 본문.</figcaption>
+</figure>
+
+
+<h2 id="kinds">염색칸 <span>종류</span></h2>
+<p>쉬운 말로 세 칸만 먼저. <b>원사이드는 선염이 아니다</b>(단면·표리이색 샵 말). 온도는 공개 창이지 공장 셋팅이 아니다.</p>
+<figure class="hero">
+  <img src="img/dye-kinds-map-hq.png" alt="티셔츠 염색칸 선염 후염 원사이드 VS60 HE80 PET130 CDP100">
+  <figcaption>온도 밴드는 공개 업계 예. 아래 사종별 표가 본문. VS 60 / HE 80 / PET 130 / CDP 100. 선염 패널 90~130을 면 리액티브 60으로 바꾸지 말 것. 공장 셋팅이 아니다.</figcaption>
+</figure>
+<div class="grid">
+<div class="card"><b>실을 먼저 · 선염</b><div class="en">YD · YARN-DYE</div><p>쉬운 말: 짜기 전 실에 색. 면 양산=패키지(치즈). 타래(hank)·머프도 사염 형태. 스트라이프·헤더·카티온P.</p></div>
+<div class="card"><b>원단 짠 뒤 · 후염</b><div class="en">PD · PIECE-DYE</div><p>쉬운 말: 생지 짠 뒤 한 색. 포염. 생지(그레이지) 짠 뒤 제트·소프트플로 배기. 솔리드. 가먼트는 후염 하위(봉제 후).</p></div>
+<div class="card"><b>원사이드(샵 말)</b><div class="en">ONE-SIDE</div><p>쉬운 말: <b>선염이 아니다.</b> 샵에서 단면·표리이색(한쪽 면만/앞뒤 색이 다름)을 말할 때 쓰는 말. 배기 후염은 보통 양면이 같이 먹는다. 작지 표기를 본다.</p></div>
+</div>
+<div style="overflow:auto"><table><thead><tr><th>칸</th><th>동의어</th><th>영어</th><th>언제</th><th>주의</th></tr></thead><tbody><tr><td>선염</td><td>사염</td><td>yarn-dye (YD)</td><td>편직전, 실</td><td>패키지(치즈)</td></tr><tr><td>후염</td><td>포염</td><td>piece-dye (PD)</td><td>편직후, 생지</td><td>솔리드 배기</td></tr><tr><td>원사이드</td><td>단면·표리이색</td><td>one-side / face</td><td>작지 확인</td><td>선염(실 먼저)과 다름. 배기 후염은 보통 양면</td></tr></tbody></table></div>
+<p class="note">원착·원면·톱은 시점 맵에 있음. 본선 3칸과 섞지 말 것.</p>
+<p class="fix">원사이드는 샵 말 = 단면·표리이색. <b>선염·사염과 다른 말.</b> 작지 표기를 본다.</p>
+<h2 id="temp">사종별 먹는 온도 · 셋팅 <span>온도</span></h2>
+<p class="note">공개 업계 창. 염료 브랜드·설비·액비마다 다름. 공장 프로그램 셋팅·현장 온도라고 쓰지 말 것. 셋팅=염색기 목표온도. 텐터 열고정(175–180 인용창)과 섞지 말 것.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>사종</th><th>염료</th><th>먹는 온도(고착 홀드)</th><th>셋팅 메모</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>CM/면 코마</td><td>리액티브 VS(KN)</td><td>약 60°C</td><td>배기 제트/패키지 동일 화학</td><td>알칼리 고착. 스카이켐 등 공개 KN≈60</td></tr>
+<tr><td>면</td><td>리액티브 HE/MCT</td><td>약 80°C</td><td>핫타입</td><td>VS 60과 레시피 섞지 말 것</td></tr>
+<tr><td>면</td><td>리액티브 냉염 DCT</td><td>20–40°C</td><td>거의 안 씀</td><td>참고</td></tr>
+<tr><td>면</td><td>다이렉트</td><td>90–100°C</td><td>저가</td><td>리액티브 대체가 추세</td></tr>
+<tr><td>면 흑</td><td>설퍼</td><td>90–95°C</td><td>환원</td><td>방류 이슈</td></tr>
+<tr><td>레이온</td><td>리액티브</td><td>면과 비슷</td><td>알칼리 약하게</td><td>강도 주의</td></tr>
+<tr><td>P 레귤러 폴리</td><td>디스퍼스 HT</td><td>약 130°C 가압</td><td>패키지 기 설계 ≤135</td><td>상압 캐리어는 별도</td></tr>
+<tr><td>P/스판 혼방</td><td>디스퍼스</td><td>공개 주의 120–125°C 창이 흔함</td><td>공개 창</td><td>엘라스테인 열손상. 공장 창 아님</td></tr>
+<tr><td>카티온P / CDP</td><td>카티온(염기성)</td><td>약 100°C pH 4–4.5</td><td>레귤러 폴리 130과 다름</td><td>면 솔리드 염료 아님. 선염표 헤더</td></tr>
+<tr><td>C/P 혼방</td><td>디스퍼스+리액티브</td><td>폴리 130 다음 면 60 또는 원배스</td><td>두 단계 또는 원배스</td><td>두 섬유 조건이 다름</td></tr>
+<tr><td>나일론</td><td>산성</td><td>98–100°C 상압</td><td>상압</td><td>BASIC 아님</td></tr>
+<tr><td>아크릴</td><td>카티온</td><td>95–100°C</td><td>카티온 배기</td><td>CDP와 염료 계열은 같으나 섬유 다름</td></tr>
+<tr><td>원착 폴리</td><td>안료 칩</td><td>욕온 없음</td><td>방사 전</td><td>방사 전</td></tr>
+</tbody></table></div>
+<p class="note">승온: 공개 1–2°C/min 전후. 공장 승온은 이 페이지로 정하지 않는다.</p>
+<p class="note">패키지: 면 패키지와 면 포염은 염료 온도는 같고 순환(안↔밖)이 다름. 폴리 패키지는 HTHP.</p>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>리액티브 + 배기</b><div class="en">KNIT TEE</div><p>면·레이온 니트 솔리드는 반응성 염료를 제트·소프트플로에서 배기(exhaust)한다. 우븐 대량은 패드·CPB. 공개 업계: Jet/CPB·배기 리액티브가 면 니트 솔리드에 흔함.</p></div>
+  <div class="card"><b>사염 = 패키지</b><div class="en">YARN-DYE</div><p>선염 스트라이프는 실을 먼저 염색한다. 면 양산은 치즈를 스핀들에 꽂는 패키지 염색. 옛 OVER MAIRE는 Obermaier.</p></div>
+  <div class="card"><b>랩딥 먼저</b><div class="en">SHADE</div><p>분광측색(CCM, D65)으로 랩딥 승인 후 벌크. 육안만으로 기기를 열지 않는다. 분광측색·랩딥 승인 후 벌크가 현장 관행.</p></div>
+</div>
+<p class="fix">옛 슬라이드가 산성염료를 BASIC DYE라고 적었다. <b>틀림.</b> Acid dye = 울·나일론·실크. Basic/cationic = 아크릴·CDP(카티온P). 카티온P는 선염표 예에서 헤더용으로 나온다. 면 솔리드와는 별개.</p>
+<p class="note">욕비(M:L) 공개 범위는 면 리액티브 배기 약 1:6~1:12. ZDHC MRSL·OEKO-TEX는 바이어가 요구할 때의 계약 언어. 공장 기본 숙제·액비 목표치는 작지·계약을 본다. 이 페이지로 공장 규격을 정하지 않는다.</p>
+
+<h2 id="map">염료 × 섬유 <span>지금</span></h2>
+<p class="note">염료 종류·붙는 방식의 세부는 <a href="../dyestuff/index.html">염료</a> 칸. 이 표는 염색 시점에서 같이 보는 요약이다.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>지금 말</th><th>English</th><th>섬유</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>리액티브</td><td>Reactive</td><td>면·레이온·티셔츠</td><td>공유결합. 배기·패드배치·CPB.</td></tr>
+<tr><td>다이렉트</td><td>Direct</td><td>면(저가)</td><td>면은 리액티브로 대체되는 추세.</td></tr>
+<tr><td>배트 / 인디고</td><td>Vat / indigo</td><td>데님 경사</td><td>환원→염착→산화. 링다잉.</td></tr>
+<tr><td>설퍼</td><td>Sulfur</td><td>흑색 면</td><td>단가 유리, 방류 이슈.</td></tr>
+<tr><td>산성</td><td>Acid</td><td>울·나일론·실크</td><td>BASIC 아님.</td></tr>
+<tr><td>카티온 / 염기성</td><td>Basic / cationic</td><td>아크릴·CDP</td><td>선염표 카티온P = 헤더. 면 솔리드와 별개.</td></tr>
+<tr><td>디스퍼스</td><td>Disperse</td><td>폴리에스터</td><td>HT 약 130°C 또는 원착.</td></tr>
+<tr><td>아조익 / 나프톨</td><td>Azoic</td><td>면(레거시)</td><td>신규 오더 거의 없음.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="when">색을 넣는 시점 <span>언제</span></h2>
+<div class="grid">
+  <div class="card"><b>원착</b><div class="en">1 DOPE</div><p>칩에 안료. 물 거의 없음. 폴리 원착사.</p></div>
+  <div class="card"><b>원면</b><div class="en">2 STOCK</div><p>섬유 상태 염색. 멜란지 원료.</p></div>
+  <div class="card"><b>톱 / 슬라이버</b><div class="en">3 TOP</div><p>소모 슬라이버. 균일 혼방.</p></div>
+  <div class="card"><b>사염 패키지</b><div class="en">4 YARN</div><p>치즈·타래·머프. 면 양산은 패키지.</p></div>
+  <div class="card"><b>포염 배기</b><div class="en">5 PIECE</div><p>티셔츠 니트 주력. 제트·소프트플로.</p></div>
+  <div class="card"><b>가먼트</b><div class="en">6 GARMENT</div><p>봉제 후 드럼. SKU는 줄고 워싱은 산다.</p></div>
+</div>
+
+<h2 id="gloss">구 → 신 <span>용어</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>옛 교재</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>산성 = BASIC</td><td class="new">산성 = acid</td><td>Acid dye</td><td>2010 슬라이드 오표기 교정</td></tr>
+<tr><td>반응성</td><td class="new">리액티브</td><td>Reactive</td><td>현장어: 반응성 염료 / Jet·CPB</td></tr>
+<tr><td>침염</td><td class="new">배기 (exhaust)</td><td>Exhaust / batch</td><td>통화: 배기(배치) vs 연속</td></tr>
+<tr><td>선염</td><td class="new">사염 / 패키지</td><td>Yarn-dye / package</td><td>fyitester: 패키지·행크</td></tr>
+<tr><td>OVER MAIRE</td><td class="new">Obermaier</td><td>Package kier</td><td>옛 철자 교정</td></tr>
+<tr><td>생지</td><td class="new">그레이지</td><td>Greige</td><td>편직 후 미가공</td></tr>
+<tr><td>욕비</td><td class="new">M:L / 저욕비</td><td>Liquor ratio</td><td>공개 1:6~1:12. 우리 목표 미확인</td></tr>
+<tr><td>RSL만</td><td class="new">ZDHC MRSL + RSL</td><td>ZDHC / OEKO-TEX</td><td>바이어 요구 시. 기본 숙제로 보지 말 것</td></tr>
+<tr><td>원사이드염색</td><td class="new">단면·표리이색 (샵)</td><td>one-side / face</td><td>선염 아님. 작지 확인</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="art">그림 <span>그림</span></h2>
+<figure class="hero">
+  <img src="img/package-kier-hq.png" alt="패키지 염색기 단면: 치즈, 스핀들, 안↔밖 액 순환">
+  <figcaption>그림 2. 패키지(치즈) 염색 도식(EN). 실을 다공 튜브에 감아 염액이 안↔밖 순환. 공장 설비명·셋팅 아님.</figcaption>
+</figure>
+<div class="grid">
+  <figure class="pic"><img src="img/hank-cheese-muff-hq.png" alt="염색 시점 타임라인"><figcaption>그림 3. 사염 형태 요약: hank / cheese / muff (EN labels).</figcaption></figure>
+  <figure class="pic"><img src="img/Reactive_Blue_235.svg" alt="Reactive Blue 235 구조식"><figcaption>그림 4. 리액티브 예. Wikimedia PD, Reactive Blue 235.</figcaption></figure>
+  <figure class="pic"><img src="img/Indigo_skeletal.svg" alt="인디고 골격 구조식"><figcaption>그림 5. 배트/인디고. Wikimedia PD, Indigo skeletal.</figcaption></figure>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p>공개 교육 링크(텍스트만 · iframe 없음).</p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=m7Z88srYAdw" rel="noopener" target="_blank">Textile dyeing · principles / fastness (YouTube)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=sLcT7P-ZS4E" rel="noopener" target="_blank">Dyes, types of dyes and uses (YouTube)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=j3Z1jL3TZAo" rel="noopener" target="_blank">Vat dye overview (YouTube)</a></li>
+</ul>
+<p class="src">외부 영상은 제3자 콘텐츠. 공장 레시피로 쓰지 말 것.</p>
+
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="0"><b>1. 산성염료는 BASIC dye인가?</b>
+<button data-j="0">아니다. acid vs cationic</button><button data-j="1">맞다</button><button data-j="2">둘 다 면에 쓴다</button>
+<p class="why">산성=울/나일론. 염기성/카티온=아크릴·CDP.</p></div>
+<div class="q" data-a="1"><b>2. 면 티셔츠 솔리드 워크호스는?</b>
+<button data-j="0">디스퍼스</button><button data-j="1">리액티브</button><button data-j="2">나프톨</button>
+<p class="why">공유결합 리액티브. 배기 또는 CPB.</p></div>
+<div class="q" data-a="2"><b>3. OVER MAIRE의 맞는 이름은?</b>
+<button data-j="0">Overmaire</button><button data-j="1">Over Meyer</button><button data-j="2">Obermaier</button>
+<p class="why">패키지 염색기 계열 표기 교정.</p></div>
+<div class="q" data-a="1"><b>4. 선염표 예에서 카티온P는?</b>
+<button data-j="0">면 솔리드 염료</button><button data-j="1">헤더용 CDP, 면 솔리드와 별개</button><button data-j="2">산성염료의 다른 이름</button>
+<p class="why">수업용 선염표 예. 헤더용 CDP, 면 솔리드와 별개.</p></div>
+<div class="q" data-a="2"><b>5. 욕비 1:6~1:12를 공장 목표라고 해도 되나?</b>
+<button data-j="0">된다. 공장 표준이다</button><button data-j="1">ZDHC가 정한 값이다</button><button data-j="2">공개 업계 범위일 뿐, 공장 설비는 작지·설비를 본다</button>
+<p class="why">공개 업계 범위일 뿐. 설비·목표치는 작지·설비를 본다.</p></div>
+
+
+<div class="q" data-a="0"><b>6. 선염과 후염의 차이는?</b>
+<button data-j="0">선염=실을 먼저(패키지 사염). 후염=생지 짠 뒤 배기. 가먼트는 후염 하위</button><button data-j="1">선염=원단 먼저, 후염=실 먼저</button><button data-j="2">둘 다 가먼트 염색과 같다</button>
+<p class="why">선염 YD=실을 먼저. 후염 PD=생지(그레이지) 후 제트·소프트플로. 가먼트는 봉제 후, 후염 하위.</p></div>
+<div class="q" data-a="1"><b>7. 카티온P와 레귤러 폴리의 먹는 온도는?</b>
+<button data-j="0">둘 다 약 130°C</button><button data-j="1">카티온P ≈100°C, 레귤러P ≈130°C</button><button data-j="2">카티온P가 더 높다</button>
+<p class="why">카티온P / CDP는 카티온(염기성) 약 100°C pH 4–4.5. 레귤러 폴리는 디스퍼스 HT 약 130°C.</p></div>
+<div class="q" data-a="2"><b>8. 원사이드와 배기 후염에 대해 맞는 말은?</b>
+<button data-j="0">원사이드는 선염(실 먼저)과 같은 말이다</button><button data-j="1">배기 후염은 단면만 먹는다</button><button data-j="2">배기 후염은 보통 양면이 같이 먹음. 원사이드(단면·표리이색)는 별 공정·샵 말</button>
+<p class="why">원사이드=단면·표리이색 샵 말. 선염(사염)과 다르다. 배기 후염은 보통 양면. 작지를 본다.</p></div>
+<div class="q" data-a="2"><b>9. 이 칸의 온도 숫자를 공장 셋팅이라고 해도 되나?</b>
+<button data-j="0">된다. 우리 프로그램이다</button><button data-j="1">텐터 열고정 온도와 같다</button><button data-j="2">안 됨. 공개 업계 창일 뿐</button>
+<p class="why">공개 업계 창. 염료 브랜드·설비·액비마다 다름. 공장 프로그램 셋팅·현장 온도라고 쓰지 말 것. 이 페이지로 공장 규격을 정하지 않는다.</p></div>
+<div class="q" data-a="2"><b>10. 면 리액티브 VS(KN)과 HE/MCT를 한 레시피에 섞어도 되나?</b>
+<button data-j="0">된다. 둘 다 60°C다</button><button data-j="1">HE가 냉염이라 섞는다</button><button data-j="2">안 됨. VS 약 60°C, HE 약 80°C. 핫타입과 섞지 말 것</button>
+<p class="why">VS(KN) 약 60°C, HE/MCT 약 80°C 핫타입. 레시피 섞지 말 것.</p></div>
+
+<footer>교육자료 · 염색 · <a href="../dyestuff/index.html">염료</a> · <a href="../colorfastness/index.html">견뢰도</a></footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>

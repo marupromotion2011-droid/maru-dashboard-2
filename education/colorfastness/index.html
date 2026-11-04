@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>견뢰도 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in"><a href="#what">무엇</a><a href="#tests">테스트</a><a href="#read">성적서</a><a href="#warn">경고</a><a href="#quiz">퀴즈</a></div></nav>
+<div class="wrap"><p class="kicker">교육자료 · 견뢰도</p><h1>견뢰도</h1><p class="lede">색이 빠졌는지, 다른 옷에 묻었는지 보는 칸. 쉬운 말로 먼저. 표준 이름은 ISO 105 / AATCC. 합격은 바이어 스펙.</p><div class="pills"><span class="pill">색 빠짐</span><span class="pill">다른 옷에 묻음</span><span class="pill">합격=바이어</span></div><figure class="hero"><img src="img/fastness-plain.svg" alt="견뢰도 개요"><figcaption>그림 A. 쉬운 말: 색 빠짐(변퇴색) · 다른 옷에 묻음(오염). 회색 1-5. 일광 blue wool 1-8.</figcaption></figure><figure class="hero"><img src="img/fastness-hq.png" alt="견뢰도 검사 맵"><figcaption>그림 1. 견뢰도 검사 맵. 세탁 ISO 105-C06 / X12 / E04 / B02. Grey scale 1–5, 일광 blue wool 1–8. 등급 예시는 공장 합격이 아니다. 바이어 스펙을 본다.</figcaption></figure><h2 id="what">색 빠짐 vs 다른 옷에 묻음 <span>무엇</span></h2><div class="grid"><div class="card"><b>색이 빠졌나?</b><div class="en">CHANGE</div><p>쉬운 말: 색 빠짐. 시험 후 원래 색이 얼마나 바뀌었는지.<br><span class="src">이름: 변퇴색 · Grey scale 1–5 (5=좋음)</span></p></div><div class="card"><b>오염(이염)</b><div class="en">STAIN</div><p>인접 백포(다섬유) 등에 색이 묾었는지. 역시 Grey scale 1–5.</p></div><div class="card"><b>태양에 빠지나?</b><div class="en">LIGHT</div><p>쉬운 말: 태양 견딘. 회색 척도가 아니라 blue wool 1–8. 숫자 클수록 좋음.<br><span class="src">이름: 일광견뢰 · blue wool</span></p></div></div><p class="note">성적서에는 <b>색 빠짐</b> 급과 <b>다른 옷에 묻음</b> 급이 각각 따로 적힌다. 하나만 보면 안 된다. (변퇴색·오염)</p><h2 id="tests">주요 테스트 <span>시험</span></h2><p class="src">ISO와 AATCC 숫자를 1:1로 환산하지 않는다. 표준·프로토콜이 다르다.</p><div style="overflow:auto"><table><thead><tr><th>항목</th><th>표준(예)</th><th>평가</th><th>메모</th></tr></thead><tbody><tr><td>세탁</td><td>ISO 105-C06 / AATCC 61</td><td>변퇴색 + 오염</td><td>가정 세탁 조건. 수치·온도·세제는 프로토콜/바이어.</td></tr><tr><td>마찰</td><td>ISO 105-X12</td><td>오염 (건 + 습)</td><td>표준 마찰포로 dry·wet 각각. 습마찰이 보통 더 낮음.</td></tr><tr><td>땀</td><td>ISO 105-E04</td><td>변퇴색 + 오염</td><td>산성(acid) + 알칼리(alkali) 둘 다. pH 다름.</td></tr><tr><td>일광</td><td>ISO 105-B02</td><td>blue wool 1–8</td><td>Xenon 등. Grey scale가 아님.</td></tr></tbody></table></div><p class="note">AATCC 61(세탁)·AATCC 8/116(마찰)·AATCC 15(땀)·AATCC 16(일광) 등도 바이어가 지정할 수 있다. <b>ISO ≠ AATCC — 숫자 환산하지 않는다.</b></p><h2 id="read">성적서 읽는 법 <span>읽기</span></h2><div class="grid"><div class="card"><b>변퇴색·오염 각각</b><div class="en">TWO GRADES</div><p>하나만 적히면 부족. 다섬유 오염은 섬유별로 따로 나올 수 있다.</p></div><div class="card"><b>습마찰이 보통 낮음</b><div class="en">WET RUB</div><p>건마찰보다 습마찰 급이 낮은 것이 이상하지 않다. 이염 위험은 습쪽.</p></div><div class="card"><b>합격 = 바이어 스펙</b><div class="en">SPEC</div><p>성적서 급을 계약 문턱과 비교. 이 페이지 숫자로 공장 합격등급을 정하지 않는다.</p></div></div><h2 id="warn">공개 업계 예 <span>주의</span></h2><p class="warn">공개 업계 예: 세탁 3–4~4–5, 건마찰 ~4, 습마찰 ~3. <b>이 페이지 예가 공장 합격이 아님.</b> 바이어 SPEC·계약서를 확인.</p><p><a href="../dyeing/index.html">염색</a>은 색을 넣는 칸. 이 칸은 색이 견디는지 랩 테스트. <a href="../fabric-inspect/index.html">원단검사</a>는 시각 4점과 별개.</p><h2 id="vid">영상 <span>영상</span></h2><p class="src">교육용 영상은 이 페이지에 아직 없다.</p><p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2><div class="q" data-a="0"><b>1. 견뢰도가 보는 것은?</b><button data-j="0">색이 빠지거나 이염되는지</button><button data-j="1">폭·GSM 계산</button><button data-j="2">연단·마커 효율</button><p class="why">변퇴색·오염(이염). 합격은 바이어 스펙.</p></div><div class="q" data-a="2"><b>2. Grey scale에서 5는?</b><button data-j="0">가장 나쁨</button><button data-j="1">보통(중간)</button><button data-j="2">가장 좋음</button><p class="why">1=나쁨 … 5=좋음. 숫자가 클수록 좋음.</p></div><div class="q" data-a="1"><b>3. 일광 견뢰도 척도는?</b><button data-j="0">Grey scale 1–5</button><button data-j="1">blue wool 1–8</button><button data-j="2">4점법</button><p class="why">ISO 105-B02. blue wool. Grey scale과 혼동하지 말 것.</p></div><div class="q" data-a="0"><b>4. 마찰 견뢰도(X12)에서 보통 더 낮은 쪽은?</b><button data-j="0">습마찰</button><button data-j="1">건마찰</button><button data-j="2">둘 다 같음</button><p class="why">습마찰이 보통 더 낮음. 이염 위험.</p></div><div class="q" data-a="2"><b>5. 땀 견뢰도(E04)는?</b><button data-j="0">산성만</button><button data-j="1">알칼리만</button><button data-j="2">산성 + 알칼리 둘 다</button><p class="why">acid + alkali. pH가 다르다.</p></div><div class="q" data-a="2"><b>6. ISO와 AATCC 숫자를 같다고 환산해도 되나?</b><button data-j="0">된다. 1:1 환산</button><button data-j="1">항상 AATCC가 높음</button><button data-j="2">안 된다. 표준·프로토콜이 다르다</button><p class="why">표준·프로토콜이 다르다. 바이어가 지정한 표준으로.</p></div><div class="q" data-a="1"><b>7. 공개 예 세탁 3–4~4–5, 건~4 습~3은?</b><button data-j="0">공장 공식 합격등급</button><button data-j="1">공개 업계 예. 공장 합격 아님</button><button data-j="2">ISO 법정 최소치</button><p class="why">바이어 SPEC·계약. 이 페이지 예로 공장 합격등급을 정하지 않는다.</p></div><div class="q" data-a="0"><b>8. 성적서에서 반드시 확인할 두 급은?</b><button data-j="0">변퇴색·오염</button><button data-j="1">폭·길이</button><button data-j="2">플라이·카렌더</button><p class="why">각각 급. 하나만 보면 안 된다.</p></div><div class="q" data-a="0"><b>9. 세탁 견뢰도 ISO 표준(예)는?</b><button data-j="0">ISO 105-C06</button><button data-j="1">ISO 105-B02</button><button data-j="2">ASTM D5430</button><p class="why">C06=세탁. B02=일광. D5430=시각 4점.</p></div><div class="q" data-a="2"><b>10. 이 칸과 염색·원단검사의 관계는?</b><button data-j="0">같은 칸</button><button data-j="1">견뢰만 하면 염색 생략</button><button data-j="2">염색=색 투입, 견뢰=랩 테스트, 검사=시각 4점 — 별개</button><p class="why">../염색/ · ../원단검사/</p></div><footer>교육자료 · 견뢰도</footer></div>
+<script src="_edu.js"></script>
+</body></html>

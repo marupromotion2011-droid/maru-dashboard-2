@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>섬유 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:420px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:720px;min-height:400px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in"><a href="#class">분류</a><a href="#tee">티셔츠</a><a href="#dye">염료</a><a href="#shop">현장말</a><a href="#quiz">퀴즈</a></div></nav>
+<div class="wrap"><p class="kicker">교육자료 · 섬유</p><h1>섬유</h1><p class="lede">옷 재료가 무엇인지. 쉬운 말로 세 그룹: 천연(자연에서), 재생(자연 원료 가공), 합성(석유 기반). 티에 자주 나오는 이름만.</p><div class="pills"><span class="pill">옷 재료</span><span class="pill">천연·재생·합성</span><span class="pill">어떤 염료</span></div><p class="note">섬유 분류부터. 다음 칸은 <a href="../spinning/index.html">방적</a>, <a href="../dyeing/index.html">염색</a>.</p><figure class="hero"><img src="img/fiber-three-hq.png" alt="섬유 세 그룹 — 천연·재생·합성"><figcaption>그림 A. 쉬운 말 세 그룹. 배합 비율은 작지.</figcaption></figure><figure class="hero"><img src="img/fiber-class-map.png" alt="티셔츠 공장 섬유 분류 — 천연·재생·합성"><figcaption>CDP는 카티온 염료. 레귤러 PET는 디스퍼스. 업계 일반 분류. 작지 배합은 작지를 본다.</figcaption></figure><div class="grid"><figure class="pic"><img src="img/cotton-closeup.jpg" alt="원면(솜) 클로즈업"><figcaption>면(원면) 클로즈업. Wikimedia, Michael Bass-Deschenes, CC BY 2.0, File:Cotton boll nearly ready for harvest.jpg.</figcaption></figure><figure class="pic"><img src="img/fiber-groups-detail.png" alt="천연·재생·합성 상세 도식"><figcaption>천연·재생·합성 상세 도식. 교육용 플랫 벡터. 한글 명칭은 본문 카드.</figcaption></figure></div><h2 id="class">섬유 분류 <span>분류</span></h2><p class="src">먼저 쉬운 말 세 그룹. 배합 비율·레시피는 작지.</p><p><b>1. 천연 (Natural)</b> — 자연에서 얻는 섬유</p><div class="grid"><div class="card"><b>면</b><div class="en">COTTON</div><p>쉬운 말: 식물에서 오는 재료. 티 본체에 가장 많음.<br><span class="src">이름: cotton · 현장: 코튼·면</span></p></div><div class="card"><b>울</b><div class="en">WOOL</div><p>동물 모. 니트 티보다 스웨터·아우터. 티 본체에서는 드물.</p></div><div class="card"><b>실크</b><div class="en">SILK</div><p>견. 고급·트림. 티셔츠 본체 기본 라인에서는 드물.</p></div></div><p><b>2. 재생 (Regenerated)</b> — 자연 원료를 가공해 재생</p><div class="grid"><div class="card"><b>비스코스</b><div class="en">VISCOSE</div><p>셀룰로오스 재생. 드레이프·흡수. 블렌드·싱글 원단에도.</p></div><div class="card"><b>모달</b><div class="en">MODAL</div><p>비스코스 계 개량. 소프트·수축 안정 쪽 공개 설명 많음.</p></div><div class="card"><b>리오셀</b><div class="en">LYOCELL</div><p>용매 재생 셀룰로오스. 텐셀(TENCEL™)은 상표. 리오셀·모달 제품에 붙는 경우가 많다. 일반명은 각각 리오셀·모달.</p></div></div><p><b>3. 합성 (Synthetic)</b> — 석유 기반 합성</p><div class="grid"><div class="card"><b>폴리에스터 (P)</b><div class="en">POLYESTER / P</div><p>레귤러 PET. 강도·속건. 블렌드(C/P)·헤더에 흔함. 염료: 디스퍼스.</p></div><div class="card"><b>나일론</b><div class="en">NYLON</div><p>폴아마이드. 강도·마모. 티 본체보다 트림·특수 원단. 염료: 산성.</p></div><div class="card"><b>엘라스테인</b><div class="en">ELASTANE</div><p>스팬덱스. 스판. 플레이팅·블렌드로 신축성. 현장: 스판·스팬.</p></div><div class="card"><b>CDP (카티온 가염 P)</b><div class="en">CDP</div><p>Cationic Dyeable Polyester. 레귤러 PET와 다른 염료(카티온). 헤더·특수 원단 예.</p></div></div><h2 id="tee">티셔츠에서 <span>티셔츠</span></h2><p class="src">작지·원단명에 자주 나오는 표기. 비율은 작지.</p><div class="grid"><div class="card"><b>CM 코마면</b><div class="en">CM</div><p>Combed cotton. 코밍(컴빙)한 면. 단순사보다 잔머리·균일. 현장: 코마·CM.</p></div><div class="card"><b>C/P 면/폴리</b><div class="en">C/P</div><p>Cotton/Polyester 블렌드. 비율은 작지마다 다르다.</p></div><div class="card"><b>스판 플레이팅</b><div class="en">SPAN PLATING</div><p>편직 시 스판(엘라스테인)을 플레이팅. 신축성. 편직 칸 참조.</p></div><div class="card"><b>카티온P 헤더</b><div class="en">CATION P HEADER</div><p>CDP 계 폴리를 헤더·리브 등에. 카티온 염료. 레귤러 P와 섞어 쓰지 말 것.</p></div></div><h2 id="dye">염료 매칭 <span>염료</span></h2><p class="src">섬유→염료 짧은 표. 세부는 <a href="../dyeing/index.html">염색</a> 칸.</p><div style="overflow:auto"><table><thead><tr><th>섬유</th><th>염료(교육말)</th><th>메모</th></tr></thead><tbody><tr><td>면 (cotton)</td><td>리액티브 reactive</td><td>셀룰로오스 계</td></tr><tr><td>P / 레귤러 PET</td><td>디스퍼스 disperse</td><td>합성 폴리</td></tr><tr><td>CDP</td><td>카티온 cationic</td><td>가염 폴리 — 디스퍼스 아님</td></tr><tr><td>나일론</td><td>산성 acid</td><td>폴아마이드</td></tr></tbody></table></div><p class="warn">CDP≠레귤러 PET. 염료를 바꾸면 색이 안 옮겨지거나 견뢰도가 무너짐.</p><h2 id="shop">현장말 vs 교육말 <span>현장말</span></h2><p>쉬운 말 먼저. 작지에는 현장말, 바이어·교재에는 교육말이 같이 나온다.</p><div style="overflow:auto"><table><thead><tr><th>현장말</th><th>교육말</th><th>메모</th><th>어디</th></tr></thead><tbody><tr><td>면·코튼</td><td class="new">cotton</td><td>천연</td><td>원단명</td></tr><tr><td>코마·CM</td><td class="new">combed cotton</td><td>빗질 면</td><td>작지</td></tr><tr><td>P·폴리·PET</td><td class="new">polyester</td><td>레귤러</td><td>원단명</td></tr><tr><td>카티온P·CDP</td><td class="new">cationic dyeable polyester</td><td>염료 다름</td><td>헤더·특수</td></tr><tr><td>스판·스팬덱스</td><td class="new">elastane / spandex</td><td>신축</td><td>플레이팅</td></tr><tr><td>C/P·씨피</td><td class="new">cotton/poly blend</td><td>비율=작지</td><td>원단명</td></tr><tr><td>비스·레이온</td><td class="new">viscose</td><td>재생</td><td>원단명</td></tr><tr><td>텐셀</td><td class="new">lyocell / modal (brand: TENCEL™)</td><td>상표. 리오셀·모달</td><td>스펙</td></tr><tr><td>디아·분산</td><td class="new">disperse</td><td>P용</td><td>염색</td></tr><tr><td>카치온·카티온</td><td class="new">cationic</td><td>CDP용</td><td>염색</td></tr></tbody></table></div><h2 id="vid">영상 <span>영상</span></h2><p class="src">교육용 영상은 이 페이지에 아직 없다.</p><h2 id="caution">주의 <span>주의</span></h2><p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p><h2 id="quiz">퀴즈 <span>확인</span></h2><div class="q" data-a="2"><b>1. 천연·재생·합성 중 면은?</b><button data-j="0">재생만</button><button data-j="1">합성</button><button data-j="2">천연</button><p class="why">면은 식물 천연 섬유.</p></div><div class="q" data-a="2"><b>2. 비스코스·모달·리오셀은?</b><button data-j="0">석유 합성만</button><button data-j="1">동물 모</button><button data-j="2">재생(셀룰로오스 계)</button><p class="why">자연 원료를 가공해 재생한 섬유.</p></div><div class="q" data-a="1"><b>3. 레귤러 PET(폴리) 염료는?</b><button data-j="0">카티온</button><button data-j="1">디스퍼스</button><button data-j="2">리액티브</button><p class="why">레귤러 PET → 디스퍼스. CDP만 카티온.</p></div><div class="q" data-a="0"><b>4. CDP 염료는?</b><button data-j="0">카티온</button><button data-j="1">디스퍼스</button><button data-j="2">산성만</button><p class="why">CDP = Cationic Dyeable Polyester → 카티온.</p></div><div class="q" data-a="2"><b>5. CM은?</b><button data-j="0">카드사만</button><button data-j="1">나일론 코드</button><button data-j="2">코마면(combed cotton)</button><p class="why">CM = combed / 코마면.</p></div><div class="q" data-a="1"><b>6. C/P는?</b><button data-j="0">순면 100%</button><button data-j="1">면/폴리 블렌드</button><button data-j="2">실크만</button><p class="why">Cotton/Polyester. 비율은 작지마다 다르다.</p></div><div class="q" data-a="2"><b>7. 스판 플레이팅은?</b><button data-j="0">재단 마커</button><button data-j="1">염색 약제 이름</button><button data-j="2">편직 시 엘라스테인 플레이팅</button><p class="why">편직에서 스판을 플레이팅해 신축성.</p></div><div class="q" data-a="1"><b>8. 나일론에 흔한 염료 계는?</b><button data-j="0">리액티브만</button><button data-j="1">산성(acid)</button><button data-j="2">디스퍼스만</button><p class="why">나일론(폴아마이드) → 산성 염료.</p></div><div class="q" data-a="2"><b>9. 텐셀(TENCEL™)은?</b><button data-j="0">울 상표</button><button data-j="1">모든 리오셀의 일반명</button><button data-j="2">상표(리오셀·모달 제품에 쓰임)</button><p class="why">TENCEL™은 상표. 리오셀·모달 쪽에 붙는 경우가 많다.</p></div><div class="q" data-a="1"><b>10. 이 페이지 분류로 작지 배합 비율을 정하면?</b><button data-j="0">그대로 적으면 된다</button><button data-j="1">안 된다. 비율은 작지를 본다</button><button data-j="2">그림 측 숫자를 쓰면 된다</button><p class="why">업계 일반 분류이다. 배합·비율은 작지.</p></div><footer>교육자료 · 섬유</footer></div>
+<script src="_edu.js"></script>
+</body>
+</html>

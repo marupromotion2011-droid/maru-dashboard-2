@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>완성검사 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#why">왜</a><a href="#aql">뽑기</a><a href="#class">급</a>
+  <a href="#tee">티체크</a><a href="#vs">원단검사</a><a href="#vid">영상</a><a href="#caution">주의</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 완성검사</p>
+<h1>완성검사</h1>
+<p class="lede">다 만든 옷을 출하 전에 몇 장 뽑아 보는 검사. 전량 안 보고, 정해진 장수만 보고 통과/반려를 정하는 공개 업계 방식. 합격은 항상 바이어 스펙.</p>
+<div class="pills">
+  <span class="pill">출하 전 뽑기</span>
+  <span class="pill">위험·큰문제·작은흠</span>
+  <span class="pill">완성 ≠ 원단 롤</span>
+</div>
+
+<figure class="hero">
+  <img src="img/aql-flow-hq.png" alt="로트에서 뽑아 통과 반려 정하는 공개 연습 흐름">
+  <figcaption>그림 1. 공개 연습 숫자: 옷 5000장 → 보통 II → 코드 L → 200장 → 큰문제 예 통과10/반려11. 공장 규칙 아님. 바이어 스펙.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>최종·출하 전</b><div class="en">FINAL</div><p>완성 옷을 몇 장 뽑아 본다. 라인 중 잡기와 시점·목적이 다르다.</p></div>
+  <div class="card"><b>전수가 기본은 아님</b><div class="en">SAMPLE</div><p>공개 업계는 정해진 장수만 뽑는다. 전수는 바이어·리스크가 따로 정할 때.</p></div>
+  <div class="card"><b>합격 = 바이어</b><div class="en">SPEC</div><p>이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p></div>
+</div>
+<p class="note"><b>라인 QC</b>: 봉제 중·직후 공정 안 잡기. <b>완성검사</b>: 로트·출하 단위로 뽑아 판정. 짧게만 — 둘 다 필요, 하나가 다른 하나를 대신하지 않는다.</p>
+
+<h2 id="aql">뽑아 보는 방식 <span>표본</span></h2>
+<p>쉬운 말: 전량 안 보고, 정해진 장수만 보고 통과/반려를 정한다. 공개 업계에서 자주 쓰는 방식이다.<br>
+<span class="src">표준 이름(참고): AQL · ISO 2859-1. 표 읽는 법만 — 공장 검사 매뉴얼 아님.</span></p>
+<div class="grid">
+  <div class="card"><b>검사 수준</b><div class="en">LEVEL</div><p>일반 I / II / III. 공개 기본은 종종 II. 바이어가 지정.</p></div>
+  <div class="card"><b>코드 문자</b><div class="en">CODE</div><p>로트 크기 + 수준 → 샘플 코드(예: L). 그다음 뽑는 장수·통과/반려 수.</p></div>
+  <div class="card"><b>통과·반려 수</b><div class="en">Ac / Re</div><p>샘플에서 문제 품 수 ≤ 통과면 로트 합격, ≥ 반려면 불합격(해당 계획).</p></div>
+</div>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>공개 연습 숫자</th><th>값</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>로트</td><td>옷 5000장</td><td>공개 연습 숫자</td></tr>
+<tr><td>수준</td><td>일반 II</td><td>공개에서 자주 봄</td></tr>
+<tr><td>코드</td><td>L</td><td>표에서 읽음</td></tr>
+<tr><td>뽑는 장수</td><td>200</td><td>코드 L</td></tr>
+<tr><td>큰문제 예(2.5)</td><td>통과 10 / 반려 11</td><td>공개에서 자주 보는 예</td></tr>
+</tbody>
+</table>
+</div>
+<p class="warn"><b>공개 연습 숫자.</b> 공장 규칙으로 제시하지 않는다. 이 페이지 예가 공장 합격·불합격이 아님. 바이어 SPEC·계약서를 확인.</p>
+
+<figure class="pic">
+  <img src="img/aql-sample-flow.png" alt="AQL 샘플 흐름 도식: 로트·수준·샘플·판정">
+  <figcaption>그림 1b. 뽑아 보기 흐름 도식(영문 라벨). 숫자는 공개 연습 예. 공장 규칙 아님. 작지·바이어.</figcaption>
+</figure>
+
+<h2 id="class">결함 급 <span>분류</span></h2>
+<div class="grid">
+  <div class="card"><b>위험</b><div class="en">CRITICAL</div><p>안전·법규·치명. 공개에서 자주 보는 예: <b>하나라도 있으면 로트 탈락(AQL 0)</b>. 바이어 스펙 우선.</p></div>
+  <div class="card"><b>큰문제</b><div class="en">MAJOR</div><p>기능·판매에 큰 영향. 공개에서 자주 보는 예: <b>2.5</b>. 바이어 스펙 우선.</p></div>
+  <div class="card"><b>작은흠</b><div class="en">MINOR</div><p>외관·경미. 공개에서 자주 보는 예: <b>4.0</b>. 바이어 스펙 우선.</p></div>
+</div>
+<p class="note">급 정의·숫자는 계약마다 다르다. “자주 보는 예”는 공개 관행 힌트일 뿐.</p>
+
+<h2 id="tee">티셔츠 체크 포인트 <span>티셔츠</span></h2>
+<figure class="hero">
+  <img src="img/aql-checklist-hq.png" alt="완성 티 뽑아 볼 때 체크 목록">
+  <figcaption>그림 2. 치수·솔기·색·라벨·바늘·프린트·패킹. 공개 예 목록. 허용은 바이어.</figcaption>
+</figure>
+
+<figure class="pic">
+  <img src="img/qc-checklist-board.png" alt="완성검사 체크 항목 보드 도식">
+  <figcaption>그림 2b. 완성 티 체크 보드(영문 라벨). 항목 안내일 뿐 합격 기준 아님. 작지·바이어.</figcaption>
+</figure>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>포인트</th><th>보는 것(공개 예)</th></tr></thead>
+<tbody>
+<tr><td>치수</td><td>스펙 대비 측정. 허용차는 바이어</td></tr>
+<tr><td>시접·솔기</td><td>터짐·스킵·꼬임·오버록/커버 상태</td></tr>
+<tr><td>색(셰이드)</td><td>파트 간·장간 색차. 라이트박스 조건은 스펙</td></tr>
+<tr><td>라벨·케어</td><td>내용·위치·누락. 손질 그림은 <a href="../care-label/index.html">케어라벨</a></td></tr>
+<tr><td>바늘(금속)</td><td>금속 탐지·바늘 관리 기록. 바이어 SOP</td></tr>
+<tr><td>프린트·배치</td><td>위치·깨짐·번짐·백보드</td></tr>
+<tr><td>패킹</td><td>폴딩·폴리백·수량·어소트·카톤 마크</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="vs">원단검사와 가름 <span>가름</span></h2>
+<div class="grid">
+  <div class="card"><b>원단 롤 검사</b><div class="en">FABRIC</div><p><a href="../fabric-inspect/index.html">원단검사</a>는 롤 시각 4점(ASTM D5430 계열). 재단 전 원단.</p></div>
+  <div class="card"><b>완성 옷 검사</b><div class="en">GARMENT</div><p>이 칸은 완성 옷·출하 단위로 뽑아 본다. 원단 롤 검사를 대신하지 않는다.</p></div>
+</div>
+<p class="note">원단이 깨끗해도 봉제·프린트·라벨에서 떨어질 수 있다. 둘 다 별개 칸.</p>
+
+<figure class="pic">
+  <img src="img/fabric-inspection-machine.jpg" alt="원단 롤 검단기 — 완성 옷 검사와 다른 칸">
+  <figcaption>그림 3. 원단 롤 검단 설비 예(실사). <b>완성검사 칸이 아님</b> — 재단 전 원단 쪽. 자세한 내용은 <a href="../fabric-inspect/index.html">원단검사</a>.</figcaption>
+</figure>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="1"><b>1. 뽑아 보는 검사의 뼈대는?</b>
+<button data-j="0">원단 롤 4점 점수식</button><button data-j="1">로트·수준·뽑는 장수·통과/반려</button><button data-j="2">손질 그림 순서</button>
+<p class="why">샘플링 검사. 표준 이름: ISO 2859-1 / AQL. 4점은 원단검사 쪽.</p></div>
+<div class="q" data-a="0"><b>2. 공개 연습: 옷 5000장 · 일반 II →?</b>
+<button data-j="0">코드 L · 200장</button><button data-j="1">코드 A · 2장</button><button data-j="2">전수 5000장</button>
+<p class="why">공개 표: 3201–10000 · II → L → 200.</p></div>
+<div class="q" data-a="2"><b>3. 공개 연습: 큰문제 2.5 · 코드 L의 통과/반려는?</b>
+<button data-j="0">통과 0 / 반려 1</button><button data-j="1">통과 21 / 반려 22</button><button data-j="2">통과 10 / 반려 11</button>
+<p class="why">공개 연습 숫자. 공장 규칙 아님.</p></div>
+<div class="q" data-a="1"><b>4. 위험에 공개에서 자주 쓰는 것은?</b>
+<button data-j="0">4.0</button><button data-j="1">하나라도 안 됨(AQL 0 등)</button><button data-j="2">샘플 생략</button>
+<p class="why">종종 AQL 0. 항상 바이어 스펙.</p></div>
+<div class="q" data-a="0"><b>5. 큰문제 / 작은흠 공개에서 자주 보는 숫자는?</b>
+<button data-j="0">큰문제 2.5 · 작은흠 4.0</button><button data-j="1">큰문제 4.0 · 작은흠 2.5</button><button data-j="2">둘 다 0</button>
+<p class="why">공개 관행 힌트. 계약이 우선.</p></div>
+<div class="q" data-a="2"><b>6. 원단 롤 검사와 완성 옷 검사는?</b>
+<button data-j="0">같은 칸</button><button data-j="1">완성만 하면 원단검사 생략</button><button data-j="2">원단=롤 검사, 완성=옷 뽑기 — 별개</button>
+<p class="why">../원단검사/</p></div>
+<div class="q" data-a="1"><b>7. 라인 QC와 완성검사의 짧은 가름은?</b>
+<button data-j="0">이름만 다름</button><button data-j="1">라인=공정 중 잡기, 완성=로트·출하 뽑아 판정</button><button data-j="2">완성만 하면 라인 불필요</button>
+<p class="why">시점·단위가 다름. 둘 다 필요.</p></div>
+<div class="q" data-a="0"><b>8. 표의 5000→200→통과10은?</b>
+<button data-j="0">공개 연습 숫자. 공장 규칙으로 쓰지 말 것</button><button data-j="1">모든 공장에 강제</button><button data-j="2">티셔츠 법정 최소</button>
+<p class="why">바이어 SPEC. 이 페이지 예로 공장 합격을 정하지 않는다.</p></div>
+
+<footer>교육자료 · 완성검사</footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>후가공 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#why">왜</a><a href="#map">본선</a><a href="#when">가공</a>
+  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 후가공</p>
+<h1>후가공</h1>
+<p class="lede">염색 다음, 원단의 폭·손맛·수축을 잠그는 칸. 저지 티셔츠 본선은 약제 적시기 → 폭·열 잡기 → 수축 미리 잡기다.</p>
+<div class="pills">
+  <span class="pill">신입용</span>
+  <span class="pill">약제 → 폭·열 → 수축</span>
+  <span class="pill">저지 본선</span>
+</div>
+
+<figure class="hero">
+  <img src="img/finish-line-hq.png" alt="저지 후가공 본선 쉬운 말">
+  <figcaption>그림 1. 쉬운 말 본선: 패딩(약제) → 텐터(폭·열) → 컴팩터(수축 미리 잡기) → 롤. 목표·온도창은 작지·바이어.</figcaption>
+</figure>
+
+<figure class="pic">
+  <img src="img/finishing-stenter-line.png" alt="니트 저지 후가공 라인: 그레이지·패딩·텐터·컴팩터·롤">
+  <figcaption>그림 2. 니트(저지) 후가공 라인: 그레이지 투입 → 패딩(약제, 염색 아님) → 텐터(폭·열·GSM) → 컴팩터(오버피드·잔류수축) → 완제품 롤. 이미지 영문은 도식용. 숫자창은 작지·바이어.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>본선 세 칸</b><div class="en">KNIT TEE</div><p>염색이 색을 넣으면 후가공은 치수와 손맛을 잠근다. 약제는 패딩, 폭·열은 텐터, 세탁 수축은 컴팩터.</p></div>
+  <div class="card"><b>폭·열 잡기 = 텐터</b><div class="en">STENTER</div><p>핀·클립이 변부를 잡고 열풍으로 건조·열고정. 한국어 mill 말. 天塔이 아니다. 저지 니트는 거의 핀 텐터.</p></div>
+  <div class="card"><b>수축 미리 잡기 = 컴팩터</b><div class="en">COMPACT</div><p>펠트·고무벨트로 루프를 이완한다. 텐터(열)와 역할이 다르다. 스판 혼방은 텐터가 먼저다.</p></div>
+</div>
+<p class="fix">옛 슬라이드가 텐터를 天塔으로 적었다. <b>틀림.</b> 天塔은 한국어 mill 용어가 아니다. RAM TUMBLING / SNAILER / ASTRA와 전모·해모·폴리싱은 파일·플리스 레거시다. 저지 티셔츠 코어가 아니다.</p>
+<p class="note">잔류수축 3–5%는 흔히 인용되는 상업 범위일 뿐, <b>공장 목표가 아니다.</b> 이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어를 본다. ZDHC MRSL·OEKO-TEX는 바이어가 요구할 때의 계약 언어. 저욕비 1:5는 공개 소프트플로 예시. 현장 설비 액비는 작지·설비를 본다.</p>
+
+<h2 id="map">본선 × 역할 <span>지금</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>쉬운 말</th><th>지금 말</th><th>English</th><th>하는 일</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>약제 적시기</td><td>패딩</td><td>pad</td><td>약제 pickup</td><td>유연·수지·기능제. 본선 첫 칸.</td></tr>
+<tr><td>폭·열 잡기</td><td>텐터</td><td>stenter / tenter</td><td>폭고정·열고정·큐어링</td><td>핀 텐터. 오버피드. 天塔 아님.</td></tr>
+<tr><td>수축 미리 잡기</td><td>컴팩터</td><td>compactor</td><td>남는 수축 이완</td><td>튜블러 / 오픈와이드. 펠트·고무벨트.</td></tr>
+<tr><td>일반 열고정</td><td>노말가공</td><td>normal finish</td><td>기능제 없는 기본</td><td>기능제 없는 텐터 코스.</td></tr>
+<tr><td>가벼운 머서</td><td>약실켓</td><td>light mercerize</td><td>라이트 머서라이즈</td><td>우븐 본실켓을 저지에 그대로 쓰지 않는다.</td></tr>
+<tr><td>선택 표면</td><td>캘린더 · 피칭</td><td>calender / peach</td><td>평활·짧은 잔털</td><td>필수는 아님. 기모·전모와 구분.</td></tr>
+<tr><td>파일·플리스 레거시</td><td>RAM / SNAILER / ASTRA</td><td>legacy pile</td><td>텀블·기모·광택</td><td>파일·플리스. 티셔츠 코어 아님.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="when">가공을 넣는 칸 <span>언제</span></h2>
+<div class="grid">
+  <div class="card"><b>약제 적시기(패딩)</b><div class="en">1 PAD</div><p>실리콘 유연·수지·흡습·항필을 골고루 묻힌다. 본선 입구.</p></div>
+  <div class="card"><b>폭·열 잡기(텐터)</b><div class="en">2 STENTER</div><p>열×시간×장력이 한 세트. 현장 인용 창(코튼-스판 저지 공개 예): 175–180°C, 체류 35–50초, 오버피드 15–25%. <b>공장 창이 아니다.</b> 작지·설비를 본다. 온도만 올리면 엘라스테인이 먼저 죽는다.</p></div>
+  <div class="card"><b>수축 미리 잡기(컴팩터)</b><div class="en">3 COMPACT</div><p>세탁이 할 일을 미리 한다. 길이 수축을 기계적으로 잠근다. 컴팩터만으로 스판덱스 열기억은 못 잡는다.</p></div>
+  <div class="card"><b>촉감</b><div class="en">4 HAND</div><p>캘린더(평활)·피칭(짧은 잔털)·효소(셀룰라제)·친수 실리콘. 과하면 종이 촉감·구멍.</p></div>
+  <div class="card"><b>기능 · 약실켓</b><div class="en">5 FUNC</div><p>흡습속건·항필링·저포름 수지. 약실켓=가벼운 머서(라이트 머서라이즈). 노말가공=일반 열고정(기능제 없음).</p></div>
+  <div class="card"><b>원단 vs 의류</b><div class="en">6 PRINT</div><p>로터리 안료 / 반응성 / 디지털 안료는 원단 단. DTG·DTF는 완성 티셔츠. 상세는 <a href="../print/index.html">프린트</a> 칸. 날염 dump 금지.</p></div>
+</div>
+
+<h2 id="gloss">구 → 신 <span>용어</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>옛 교재</th><th>지금(쉬운 말)</th><th>English</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>天塔</td><td class="new">텐터 / 열풍 텐터(폭·열 잡기)</td><td>stenter / tenter</td><td>한자 오기. mill 용어는 텐터</td></tr>
+<tr><td>노말가공 애매</td><td class="new">노말가공 = 일반 열고정</td><td>normal finish</td><td>기능제 없는 텐터 코스</td></tr>
+<tr><td>약실켓 = 본실켓</td><td class="new">약실켓 = 가벼운 머서</td><td>light mercerize</td><td>저지용 저농도·단시간</td></tr>
+<tr><td>RAM TUMBLING 본선</td><td class="new">레거시 파일 텀블</td><td>pile tumbling</td><td>저지 코어 아님</td></tr>
+<tr><td>SNAILER / ASTRA 본선</td><td class="new">레거시 기모·광택</td><td>pile / fleece</td><td>2010 카탈로그 잔존</td></tr>
+<tr><td>전모·해모·폴리싱 기본</td><td class="new">파일·플리스 전용</td><td>shear / brush / polish</td><td>벨로어·기모</td></tr>
+<tr><td>날염 dump</td><td class="new">원단 프린트 vs DTG·DTF</td><td>rotary / digital / DTG</td><td>설비 분리</td></tr>
+<tr><td>잔류 3–5% = 공장값</td><td class="new">업계 인용, 바이어 스펙</td><td>residual shrinkage</td><td>공장 스펙 아님. 바이어</td></tr>
+<tr><td>ZDHC를 기본 숙제</td><td class="new">바이어 요구 시 MRSL</td><td>ZDHC / OEKO-TEX</td><td>기본 숙제로 쓰지 않음</td></tr>
+<tr><td>저욕비 1:5 = 공장값</td><td class="new">공개 예시, 액비 미확인</td><td>low liquor</td><td>mill LR unverified</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="art">그림 <span>그림</span></h2>
+<figure class="hero">
+  <img src="img/tenter-hooks.jpg" alt="역사적 tenter hooks — 폭을 잡아 말리던 가시">
+  <figcaption>그림 3. 역사적 tenter hooks (Helmshore). 폭을 잡아 말리던 가시 — 현대 핀 체인의 조상. Clem Rutter, CC BY 3.0.</figcaption>
+</figure>
+<div class="grid">
+  <figure class="pic"><img src="img/calender-process.png" alt="캘린더 압착 롤 원리"><figcaption>그림 4. 캘린더 압착 롤 원리. Laurens van Lieshout, Public Domain.</figcaption></figure>
+  <figure class="pic"><img src="img/circular-knitting.jpg" alt="환편기"><figcaption>그림 5. 환편기. 저지 원단의 출발. 후가공이 루프를 안정시킨다. Dvortygirl, CC BY-SA 3.0.</figcaption></figure>
+  <figure class="pic"><img src="img/tshirt-tubular.png" alt="바디사이즈 환편 통원단 티셔츠"><figcaption>그림 6. 바디사이즈 환편 통원단 티셔츠. 재단 전 폭·수축이 여기서 결정된다. Elkagye / Commons.</figcaption></figure>
+  <figure class="pic"><img src="img/mercerize.jpg" alt="1947 머서라이즈 현장"><figcaption>그림 7. 머서라이즈 현장, 1947. 저지 약실켓(가벼운 머서)의 조상. Tekniska museet / DigitaltMuseum.</figcaption></figure>
+  <figure class="pic"><img src="img/digital-print.jpg" alt="Stork 디지털 텍스타일 프린터"><figcaption>그림 8. 디지털 텍스타일 잉크젯 (Stork). 원단 롤 프린트. Joop Anker, CC BY-SA 2.0.</figcaption></figure>
+  <figure class="pic"><img src="img/garment-print.jpg" alt="완성 의류 캐러셀 프린트"><figcaption>그림 9. 완성 의류 캐러셀 프린트. DTG/DTF와 함께 의류 단. Fahad Faisal, CC BY-SA 4.0.</figcaption></figure>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="0"><b>1. 2010 교재의 天塔은 무엇인가?</b>
+<button data-j="0">텐터(폭·열 잡기 / stenter)</button><button data-j="1">천탑 건조기</button><button data-j="2">텀블 건조기</button>
+<p class="why">天塔은 한자 오기. 현장 말은 텐터다. 핀이 변부를 잡고 폭·열을 고정한다.</p></div>
+<div class="q" data-a="2"><b>2. 면 저지에서 세탁 후 남는 수축을 기계적으로 빼 두는 본선 설비는?</b>
+<button data-j="0">전모기</button><button data-j="1">SNAILER</button><button data-j="2">컴팩터</button>
+<p class="why">텐터는 열·폭, 컴팩터는 기계적 이완. SNAILER는 레거시 파일.</p></div>
+<div class="q" data-a="0"><b>3. RAM TUMBLING / SNAILER / ASTRA는?</b>
+<button data-j="0">레거시 파일 공정. 코어 아님</button><button data-j="1">티셔츠 본선</button><button data-j="2">노말가공의 다른 이름</button>
+<p class="why">파일·플리스 특수 설비. 저지 본선은 패딩→텐터→컴팩터.</p></div>
+<div class="q" data-a="2"><b>4. 노말가공과 약실켓은?</b>
+<button data-j="0">노말=실리콘, 약실켓=전모</button><button data-j="1">둘 다 RAM tumbling</button><button data-j="2">노말=일반 열고정, 약실켓=가벼운 머서</button>
+<p class="why">노말가공은 기능제 없는 일반 열고정. 약실켓은 저지용 라이트 머서라이즈.</p></div>
+<div class="q" data-a="1"><b>5. 잔류수축 3–5%와 저욕비 1:5를 공장 값이라고 해도 되나?</b>
+<button data-j="0">된다. 공장 표준이다</button><button data-j="1">공개 인용·예시일 뿐. 현장 스펙·액비는 작지를 본다</button><button data-j="2">ZDHC가 정한 값이다</button>
+<p class="why">3–5%는 흔히 인용. 1:5는 공개 예시. ZDHC MRSL은 바이어 요구 시. 공장 스펙·액비가 아니다.</p></div>
+
+<footer>교육자료 · 후가공</footer>
+</div>
+<script src="_edu.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>프린트 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#why">왜</a><a href="#map">비교</a><a href="#when">공정</a>
+  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 프린트</p>
+<h1>프린트</h1>
+<p class="lede">그림 찍는 세 길이 다르다. 쉬운 말: 원단 롤에 찍기(DTP), 필름에 찍고 붙이기(DTF), 완성 티에 바로(DTG).</p>
+<p class="note caution">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+
+<div class="pills">
+  <span class="pill">롤 · 필름 · 완성 티</span>
+  <span class="pill">DTF≠Fabric</span>
+  <span class="pill">재단 전 vs 봉제 후</span>
+</div>
+
+<figure class="hero">
+  <img src="img/print-three-hq.png" alt="프린트 세 길">
+  <figcaption>그림 A. 쉬운 말 세 길. DTF의 F는 Film.</figcaption>
+</figure>
+
+<figure class="hero">
+  <img src="img/print-process-map.png" alt="티셔츠 프린트 맵 — DTP 원단 롤, DTF 필름 전사, DTG 완성 티 직접 분사">
+  <figcaption>그림 1. 티셔츠 프린트 맵 — DTP · DTF · DTG. DTF는 Direct-to-Fabric이 아니다. 이미지 영문은 도식용. 한글 명칭은 본문.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>원단 롤에 찍기</b><div class="en">DTP</div><p>쉬운 말: 재단 전 긴 원단에 잉크젯으로 찍는다.<br><span class="src">이름: DTP · digital textile printing</span></p></div>
+  <div class="card"><b>필름에 찍고 붙이기</b><div class="en">DTF</div><p>쉬운 말: 필름에 찍은 뒤 옷에 열로 붙인다. F는 Film.<br><span class="src">이름: DTF · direct to film</span></p></div>
+  <div class="card"><b>완성 티 직접 분사</b><div class="en">DTG</div><p>Direct to Garment. 봉제된 티를 플래튼에 올려 수성 안료를 뿌린다. 면이 본선. 어두운 티는 전처리+화이트 언더베이스.</p></div>
+</div>
+<p class="fix">DTF를 Direct-to-Fabric으로 풀면 틀림. Direct-to-Fabric은 원단 직접(DTP 쪽)이다. 샵에서 DTP라고 부르는 완성 티 출력은 대개 DTG다. 공장(mill) DTP는 원단 롤 디지털 날염.</p>
+<p class="note">공장이 이 세 설비를 갖고 있는지는 이 페이지로 정하지 않는다. 온도·시간·파우더 창은 벤더 예시일 뿐 현장 스펙이 아니다. 대량 솔리드는 여전히 로터리·스크린 날염이 싸다.</p>
+
+<h2 id="map">세 칸 비교 <span>지금</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>지금 말</th><th>English</th><th>찍는 곳</th><th>본선 소재</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>DTP</td><td>digital textile printing</td><td>원단 롤 (재단 전)</td><td>면=반응/안료, 폴리=디스퍼스·승화</td><td>전처리 패딩 + 증열/수세 또는 텐터 큐어</td></tr>
+<tr><td>DTF</td><td>direct to film</td><td>필름 → 완성 의류</td><td>면·폴리·혼방·나일론</td><td>의류 전처리 없음. 파우더가 접착</td></tr>
+<tr><td>DTG</td><td>direct to garment</td><td>완성 티 플래튼</td><td>면·고면혼방</td><td>다크는 전처리+화이트. 폴리 단독은 약함</td></tr>
+<tr><td>로터리 / 스크린</td><td>rotary / screen</td><td>원단 또는 완성 티</td><td>대량 동일 그래픽</td><td>판 만들고 색마다 스크린. 디지털 dump 아님</td></tr>
+<tr><td>승화 / DSP</td><td>dye-sub / DSP</td><td>전사지 또는 폴리 원단</td><td>폴리에스터</td><td>면 저지 코어 아님</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="when">공정을 넣는 칸 <span>언제</span></h2>
+<div class="grid">
+  <div class="card"><b>안료 DTP</b><div class="en">1 DTP PIGMENT</div><p>전처리 패딩 → 잉크젯 → 텐터 큐어. 수세가 거의 없다. 촉감·마찰견뢰는 바인더가 가른다.</p></div>
+  <div class="card"><b>반응성 DTP</b><div class="en">2 DTP REACTIVE</div><p>면·레이온. 전처리 → 프린트 → 증열 → 수세 → 건조. 손맛은 좋으나 물·염이 따른다.</p></div>
+  <div class="card"><b>디스퍼스 · 승화</b><div class="en">3 DTP DISPERSE</div><p>폴리. 직접 디스퍼스 또는 DSP(전사지 열승화). 코튼 저지 본선이 아니다.</p></div>
+  <div class="card"><b>필름 → 프레스</b><div class="en">4 DTF</div><p>CMYK 다음 화이트를 필름에. 젖은 잉크에 파우더, 셰이크, 큐어. 티에 열압착 후 핫/웜/콜드 필은 필름 따라 간다.</p></div>
+  <div class="card"><b>전처리 → 분사 → 큐어</b><div class="en">5 DTG</div><p>라이트는 CMYK만, 다크는 전처리 건조 후 화이트+컬러. 큐어는 히트프레스 또는 터널. 전처리 과다하면 황변·끈적.</p></div>
+  <div class="card"><b>언제 아날로그</b><div class="en">6 VOLUME</div><p>동일 그래픽 대량은 로터리·스크린이 단가·속도에서 이긴다. 디지털은 소롯·사진·전환.</p></div>
+</div>
+<p class="note">DTF 프레스 160°C·15초, DTG 전처리 160°C 전후는 공개 벤더 창이다. 필름·잉크·원단마다 다르다. 공장 창으로 쓰지 말 것.</p>
+
+<h2 id="gloss">구 → 신 <span>용어</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>헷갈리는 말</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>날염 dump</td><td class="new">원단 DTP vs 의류 DTF·DTG vs 로터리</td><td>separate lines</td><td>설비가 갈린다</td></tr>
+<tr><td>DTF = Direct-to-Fabric</td><td class="new">DTF = Direct to Film</td><td>film transfer</td><td>원단 직접은 DTP</td></tr>
+<tr><td>샵 DTP = 공장 DTP</td><td class="new">공장 DTP = 원단 롤 디지털 날염</td><td>R2R inkjet</td><td>샵 DTP는 대개 DTG</td></tr>
+<tr><td>DTG = 원단 프린터</td><td class="new">완성 티 플래튼</td><td>garment platen</td><td>롤 고속기는 DTP</td></tr>
+<tr><td>승화 = 면 티 기본</td><td class="new">폴리 전용</td><td>dye-sub / DSP</td><td>면 저지 코어 아님</td></tr>
+<tr><td>디지털이면 전처리 없음</td><td class="new">DTG 다크·DTP 안료/반응은 전처리</td><td>pretreat / pad</td><td>DTF만 의류 전처리 생략</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="art">그림 <span>그림</span></h2>
+<figure class="hero">
+  <img src="img/dtf-steps.png" alt="DTF 공정 6단계 — 필름 출력, 파우더, 셰이크, 큐어, 열프레스, 필">
+  <figcaption>그림 2. DTF 공정. 그림에 적힌 160°C·15초는 예시. 필름 스펙을 따른다. 이미지 영문은 도식용. 한글 명칭은 본문.</figcaption>
+</figure>
+<div class="grid">
+  <figure class="pic"><img src="img/digital-print.jpg" alt="Stork 디지털 텍스타일 프린터"><figcaption>그림 3. 원단 디지털 잉크젯 (Stork). DTP 단. Joop Anker, CC BY-SA 2.0.</figcaption></figure>
+  <figure class="pic"><img src="img/garment-print.jpg" alt="완성 의류 캐러셀 프린트"><figcaption>그림 4. 완성 의류 캐러셀. DTG/DTF와 같은 의류 단. 스크린일 수 있음. Fahad Faisal, CC BY-SA 4.0.</figcaption></figure>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="0"><b>1. 공장(mill)에서 DTP는?</b>
+<button data-j="0">원단 롤 디지털 날염</button><button data-j="1">완성 티에 바로 뿌리는 DTG</button><button data-j="2">필름 전사</button>
+<p class="why">공장 DTP = Digital Textile Printing, 원단 롤. 샵에서 DTP라고 부르는 완성 티는 대개 DTG.</p></div>
+<div class="q" data-a="2"><b>2. DTF의 F는?</b>
+<button data-j="0">Fabric (원단 직접)</button><button data-j="1">Fleece</button><button data-j="2">Film (PET 필름 전사)</button>
+<p class="why">Direct to Film. Direct-to-Fabric은 원단 직접이고 DTP 쪽에 가깝다.</p></div>
+<div class="q" data-a="1"><b>3. 어두운 면 티 DTG에서 빠지면 안 되는 것은?</b>
+<button data-j="0">로터리 스크린</button><button data-j="1">전처리 + 화이트 언더베이스</button><button data-j="2">승화지</button>
+<p class="why">다크는 전처리로 화이트가 붙게 하고, 그 위에 컬러를 올린다.</p></div>
+<div class="q" data-a="0"><b>4. 동일 그래픽 수천 장에 보통 이기는 것은?</b>
+<button data-j="0">로터리·스크린 날염</button><button data-j="1">장당 DTG</button><button data-j="2">승화 (면 저지)</button>
+<p class="why">디지털은 소롯·전환. 대량 동일판은 아날로그가 단가다. 승화는 폴리다.</p></div>
+<div class="q" data-a="2"><b>5. 원단 롤 고속 잉크젯(공장 DTP)은?</b>
+<button data-j="0">DTG (완성 티 플래튼)</button><button data-j="1">DTF 셰이커만</button><button data-j="2">원단 DTP. 완성 티가 아니다</button>
+<p class="why">원단 디지털 텍스타일 프린트. 플래튼 DTG와 설비가 다르다.</p></div>
+
+<footer>교육자료 · 프린트</footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>

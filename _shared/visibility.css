@@ -1,0 +1,55 @@
+/* MARU dashboard visibility — R10 */
+:root{
+  --bg:#ffffff; --card:#fff; --ink:#1c2a3a; --muted:#3e4c5c; /* 2026-10-09: was #5a6b7d (5.5:1) -> 8.8:1 on #fff, >=7.6:1 on #f0f4f8/#f4f0e8 */
+  --navy:#1c3558; --blue:#2f6fed; --heat:#c45c26; --ok:#1f8a4c; --warn:#d97706; --danger:#c0392b;
+  --line:#d5dee8; --radius:14px; --pad:16px; --gap:20px; --wrap:1280px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,"Noto Sans KR",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:20px}
+.topbar,.kpi-row,.panel,.card{background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(28,53,88,.08)}
+.topbar{padding:18px 22px;margin-bottom:var(--gap)}
+.topbar h1{margin:0;font-size:22px;color:var(--navy)}
+.topbar .meta{margin-top:6px;color:var(--muted);font-size:13px}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:14px;margin-bottom:var(--gap)}
+.kpi{padding:12px 14px;border:1px solid var(--line);border-radius:12px}
+.kpi .lbl{font-size:12px;color:var(--muted)}
+.kpi .val{font-size:28px;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+.panel{padding:var(--pad);margin-bottom:var(--gap)}
+.panel h2{margin:0 0 12px;font-size:16px;color:var(--navy)}
+table.data{width:100%;border-collapse:collapse}
+table.data th{background:#f0f4f8;color:#334;font-weight:600;padding:10px 8px;border-bottom:1px solid var(--line)}
+table.data td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center}
+table.data tr:nth-child(even) td{background:#fafcfe}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700}
+.badge.ok{background:#e5f6ec;color:var(--ok)}
+.badge.warn{background:#fff4e5;color:var(--warn)}
+.badge.danger{background:#fdecea;color:var(--danger)}
+.badge.info{background:#e8f0fe;color:var(--blue)}
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{padding:12px;border:1px solid var(--line)}
+.card .thumb{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;background:#f3f6fa}
+.nav-side{position:sticky;top:0}
+.foot{margin-top:24px;color:var(--muted);font-size:12px}
+@media (max-width:800px){.kpi .val{font-size:28px}}
+
+/* mobile / tablet NAS viewers */
+.fold-nav{gap:8px;padding:10px 12px;-webkit-overflow-scrolling:touch}
+.fold-nav a{min-height:36px;padding:8px 14px;font-size:14px;touch-action:manipulation}
+@media (max-width:900px){
+  .fold-nav{padding:8px 10px;gap:6px}
+  .fold-nav a{font-size:13px;padding:8px 12px}
+  .wrap{padding:12px !important}
+}
+@media (max-width:480px){
+  .fold-nav a{font-size:12px;padding:7px 10px}
+}
+
+
+
+/* shared top fold-nav (all dashboards) */
+.fold-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line,#d5dee8);position:sticky;top:0;z-index:50}
+.fold-nav a{display:inline-flex;align-items:center;border:1px solid var(--line,#d5dee8);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;color:var(--ink,#1c2a3a);background:#fff;text-decoration:none}
+.fold-nav a:hover{border-color:var(--blue,#2f6fed);color:var(--navy,#1c3558);background:#e8f0fe}
+.fold-nav a.home,.fold-nav a.on{border-color:var(--blue,#2f6fed);color:var(--navy,#1c3558);background:#e8f0fe}

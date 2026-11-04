@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원단검사 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#why">왜</a><a href="#points">4점</a><a href="#formula">환산</a>
+  <a href="#defects">결함</a><a href="#also">같이</a><a href="#flow">흐름</a>
+  <a href="#vs">스펙</a><a href="#shop">현장말</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 원단검사</p>
+<h1>원단 검사</h1>
+<p class="lede">원단 롤 위에 있는 흠을 보고 점수를 매기는 공개 방식. 쉬운 말로 4점법. 표준 이름은 ASTM D5430. 합격 문턱은 바이어 계약.</p>
+<div class="pills">
+  <span class="pill">결함 점수</span>
+  <span class="pill">4점법</span>
+  <span class="pill">합격=계약</span>
+</div>
+
+<figure class="hero">
+  <img src="img/four-point-plain-hq.png" alt="4점법">
+  <figcaption>그림 A. 쉬운 말: 긴 결함일수록 1–4점. 야드당·한 결함 최대 4. 합격은 계약.</figcaption>
+</figure>
+
+<figure class="hero">
+  <img src="img/fabric-4point-map.png" alt="ASTM D5430 4점법 맵">
+  <figcaption>그림 1. 4점법 맵. HTML 표 공식 Points/100 yd² = (Total × 3600) / (width_in × length_yd)가 기준. 환산은 아래 HTML 표 공식. 이미지 영문·다른 식은 도식용. 한글 명칭은 본문.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>재단 전에 롤을 눈으로</b><div class="en">VISUAL GATE</div><p>쉬운 말: 조명 밖에서 표면 흐을 찾고 점수를 매긴다. 재단 넣기 전 검문.</p></div>
+  <div class="card"><b>랩 테스트와는 다른 칸</b><div class="en">LAB GATE</div><p>색 빠짐·수축·무게(GSM)은 실험실. 이 칸은 눈으로 보는 검사. 둘 다 필요.</p></div>
+  <div class="card"><b>합격 문턱=계약</b><div class="en">CONTRACT</div><p>공개 업계 예(~40, ~20-28) 있으나 공장 합격점이 아님. 바이어 스펙.</p></div>
+</div>
+<p class="warn">공장 합격점·검사 속도·보유 검사기는 이 페이지로 정하지 않는다. 작지·QC를 본다.</p>
+
+<h2 id="points">결함 길이로 점수 <span>점수</span></h2>
+<p>쉬운 말: 긴 흐일수록 점수를 더 줍니다. 이름: 4점법.</p>
+<p class="src">ASTM D5430 공개 관행. 최장측(날 또는 폭).</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>결함 길이</th><th>점수</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>≤3 in (≤75 mm)</td><td><b>1</b></td><td>up to 3 in</td></tr>
+<tr><td>3-6 in (75-150 mm)</td><td><b>2</b></td><td>over 3 to 6 in</td></tr>
+<tr><td>6-9 in (150-230 mm)</td><td><b>3</b></td><td>over 6 to 9 in</td></tr>
+<tr><td>&gt;9 in (&gt;230 mm)</td><td><b>4</b></td><td>over 9 in</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note"><b>구멍(hole)</b> 공개 자료에 두 후보. <b>A</b> ≤1 in=2 / &gt;1 in=4. <b>B</b> 크기 무관 4. 표에 두 후보를 적고 <b>바이어 스펙</b> 확인.</p>
+<div class="grid">
+  <div class="card"><b>1야드당 최대 4점</b><div class="en">CAP / YARD</div><p>한 야드 안 최대 4점.</p></div>
+  <div class="card"><b>단 결함 최대 4점</b><div class="en">CAP / DEFECT</div><p>하나의 점수는 4를 넘지 않는다.</p></div>
+</div>
+
+<h2 id="formula">100 yd² 환산 <span>공식</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td><b>공식 (기준)</b></td><td>Points/100 yd² = (Total points × 3600) / (width_in × length_yd)</td></tr>
+<tr><td>Total points</td><td>롤 전체 채점 합</td></tr>
+<tr><td>width_in</td><td>폭 (inch)</td></tr>
+<tr><td>length_yd</td><td>검사 길이 (yard)</td></tr>
+<tr><td>3600</td><td>100 yd² 표준화 (36 in × 100 yd)</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">이미지에 다른 식이 있어도 환산·정산은 위 HTML 표 공식만 쓴다.</p>
+<p class="warn">공개 업계 예: 일반 ~40/100 yd², 프리미엄 ~20-28. <b>공장 합격점 아님</b>. 계약 문턱.</p>
+
+<h2 id="defects">니트 티 흔한 시각 결함 <span>결함</span></h2>
+<p class="src">공개 목록. 공장 코드표가 아니다. 작지·QC를 본다.</p>
+<div class="grid">
+  <div class="card"><b>구멍</b><div class="en">HOLE</div><p>hole. 후보 A/B + 바이어 스펙.</p></div>
+  <div class="card"><b>슬럽</b><div class="en">SLUB</div><p>slub.</p></div>
+  <div class="card"><b>오염</b><div class="en">STAIN</div><p>contamination / stain.</p></div>
+  <div class="card"><b>오일</b><div class="en">OIL</div><p>oil stain.</p></div>
+  <div class="card"><b>줄무늬</b><div class="en">STREAK</div><p>streak / barre.</p></div>
+  <div class="card"><b>코빠짐</b><div class="en">DROP</div><p>dropped stitch.</p></div>
+  <div class="card"><b>니들라인</b><div class="en">NEEDLE LINE</div><p>needle line.</p></div>
+  <div class="card"><b>폭부족</b><div class="en">WIDTH</div><p>narrow width.</p></div>
+  <div class="card"><b>보우/스큐</b><div class="en">BOW/SKEW</div><p>bow / skew.</p></div>
+</div>
+
+<h2 id="also">검사 때 같이 보는 것 <span>더</span></h2>
+<div class="grid">
+  <div class="card"><b>폭·길이 티켓 대비</b><div class="en">WIDTH / LENGTH</div><p>수치는 스펙 시트.</p></div>
+  <div class="card"><b>GSM 샘플</b><div class="en">GSM</div><p>시각과 별개. 공차는 스펙.</p></div>
+  <div class="card"><b>음영 (롤 간)</b><div class="en">SHADE</div><p>수치는 스펙 시트.</p></div>
+  <div class="card"><b>손감</b><div class="en">HAND</div><p>정량 수치는 스펙.</p></div>
+</div>
+
+<h2 id="flow">흐름 <span>흐름</span></h2>
+<div class="grid">
+  <div class="card"><b>롤 옮림</b><div class="en">1</div><p>식별·롤번.</p></div>
+  <div class="card"><b>조명 테이블</b><div class="en">2</div><p>표면 시각.</p></div>
+  <div class="card"><b>결함 채점</b><div class="en">3</div><p>1-4 + 캡.</p></div>
+  <div class="card"><b>100 yd² 환산</b><div class="en">4</div><p>(Total×3600)/(W×L).</p></div>
+  <div class="card"><b>패스/세컨드/리젝</b><div class="en">5</div><p>계약 문턱.</p></div>
+  <div class="card"><b>재단 투입</b><div class="en">6</div><p>통과분만.</p></div>
+</div>
+
+<h2 id="vs">원단스펙 칸과의 관계 <span>가름</span></h2>
+<p><a href="../fabric-spec/index.html">원단스펙</a>은 <b>표 읽는 법</b>. 이 칸은 <b>롤 시각 검사</b>. 둘 다 필요. 하나가 다른 하나를 대신하지 않는다.</p>
+
+<h2 id="shop">현장말 · 교육말 <span>현장말</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>현장말</th><th>교육말</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>기스</td><td class="new">흠집 / 결함 표시</td><td>scratch / blemish</td></tr>
+<tr><td>간지</td><td class="new">견본 / 승인 샘플</td><td>swatch / hand sample</td></tr>
+<tr><td>나오시</td><td class="new">수선·수정</td><td>repair / rework</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+
+<figure class="pic">
+  <img src="img/four-point-large.png" alt="4점법 결함 점수 도식">
+  <figcaption>그림. 4점법 점수 도식(영문 라벨). ASTM D5430 계열 공개 예. 공장 합격점 아님.</figcaption>
+</figure>
+<figure class="pic">
+  <img src="img/four-point-inspect-real.png" alt="원단 검단 실사">
+  <figcaption>그림. 원단 검단 실사 참고. 합격점은 작지·바이어.</figcaption>
+</figure>
+
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="1"><b>1. ASTM D5430 4점법은?</b>
+<button data-j="0">견뢰·수축 랩 테스트</button><button data-j="1">원단 롤 시각 검사 채점법</button><button data-j="2">폭·GSM 계산기</button>
+<p class="why">시각 결함 1-4점 채점 후 100 yd² 환산. 랩과 별개.</p></div>
+<div class="q" data-a="2"><b>2. ≤3 in 결함 점수는?</b>
+<button data-j="0">4</button><button data-j="1">2</button><button data-j="2">1</button>
+<p class="why">≤3 in = 1점, 3–6 = 2, 6–9 = 3, &gt;9 = 4.</p></div>
+<div class="q" data-a="1"><b>3. 구멍 채점은?</b>
+<button data-j="0">항상 1점</button><button data-j="1">후보 A(≤1in=2/&gt;1in=4)·B(크기무관 4) — 바이어 스펙 확인</button><button data-j="2">항상 무점</button>
+<p class="why">두 후보 표시 후 계약 확정.</p></div>
+<div class="q" data-a="0"><b>4. 기준 환산 공식은?</b>
+<button data-j="0">(Total × 3600) / (width_in × length_yd)</button><button data-j="1">Total / length_yd</button><button data-j="2">width_in × Total</button>
+<p class="why">Points/100 yd². 환산은 HTML 표 공식.</p></div>
+<div class="q" data-a="2"><b>5. ~40, ~20-28 /100 yd²는?</b>
+<button data-j="0">공장 공식 합격점</button><button data-j="1">ASTM 강제 법정치</button><button data-j="2">공개 업계 예. 문턱은 바이어 계약</button>
+<p class="why">공장 합격점 아님.</p></div>
+<div class="q" data-a="1"><b>6. 시각 4점과 랩은?</b>
+<button data-j="0">한 검사로 충분</button><button data-j="1">별개 게이트. 둘 다 필요</button><button data-j="2">랩만 하면 롤 검사 생략</button>
+<p class="why">표면 vs 공학. 둘 다 게이트.</p></div>
+<div class="q" data-a="0"><b>7. 1야드당 캡은?</b>
+<button data-j="0">최대 4점</button><button data-j="1">최대 10점</button><button data-j="2">제한 없음</button>
+<p class="why">야드당·단 결함 모두 최대 4.</p></div>
+<div class="q" data-a="2"><b>8. 스펙 칸 vs 검사 칸?</b>
+<button data-j="0">같은 칸</button><button data-j="1">스펙=롤 검사</button><button data-j="2">스펙=표 읽기, 검사=롤 시각</button>
+<p class="why">../원단스펙/index.html</p></div>
+<div class="q" data-a="1"><b>9. 현장말 나오시 = ?</b>
+<button data-j="0">견본</button><button data-j="1">수선·수정</button><button data-j="2">흠집</button>
+<p class="why">기스=흠집, 간지=견본, 나오시=수선/수정.</p></div>
+<div class="q" data-a="0"><b>10. 재단 전 빠지면 안 될 단계?</b>
+<button data-j="0">계약 기준 패스/세컨드/리젝</button><button data-j="1">롤 옮림만 하고 바로 재단</button><button data-j="2">조명 테이블 없이 점수만</button>
+<p class="why">채점 → 환산 → 계약 판정 후 투입.</p></div>
+
+<footer>교육자료 · 원단검사</footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>

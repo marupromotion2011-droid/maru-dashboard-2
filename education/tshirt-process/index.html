@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전체공정 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#map">맵</a><a href="#roles">역할</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 전체공정</p>
+<h1>전체공정</h1>
+<p class="lede">티 한 벌이 지나가는 길을 한 줄로 본다. 쉬운 말: 재료 → 실 → 원단 → 색 → 손질 → 자르기 → 바느질 → 보내기. 세부는 각 칸 페이지.</p>
+<div class="pills">
+  <span class="pill">한 줄 맵</span>
+  <span class="pill">각 칸 링크</span>
+  <span class="pill">작지·바이어</span>
+</div>
+<p class="note">개요 맵이다. 세부는 각 칸을 연다. 선염은 실을 먼저 염색한 뒤 편직한다.</p>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+
+<figure class="hero">
+  <img src="img/tee-map-hq.png" alt="티 한 벌 쉬운 말 한 줄 맵">
+  <figcaption>그림 A. 쉬운 말 한 줄. 선염은 실을 먼저 염색.</figcaption>
+</figure>
+<figure class="hero">
+  <img src="img/tee-process-map.png" alt="티셔츠 전체 공정 맵">
+  <figcaption>그림 1. 한 줄 개요. 세부는 각 칸 페이지. 조직·배합은 작지.</figcaption>
+</figure>
+
+<h2 id="map">한 줄 맵 <span>맵</span></h2>
+<p class="src">본선(후염): 섬유 → 방적 → 편직 → 염색 → 후가공 → 재단 → 봉제 → 출고.</p>
+<p class="note">선염 분기: 섬유 → 방적 → <b>사염(선염)</b> → 편직 → (필요 시 후가공) → 재단 → 봉제 → 출고. 염색 칸의 선염·후염과 같다.</p>
+
+<div class="grid">
+  <a class="card" href="../fiber/index.html"><b>섬유</b><div class="en">01 FIBER</div><p>쉬운 말: 옷 재료 고르기.</p></a>
+  <a class="card" href="../spinning/index.html"><b>방적</b><div class="en">02 YARN</div><p>쉬운 말: 솜을 실로 뽑기.</p></a>
+  <a class="card" href="../knitting/index.html"><b>편직</b><div class="en">03 KNIT</div><p>쉬운 말: 실로 원단 짜기.</p></a>
+  <a class="card" href="../dyeing/index.html"><b>염색</b><div class="en">04 DYE</div><p>쉬운 말: 색 넣기. 실 먼저(선염) / 원단 뒤(후염).</p></a>
+  <a class="card" href="../finishing/index.html"><b>후가공</b><div class="en">05 FINISH</div><p>쉬운 말: 손질·폭·수축 잡기.</p></a>
+  <a class="card" href="../cut/index.html"><b>재단</b><div class="en">06 CUT</div><p>쉬운 말: 원단 쌓고 자르기.</p></a>
+  <a class="card" href="../sewing/index.html"><b>봉제</b><div class="en">07 SEW</div><p>쉬운 말: 부품 바느질해 옷 만들기.</p></a>
+  <div class="card"><b>출고</b><div class="en">08 PACK</div><p>쉬운 말: 검사·포장 후 보내기. (개요)</p></div>
+  <a class="card" href="../sew-machines/index.html"><b>봉제기기</b><div class="en">RELATED</div><p>쉬운 말: 어떤 미싱·실 몇 가닥. 기종·콘수·ISO 스티치.</p></a>
+  <a class="card" href="../fabric-inspect/index.html"><b>원단검사</b><div class="en">RELATED</div><p>쉬운 말: 롤 보고 결점 점수. 4점법 등.</p></a>
+  <a class="card" href="../print/index.html"><b>프린트</b><div class="en">RELATED</div><p>쉬운 말: 그림 찍는 길. DTP·DTF·DTG 등.</p></a>
+</div>
+
+<h2 id="roles">누가 무엇을 <span>역할</span></h2>
+<p class="src">생산관리에서 보는 역할이다. 팀 이름·조직도는 현장마다 다르다.</p>
+<div class="grid">
+  <div class="card"><b>수주·납기</b><div class="en">PLAN</div><p>쉬운 말: 오더·날짜를 공정에 나눠 본다. 막히는 칸을 먼저 잡는다.</p></div>
+  <div class="card"><b>원사·원단</b><div class="en">MATERIAL</div><p>쉬운 말: 섬유→방적→편직→염색·후가공이 어디까지 왔는지 티켓·일정으로 본다.</p></div>
+  <div class="card"><b>재단·봉제</b><div class="en">CUT-SEW</div><p>쉬운 말: 원단 들어온 뒤 쌓기·도면·봉제 라인에 넣는 순서.</p></div>
+  <div class="card"><b>검사·출고</b><div class="en">QC</div><p>쉬운 말: 원단 검사·완검·포장. 불량은 앞 공정으로 알린다.</p></div>
+  <div class="card"><b>칸 연결</b><div class="en">LINK</div><p>쉬운 말: 한 칸만 보면 납기가 안 보인다. 맵의 앞뒤를 같이 본다.</p></div>
+  <div class="card"><b>현장 배치</b><div class="en">FIELD</div><p>쉬운 말: 팀 짜는 법은 공장마다 다르다. 여기는 역할 개념만.</p></div>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="2"><b>1. 한 줄 맵의 첫 칸은?</b><button data-j="0">봉제</button><button data-j="1">출고</button><button data-j="2">섬유</button><p class="why">섬유 → 방적 → … → 출고.</p></div>
+<div class="q" data-a="2"><b>2. 후염 본선에서 방적 다음은?</b><button data-j="0">출고</button><button data-j="1">재단</button><button data-j="2">편직</button><p class="why">후염 본선은 실→원단→염색. 선염 분기는 방적 다음 사염(선염)이 먼저다.</p></div>
+<div class="q" data-a="2"><b>3. 염색 다음은 흔히?</b><button data-j="0">섬유 선정만</button><button data-j="1">방적</button><button data-j="2">후가공</button><p class="why">염색 후 텐터 등 후가공으로 안정화.</p></div>
+<div class="q" data-a="2"><b>4. 재단 직후 본선은?</b><button data-j="0">방적</button><button data-j="1">섬유 분류만</button><button data-j="2">봉제</button><p class="why">재단 부품 → 봉제.</p></div>
+<div class="q" data-a="1"><b>5. 봉제기기 칸은?</b><button data-j="0">출고 포장 규격</button><button data-j="1">봉제 관련 기종·콘수 교육 칸</button><button data-j="2">맵 01과 동일</button><p class="why">관련 칸. 기종·실 콘수.</p></div>
+<div class="q" data-a="2"><b>6. 원단검사 칸은 맵에서?</b><button data-j="0">출고 포장</button><button data-j="1">01 섬유와 같은 본선</button><button data-j="2">관련 칸 — 롤 시각 4점</button><p class="why">관련 칸. 롤 시각 4점.</p></div>
+<div class="q" data-a="1"><b>7. 생산관리에서 맵을 보는 이유는?</b><button data-j="0">팀 이름을 외우려고</button><button data-j="1">칸 연결·병목·납기를 같이 보려고</button><button data-j="2">배합 레시피를 정하려고</button><p class="why">한 줄로 앞뒤 공정을 보는 용도.</p></div>
+<div class="q" data-a="2"><b>8. 이 페이지로 팀 조직도를 정하면?</b><button data-j="0">그대로 적으면 된다</button><button data-j="1">그림에 팀명이 써 있다</button><button data-j="2">안 된다. 역할 개념만 있다</button><p class="why">역할 개념만. 팀 배치는 현장·작지.</p></div>
+
+<footer>교육자료 · 전체공정</footer>
+</div>
+<script src="_edu.js"></script>
+</body>
+</html>

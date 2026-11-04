@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>교육자료</title>
+<link rel="stylesheet" href="../_shared/visibility.css">
+<script src="../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;margin:2px 0 6px;color:var(--faint);font-size:11px;font-weight:650;letter-spacing:.04em}
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+<style>.axis{margin:28px 0 10px;font-size:13px;letter-spacing:.12em;color:var(--heat);font-weight:700}.grid.tight{margin-top:10px}</style>
+</head>
+<body>
+<div class="wrap">
+<p class="kicker">교육자료</p>
+<h1>교육자료</h1>
+<p class="lede">원사부터 완제품까지. 공정 축으로 챕터를 나눈다. 쉬운 말 먼저, 세부는 각 칸.</p>
+<div class="pills">
+  <span class="pill">공정 축</span>
+  <span class="pill">신입용</span>
+  <span class="pill">작지·바이어</span>
+</div>
+
+<p class="axis">맵</p>
+<div class="grid tight">
+  <a class="card" href="tshirt-process/index.html"><b>전체공정</b><span class="en">TEE MAP</span><p>티 한 벌이 지나가는 길 · 한 줄 맵</p></a>
+</div>
+
+<p class="axis">재료</p>
+<div class="grid tight">
+  <a class="card" href="fiber/index.html"><b>섬유</b><span class="en">FIBER</span><p>옷 재료가 뭔지 · 천연·재생·합성</p></a>
+  <a class="card" href="count/index.html"><b>번수</b><span class="en">COUNT</span><p>실 굵기 숫자 · 바꿔 읽기</p></a>
+  <a class="card" href="care-label/index.html"><b>케어라벨</b><span class="en">CARE</span><p>세탁·건조·다릴 때 그림</p></a>
+</div>
+
+<p class="axis">원사</p>
+<div class="grid tight">
+  <a class="card" href="spinning/index.html"><b>방적</b><span class="en">SPINNING</span><p>솜을 실로 뽑는 법 · 링·OE·보텍스</p></a>
+</div>
+
+<p class="axis">원단</p>
+<div class="grid tight">
+  <a class="card" href="knitting/index.html"><b>편직</b><span class="en">KNITTING</span><p>실로 원단 짜기 · 현장말·교육말</p></a>
+  <a class="card" href="fabric-spec/index.html"><b>원단스펙</b><span class="en">SPEC</span><p>원단표 숫자 읽는 순서</p></a>
+  <a class="card" href="fabric-inspect/index.html"><b>원단검사</b><span class="en">4-POINT</span><p>롤 결함 점수 · 4점법</p></a>
+  <a class="card" href="shrink/index.html"><b>수축</b><span class="en">SHRINKAGE</span><p>텐터·컴팩터 · 치수 안정</p></a>
+  <a class="card" href="colorfastness/index.html"><b>견뢰도</b><span class="en">FASTNESS</span><p>색 빠짐 · 다른 옷에 묻음</p></a>
+</div>
+
+<p class="axis">염가공</p>
+<div class="grid tight">
+  <a class="card" href="dyeing/index.html"><b>염색</b><span class="en">DYEING</span><p>색 넣는 타이밍 · 실/원단/옷</p></a>
+  <a class="card" href="dyestuff/index.html"><b>염료</b><span class="en">DYESTUFF</span><p>색을 입히는 약 · 면·폴리에 맞는 종류</p></a>
+  <a class="card" href="finishing/index.html"><b>후가공</b><span class="en">FINISHING</span><p>텐터 · 컴팩터</p></a>
+  <a class="card" href="print/index.html"><b>프린트</b><span class="en">DTP · DTF · DTG</span><p>그림 찍는 세 길 · 롤·필름·완성 티</p></a>
+</div>
+
+<p class="axis">재단·봉제</p>
+<div class="grid tight">
+  <a class="card" href="cut/index.html"><b>재단</b><span class="en">CUT</span><p>연단 · 마커 · 커팅</p></a>
+  <a class="card" href="sewing/index.html"><b>봉제</b><span class="en">SEWING</span><p>가장자리 감침 · 단 · 솔기</p></a>
+  <a class="card" href="sew-machines/index.html"><b>봉제기기</b><span class="en">MACHINES</span><p>기종 · 실 가닥(콘) 수</p></a>
+  <a class="card" href="final-qc/index.html"><b>완성검사</b><span class="en">FINAL QC</span><p>출하 전 몇 장 뽑아 보는 검사</p></a>
+</div>
+
+<p class="note" style="margin-top:28px">이 페이지로 공장 규격을 정하지 않는다 — 작지·바이어. 오류 기록은 <a href="_errors/index.html">오답노트</a>.</p>
+
+<p class="axis">기록</p>
+<div class="grid tight">
+  <a class="card" href="_errors/index.html"><b>오답노트</b><span class="en">ERRORS</span><p>같은 실수 반복 금지 · 미반영·스캔</p></a>
+</div>
+
+<footer>교육자료</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>봉제 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in"><a href="#machines">본선</a><a href="#iso">스티치</a><a href="#flow">순서</a><a href="#shop">현장말</a><a href="#defect">불량</a><a href="#spi">바늘땀</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a></div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 봉제</p>
+<h1>봉제</h1>
+<p class="lede">티셔츠를 실로 이어 붙이는 칸. 먼저 쉬운 말 — 가장자리 감침, 단 접어 두줄, 일반 솔기. 이름은 그다음에.</p>
+<div class="pills"><span class="pill">신입용</span><span class="pill">가장자리·단·솔기</span><span class="pill">티셔츠 중심</span></div>
+
+<figure class="hero">
+  <img src="img/sew-three-hq.png" alt="티셔츠 봉제 세 가지 쉬운 말">
+  <figcaption>그림 1. 가장자리 감침 · 단 접어 두줄 · 일반 솔기. 나중에 붙는 이름: 오버록·커버·본봉. 라인 배치는 작지·바이어를 본다.</figcaption>
+</figure>
+
+<h2 id="machines">본선 세 칸 <span>기기</span></h2>
+<p>먼저 쉬운 말로 가른다. 괄호는 나중에 나오는 이름.</p>
+<div class="grid">
+  <div class="card"><b>가장자리 감침</b><div class="en">EDGE</div><p>어깨·소매달기·옆솔기. 잘라진 끝을 실로 감싸 풀어지지 않게 한다.<br><span class="src">현장: 오버록·오바록 · (Class 500)</span></p></div>
+  <div class="card"><b>단 접어 두줄</b><div class="en">HEM</div><p>소매단·밑단. 단을 접어 겉에 두 줄(또는 세 줄)로 박는다.<br><span class="src">현장: 후락·플랫락·커버 · (커버; 406·407은 Class 400, 602·605는 Class 600)</span></p></div>
+  <div class="card"><b>일반 솔기</b><div class="en">PLAIN</div><p>라벨·탑스티치·일부 넥 마무리. 위실과 아래실이 맞물려 평평한 한 줄.<br><span class="src">현장: 본봉·플레인·싱글 · (Class 301)</span></p></div>
+</div>
+<p class="note">니트 옆솔기를 일반 솔기(본봉)만으로 돌리면, 늘어날 때 실이 터질 수 있다(공개 업계). 라인 배치는 작지·바이어를 본다.</p>
+<p class="note">기종·실이 몇 가닥 들어가는지(콘수)는 <a href="../sew-machines/index.html">봉제기기</a>를 본다.</p>
+
+<figure class="pic">
+  <img src="img/sew-line-large.png" alt="티셔츠 봉제 세 역할과 라인 순서">
+  <figcaption>그림 2. 큰 그림: 가장자리 감침·단 접어 두줄·일반 솔기 + 라운드넥 공개 순서 예. 라인은 작지·바이어.</figcaption>
+
+</figure>
+<figure class="pic">
+  <img src="img/sew-overlock-photo.png" alt="가장자리 감침(오버록) 실사">
+  <figcaption>그림 4. 가장자리 감침 실사(education). 기종·라인은 작지·바이어.</figcaption>
+</figure>
+
+
+<h2 id="iso">스티치 이름표 <span>스티치</span></h2>
+<p class="src">쉬운 말 다음에 붙는 이름. Coats / ISO 4915 공개 클래스. QC 수식·공수는 이 페이지로 정하지 않는다.</p>
+<div style="overflow:auto"><table>
+<thead><tr><th>쉬운 말</th><th>이름</th><th>English</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>일반 솔기</td><td>301</td><td>lockstitch plain</td><td>본봉. 위실+보빈. 라벨·탑</td></tr>
+<tr><td>체인 솔기</td><td>401</td><td>chainstitch</td><td>실이 잘 늘어남. 일부 솔기·헴</td></tr>
+<tr><td>가장자리 감침(3실)</td><td>504/505</td><td>3-thread overedge</td><td>니트 가장자리</td></tr>
+<tr><td>단 접어 두줄(하단)</td><td>406</td><td>cover stitch 2-needle</td><td>Class 400. 헴 표면 2줄</td></tr>
+<tr><td>단 커버 변종</td><td>602</td><td>cover stitch variant</td><td>Class 600. 헴·바인딩</td></tr>
+<tr><td>단 접어 세줄</td><td>605</td><td>cover stitch 3-needle</td><td>Class 600. 넓은 헴. 현장 후락 계</td></tr>
+</tbody></table></div>
+
+<h2 id="flow">라운드넥 티 공개 순서 <span>흐름</span></h2>
+<p class="note">공장마다 다름, 예시. 공개 apparel 라인 시퀀스. 특정 공장 OB 아님.</p>
+<div class="grid">
+  <div class="card"><b>앞뒤 맞추기</b><div class="en">STEP 1</div><p>앞판·뒤판 음영 맞추기</p></div>
+  <div class="card"><b>어깨 잇기</b><div class="en">STEP 2</div><p>가장자리 감침(오버록)</p></div>
+  <div class="card"><b>넥 리브/바인딩</b><div class="en">STEP 3</div><p>가장자리 감침(오버록)</p></div>
+  <div class="card"><b>넥 탑/테이프</b><div class="en">STEP 4</div><p>일반 솔기 또는 커버</p></div>
+  <div class="card"><b>소매단</b><div class="en">STEP 5</div><p>단 접어 두줄(커버)</p></div>
+  <div class="card"><b>소매달기</b><div class="en">STEP 6</div><p>가장자리 감침(오버록)</p></div>
+  <div class="card"><b>옆솔기+케어라벨</b><div class="en">STEP 7</div><p>가장자리 감침(오버록)</p></div>
+  <div class="card"><b>밑단</b><div class="en">STEP 8</div><p>단 접어 두줄(커버)</p></div>
+  <div class="card"><b>검사</b><div class="en">STEP 9</div><p>검사</p></div>
+</div>
+
+<h2 id="shop">현장말 vs 쉬운 말 <span>현장말</span></h2>
+<p>작지·봉제 지시는 현장말. 바이어 스펙·이 교육은 둘을 나란히. 한쪽으로만 덮지 않는다.</p>
+<div style="overflow:auto"><table>
+<thead><tr><th>현장말</th><th>쉬운 말 / 교육말</th><th>쓰면 안 되는 덤프</th><th>어디</th></tr></thead>
+<tbody>
+<tr><td>에리</td><td class="new">깃/칼라</td><td>넥·칼라 단</td><td>작지 / 교육 둘 다</td></tr>
+<tr><td>소데</td><td class="new">소매</td><td>—</td><td>작지 / 교육 둘 다</td></tr>
+<tr><td>시보리</td><td class="new">립/리브</td><td>홀치기 염색만으로 덮음</td><td>넥·커프·헴</td></tr>
+<tr><td>바택</td><td class="new">강화 바택 (bartack)</td><td>—</td><td>강화</td></tr>
+<tr><td>미싱</td><td class="new">재봉기</td><td>—</td><td>설비 통칭</td></tr>
+<tr><td>다이마루</td><td class="new">환편</td><td>—</td><td>원단 칸</td></tr>
+<tr><td>메리야스</td><td class="new">니트/편성물</td><td>—</td><td>현장말</td></tr>
+<tr><td>시아게</td><td class="new">마무리</td><td>—</td><td>완성 단</td></tr>
+<tr><td>나오시</td><td class="new">수선</td><td>—</td><td>수선</td></tr>
+<tr><td>기스</td><td class="new">흠집</td><td>—</td><td>검사</td></tr>
+<tr><td>간지</td><td class="new">견본</td><td>—</td><td>샘플</td></tr>
+<tr><td>와끼</td><td class="new">옆솔기</td><td>—</td><td>사이드</td></tr>
+<tr><td>우라</td><td class="new">이면</td><td>—</td><td>원단 이면</td></tr>
+<tr><td>오버록·오바록</td><td class="new">가장자리 감침 / Class 500</td><td>본봉과 한 줄로 덮음</td><td>어깨·소매·사이드</td></tr>
+<tr><td>후락·플랫락·커버</td><td class="new">단 접어 두줄(커버; 406은 Class 400)</td><td>오버록과 한 줄로 덮음</td><td>헴</td></tr>
+<tr><td>본봉·플레인·싱글</td><td class="new">일반 솔기 / Class 301</td><td>니트 사이드 본봉만</td><td>라벨·탑</td></tr>
+</tbody></table></div>
+<p class="note">교육말은 바이어·교재 영문. 현장말은 작지. 이 칸은 둘을 같이 적는다.</p>
+
+<h2 id="defect">봉제 불량 공개 예 <span>결함</span></h2>
+<div class="grid">
+  <div class="card"><b>바늘땀 빠짐</b><div class="en">SKIP</div><p>바늘이 건너뛰. 실 긴장·장력·바늘. (스킵스티치)</p></div>
+  <div class="card"><b>솔기 주름</b><div class="en">PUCKER</div><p>솔기 주변이 울룩. 장력·피드·스티치 불균형. (퍼커링)</p></div>
+  <div class="card"><b>넥 물결</b><div class="en">BACON</div><p>넥이 파도처럼 울렁. 넥리브 장력·조직. (베이컨넥)</p></div>
+  <div class="card"><b>바늘땀 수 들쭉날쭉</b><div class="en">SPI</div><p>인치당 바늘땀 수 범위 벗어남. 바이어 스펙.</p></div>
+  <div class="card"><b>라벨 틀어짐</b><div class="en">LABEL</div><p>위치·방향 오차. 본봉 라벨 단.</p></div>
+</div>
+<p class="note">위는 업계 공개 예시. 공장 불량코드는 작지·QC를 본다.</p>
+
+<h2 id="spi">인치당 바늘땀 수 <span>바늘땀</span></h2>
+<div class="grid">
+  <div class="card"><b>인치당 바늘땀 수</b><div class="en">SPI</div><p>1인치 안에 바늘땀이 몇 개인지. 바이어 스펙에 적힌다. (SPI = stitches per inch)</p></div>
+  <div class="card"><b>니트 헴·솔기</b><div class="en">KNIT HEM</div><p>공개 창은 바이어 스펙. 공장 바늘땀 수는 이 페이지로 정하지 않는다.</p></div>
+  <div class="card"><b>클래스 인용</b><div class="en">ISO CLASS</div><p>이 페이지는 공개 스티치 클래스 이름을 쓴다. QC 수식을 바늘땀 수로 대체하지 않는다.</p></div>
+</div>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다. 바늘땀 숫자창을 공장 공수로 쓰지 말 것.</p>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="0"><b>1. 니트 어깨·소매달기·사이드에 본선인 것은?</b><button data-j="0">가장자리 감침(오버록 Class 500)</button><button data-j="1">일반 솔기(본봉 Class 301)</button><button data-j="2">바택만</button><p class="why">가장자리 감침(오버록 Class 500)이 가장자리·솔기 본선.</p></div>
+<div class="q" data-a="2"><b>2. 현장말 '후락'에 가까운 쉬운 말은?</b><button data-j="0">일반 솔기 301</button><button data-j="1">바택</button><button data-j="2">단 접어 두줄(커버; 406은 Class 400)</button><p class="why">후락·플랫락·커버 = 단 접어 두줄(coverstitch).</p></div>
+<div class="q" data-a="0"><b>3. Class 301은 쉬운 말로?</b><button data-j="0">일반 솔기(본봉)</button><button data-j="1">3실 가장자리 감침</button><button data-j="2">3바늘 커버</button><p class="why">301 = lockstitch plain. 일반 솔기·본봉.</p></div>
+<div class="q" data-a="2"><b>4. 니트 옆솔기를 본봉만으로 돌리면?</b><button data-j="0">무조건 최선</button><button data-j="1">Class 605가 되어</button><button data-j="2">늘어날 때 실 터질 수 있음(공개)</button><p class="why">니트는 실이 잘 늘어나야 한다. 본봉만으로 사이드는 위험(공개 업계).</p></div>
+<div class="q" data-a="0"><b>5. 에리의 쉬운 말은?</b><button data-j="0">깃/칼라</button><button data-j="1">소매</button><button data-j="2">옆솔기</button><p class="why">에리 = 깃/칼라. 소데=소매, 와끼=옆솔기.</p></div>
+<div class="q" data-a="1"><b>6. SPI는 쉬운 말로?</b><button data-j="0">공장 공수 단위</button><button data-j="1">인치당 바늘땀 수</button><button data-j="2">SAM 코드</button><p class="why">SPI = stitches per inch = 인치당 바늘땀 수. 바이어 스펙. 공장 값은 이 페이지로 정하지 않는다.</p></div>
+<div class="q" data-a="2"><b>7. 베이컨넥은?</b><button data-j="0">라벨 색깔</button><button data-j="1">바늘땀 빠짐</button><button data-j="2">넥 물결(넥 파도)</button><p class="why">베이컨넥 = 넥 물결. 공개 불량 예.</p></div>
+<div class="q" data-a="0"><b>8. 라운드넥 티 공개 순서에서 밑단은 보통?</b><button data-j="0">단 접어 두줄(커버; 406은 Class 400)</button><button data-j="1">본봉 301</button><button data-j="2">바택만</button><p class="why">밑단·소매 헴은 커버 예시. 공장마다 다름.</p></div>
+<div class="q" data-a="1"><b>9. 406·407과 602·605는?</b><button data-j="0">둘 다 Class 600</button><button data-j="1">406·407=Class 400, 602·605=Class 600</button><button data-j="2">둘 다 Class 300</button><p class="why">하단 커버 406·407은 Class 400. 탑커버 602·605는 Class 600.</p></div>
+<footer>교육자료 · 봉제</footer>
+</div>
+<script src="_edu.js"></script>
+</body>
+</html>

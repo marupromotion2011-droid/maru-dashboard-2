@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>수축 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in"><a href="#why">왜</a><a href="#tenter">폭·건조</a><a href="#compact">길이 잡기</a><a href="#test">테스트</a><a href="#spiral">비뚤어짐</a><a href="#quiz">퀴즈</a></div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 수축</p>
+<h1>수축 · 치수 안정</h1>
+<p class="lede">세탁 후 티셔츠가 줄어들거나 틀어지지 않게 잡는 칸. 폭·길이를 맞추는 건조·수축 잡기 기계를 먼저 본다.</p>
+<div class="pills"><span class="pill">신입용</span><span class="pill">폭·길이 잡기</span><span class="pill">목표%=바이어</span></div>
+
+<figure class="hero">
+  <img src="img/shrink-two-hq.png" alt="폭·길이를 맞추는 두 기계">
+  <figcaption>그림 1. 왼쪽은 폭을 잡고 말리는 기계(텐터). 오른쪽은 길이를 미리 빼 두는 기계(컴팩터). 역할이 다르다.</figcaption>
+</figure>
+
+<p class="warn"><b>두 기계는 다르다.</b> 텐터는 폭·열·오버피드. 컴팩터는 루프를 눌러 세탁 후 줄어들 여유를 미리 잡는다. 열고정을 대신하지 않는다.</p>
+
+<figure class="pic">
+  <img src="img/shrink-map.png" alt="니트 수축·치수 안정 맵 보조">
+  <figcaption>그림 2. 보조 맵. 공개 잔류수축 상업 예 ~3–5%(공장 목표 아님). 목표 %는 바이어.</figcaption>
+</figure>
+
+<h2 id="why">왜 수축이 생기나 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>편직할 때 장력</b><div class="en">TENSION</div><p>환편·편직 중 루프에 힘이 남는다.</p></div>
+  <div class="card"><b>세탁하면 풀림</b><div class="en">RELAX</div><p>세탁·건조 후 힘이 풀리며 치수가 줄어든다.</p></div>
+  <div class="card"><b>미리 잡기</b><div class="en">GOAL</div><p>후가공에서 미리 풀어 두어 세탁 후 변화를 줄인다. 목표 %는 바이어.</p></div>
+</div>
+
+<h2 id="tenter">폭을 잡고 말리는 기계 <span>텐터</span></h2>
+<p>쉬운 말: 폭·길이를 맞추는 건조·열 잡기 기계. 이름: 텐터 (stenter / tenter).</p>
+<div class="grid">
+  <div class="card"><b>폭</b><div class="en">WIDTH</div><p>핀·클립이 변부를 잡고 지정 폭으로 연다.</p></div>
+  <div class="card"><b>길이 여유(오버피드)</b><div class="en">OVERFEED</div><p>길이에 여유를 넣어 루프가 너무 팽팽하지 않게. 폭만 늘리면 무게(GSM)가 떨어질 수 있다.</p></div>
+  <div class="card"><b>무게·열</b><div class="en">GSM</div><p>폭·오버피드·속도가 한 세트. 건조·열고정·큐어링.</p></div>
+</div>
+<p class="note">텐터는 열·폭 칸이다. 세탁이 할 기계적 이완을 대신하지 않는다.</p>
+
+<h2 id="compact">길이를 미리 빼 두는 기계 <span>컴팩터</span></h2>
+<p>쉬운 말: 세탁 후 줄어들 길이를 미리 잡아 두는 수축 잡기 기계. 이름: 컴팩터 (compactor).</p>
+<div class="grid">
+  <div class="card"><b>눌러서 이완</b><div class="en">MECHANICAL</div><p>펠트·고무벨트 사이에서 오버피드로 루프를 압축.</p></div>
+  <div class="card"><b>남는 수축 낮춤</b><div class="en">RESIDUAL</div><p>세탁이 할 길이 수축을 미리 빼 둔다. <b>열고정 아님.</b></p></div>
+  <div class="card"><b>컴팩터 ≠ 텐터</b><div class="en">NOT HEAT-SET</div><p>스판 열기억은 컴팩터만으로 못 잡는다. 역할이 다르다.</p></div>
+</div>
+
+<h2 id="test">테스트 <span>시험</span></h2>
+<p>쉬운 말: 세탁 전후 길이와 폭을 재서 %로 본다. 표준 이름은 표에.</p>
+<div style="overflow:auto"><table>
+<thead><tr><th>쉬운 말</th><th>이름</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>세탁·건조 조건</td><td>ISO 6330</td><td>가정 세탁·건조. 프로토콜은 바이어.</td></tr>
+<tr><td>% 계산</td><td>ISO 5077</td><td>((세탁후 − 세탁전) / 세탁전) × 100. 길이·폭.</td></tr>
+<tr><td>미국 쪽 치수변화</td><td>AATCC 135</td><td>미국 바이어가 지정할 수 있는 치수변화 테스트.</td></tr>
+</tbody></table></div>
+<p class="warn">공개 잔류수축 상업 예 ~3–5%. <b>공장 목표 아님.</b> 이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어를 본다.</p>
+
+<h2 id="spiral">비뚤어짐 <span>사행</span></h2>
+<p>쉬운 말: 원단·옷이 비스듬히 틀어지는 것. 이름: 사행(스큐)·토크.</p>
+<div class="grid">
+  <div class="card"><b>비뚤어짐(사행)</b><div class="en">SKEW</div><p>원단 코스가 비스듬히 비틀린 현상. 재단·봉제 후 다리 비뚤어짐으로 이어질 수 있다.</p></div>
+  <div class="card"><b>세탁 후 틀어짐</b><div class="en">TORQUE</div><p>세탁 후 의류가 비틀어지는 현상. 니트에서 종종. (토크)</p></div>
+  <div class="card"><b>평가 이름 예</b><div class="en">AATCC179</div><p>스큐(사행) 평가 표준 예: AATCC 179. 자세한 프로토콜·한도는 바이어.</p></div>
+</div>
+<p><a href="../finishing/index.html">후가공</a>은 텐터·컴팩터 설비 칸. 이 칸은 치수변화 테스트·개념. <a href="../fabric-spec/index.html">원단스펙</a>은 표 읽는 법.</p>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+
+<figure class="pic">
+  <img src="img/shrink-before-after.png" alt="수축 전후 비교 도식">
+  <figcaption>그림. 세탁·건조 전후 길이 변화 도식(영문 라벨). 공개 예. 작지·바이어.</figcaption>
+</figure>
+<figure class="pic">
+  <img src="img/shrink-fabric-real.png" alt="수축·원단 관련 실사">
+  <figcaption>그림. 원단 실사 참고. 잔류수축 목표는 이 사진으로 정하지 않는다.</figcaption>
+</figure>
+
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="0"><b>1. 니트 수축의 주원인은?</b><button data-j="0">편직 장력 → 세탁 시 이완</button><button data-j="1">염료 농도만</button><button data-j="2">마커 효율</button><p class="why">장력이 풀리며 치수가 줄어든다.</p></div>
+<div class="q" data-a="2"><b>2. 폭을 잡고 말리는 기계(텐터)의 주 역할은?</b><button data-j="0">잔류수축 기계 이완</button><button data-j="1">시각 4점 채점</button><button data-j="2">폭·열·오버피드·GSM</button><p class="why">텐터(stenter/tenter). 열고정·폭고정.</p></div>
+<div class="q" data-a="1"><b>3. 컴팩터와 텐터 열고정은?</b><button data-j="0">같은 설비·같은 역할</button><button data-j="1">다르다. 컴팩터 ≠ 텐터 열고정</button><button data-j="2">컴팩터가 열고정을 대신</button><p class="why">컴팩터=기계적 이완(남는 수축). 텐터=열·폭.</p></div>
+<div class="q" data-a="0"><b>4. 컴팩터가 남는 수축을 낮추는 방법은?</b><button data-j="0">오버피드로 루프 압축·이완</button><button data-j="1">폭만 늘리기</button><button data-j="2">염료 농도 낮추기</button><p class="why">펠트·고무벨트 + 오버피드.</p></div>
+<div class="q" data-a="0"><b>5. 치수변화 % 계산 이름(예)는?</b><button data-j="0">ISO 5077</button><button data-j="1">ISO 105-C06</button><button data-j="2">ASTM D5430</button><p class="why">ISO 6330 세탁 + ISO 5077 % 계산.</p></div>
+<div class="q" data-a="2"><b>6. AATCC 135은?</b><button data-j="0">시각 4점법</button><button data-j="1">일광 견뢰도</button><button data-j="2">치수변화(수축) 테스트 예</button><p class="why">바이어가 지정할 수 있다.</p></div>
+<div class="q" data-a="1"><b>7. ~3–5% 잔류수축은?</b><button data-j="0">공장 공식 목표</button><button data-j="1">공개 상업 예. 공장 목표 아님</button><button data-j="2">ISO 법정 최대치</button><p class="why">바이어가 정한다. 이 페이지 %로 공장 목표를 정하지 않는다.</p></div>
+<div class="q" data-a="0"><b>8. 비뚤어짐(사행)·토크 평가 이름 예는?</b><button data-j="0">AATCC 179</button><button data-j="1">ISO 105-X12</button><button data-j="2">AATCC 61</button><p class="why">스큐 평가. 한도는 바이어.</p></div>
+<div class="q" data-a="0"><b>9. 텐터에서 폭만 늘리면?</b><button data-j="0">GSM이 떨어질 수 있다</button><button data-j="1">잔류수축이 0이 된다</button><button data-j="2">염색이 해결된다</button><p class="why">오버피드·GSM·폭이 한 세트.</p></div>
+<div class="q" data-a="2"><b>10. 이 칸과 후가공·원단스펙의 관계는?</b><button data-j="0">같은 칸</button><button data-j="1">수축만 하면 텐터 생략</button><button data-j="2">후가공=설비, 수축=테스트·개념, 스펙=표 읽기 — 별개</button><p class="why">../후가공/ · ../원단스펙/</p></div>
+<footer>교육자료 · 수축</footer>
+</div>
+<script src="_edu.js"></script>
+</body>
+</html>

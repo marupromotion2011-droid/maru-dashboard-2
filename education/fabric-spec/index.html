@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원단스펙 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#why">왜</a><a href="#read">읽는법</a><a href="#table">샘플</a>
+  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 원단스펙</p>
+<h1>원단스펙 보는 법</h1>
+<p class="lede">원단표 한 줄을 읽는 순서. 쉬운 말로 먼저: 무슨 실 → 어느 기계 → 폭·무게 → 줄·수축. 계약 숫자는 보통 가공(피니시드) 기준.</p>
+<p class="note caution">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<div class="pills">
+  <span class="pill">신입용</span>
+  <span class="pill">선염 니트 표</span>
+  <span class="pill">수업 목업</span>
+</div>
+
+<figure class="hero">
+  <img src="img/spec-read-order-hq.png" alt="원단표 읽는 순서 도식">
+  <figcaption>그림 1. 쉬운 말 순서: 사종 → 기종·게이지 → 생지/가공 폭·GSM → 줄·수축. 계약은 보통 피니시드.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>한 줄 = 한 원단</b><div class="en">ONE ROW</div><p>쉬운 말: 표의 한 행이 한 스펙이다. 사종·조직·기종·폭·GSM·가공·수축을 같이 본다.</p></div>
+  <div class="card"><b>생지 ≠ 가공</b><div class="en">GREIGE / FINISHED</div><p>생지(그레이지)는 편직 직후. 계약·바이어 숫자는 보통 가공(피니시드) 폭·GSM.</p></div>
+  <div class="card"><b>표·그림은 수업용</b><div class="en">MOCKUP</div><p>아래 샘플 3행·스펙카드 숫자는 수업 목업이다. 공장 셋팅·합격점으로 쓰지 않는다.</p></div>
+</div>
+
+<h2 id="read">읽는 법 <span>방법</span></h2>
+<div class="grid">
+  <div class="card"><b>① 무슨 실</b><div class="en">1 YARN</div><p>쉬운 말: 면·폴리·카티온·린넨 조합. CM은 코마 면. P150D는 필라멘트(Ne 아님).</p></div>
+  <div class="card"><b>② 어느 기계</b><div class="en">2 MACHINE</div><p>쉬운 말: 직경×게이지. 표의 컴퓨터·댕깡·싱가는 현장속칭 — 기종을 표만으로 확정하지 않는다.</p></div>
+  <div class="card"><b>③ 폭·무게</b><div class="en">3 WIDTH / GSM</div><p>쉬운 말: 생지→가공. 생지폭이 더 작아 보여도 튜브 접은 폭일 수 있다. 단위·작지 칸을 먼저 본다.</p></div>
+  <div class="card"><b>④ 줄·수축</b><div class="en">4 STRIPE / SHRINK</div><p>쉬운 말: 한기장(피더 리피트), 장/폭 남은 수축. 숫자창은 작지.</p></div>
+</div>
+<p class="note">약실켓 = 라이트 머서라이즈. 노말가공 = 일반 열고정(텐터 폭·오버피드). 한기장 = 피더 리피트. 중량(롤/길이)과 SQM(g/m²)은 따로 본다. 생지폭&lt;가공폭이면 단위 또는 튜브/오픈을 확인. 접은폭×2 후 텐터는 가설. 작지 단위 칸 없이 단정 금지.</p>
+
+<h2 id="table">샘플 3행 <span>표본</span></h2>
+<p class="src">수업용 목업. 실제 작지·바이어 스펙과 바꿔 쓰지 않는다.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr>
+<th>사종</th><th>조직</th><th>기종</th><th>in×G</th><th>혼용</th>
+<th>폭 생→가</th><th>GSM 생→가</th><th>가공</th><th>수축</th><th>이슈</th>
+</tr></thead>
+<tbody>
+<tr><td>CM30S/1 × P150D × 실켓멜란 CM60S/2</td><td>싱글저지 피더스트라이프<br><span class="src">S/PLAIN 한기장STRIPE</span></td><td>전자자카드 환편 (현장: 컴퓨터)<br><span class="src">컴퓨터</span></td><td>30&quot; × 28G</td><td>C 58.7% / P 41.3%</td><td>42 → 68</td><td>130 → 136</td><td>일반 열고정</td><td>장 −1 / 폭 −2.5</td><td>원단 말림 · 약실켓(라이트 머서라이즈) 검토, WHITE+멜란사</td></tr><tr><td>R/C/P 40S/2 방적사</td><td>싱글저지 피더스트라이프<br><span class="src">S/PLAIN 한기장STRIPE</span></td><td>원단표 속칭 댕깡 (기종 미확정)<br><span class="src">댕깡</span></td><td>26&quot; × 22G</td><td>P 49.2% / C 30.5% / R 20.3%</td><td>33 → 56</td><td>170 → 190</td><td>일반 열고정</td><td>장 −2.5 / 폭 −2.5</td><td>원단 말림 · 수지가공 검토</td></tr><tr><td>카티온 P150D × P150D × 린넨 50S/2</td><td>싱글저지 피더스트라이프 1:3:1<br><span class="src">S/PLAIN 1F×3F×1F STRIPE</span></td><td>원단표 속칭 싱가 (기종 미확정)<br><span class="src">싱가</span></td><td>26&quot; × 22G</td><td>P 78.3% / LI 11.9% / C 9.8%</td><td>35 → 54</td><td>110 → 130</td><td>일반 열고정 + 수지</td><td>장 −1 / 폭 −1</td><td>편직불량 大 · 편직 로스(수업 목업 예)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="gloss">용어 <span>용어</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>옛 교재</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>생지</td><td class="new">그레이지</td><td>greige</td><td>편직기에서 막 나온 미가공. 계약 중량은 보통 피니시드.</td></tr><tr><td>가공</td><td class="new">피니시드</td><td>finished</td><td>염색·텐터·컴팩터 이후. 바이어 스펙의 기준.</td></tr><tr><td>SQM</td><td class="new">g/m² (GSM)</td><td>grams per square metre</td><td>ISO 3801 / ASTM D3776. 커터 100cm² ×100. 허용 ±3~5%.</td></tr><tr><td>IN,GG</td><td class="new">직경(in) × 게이지</td><td>diameter × gauge</td><td>30&quot;28G = 실린더 30인치, 28게이지.</td></tr><tr><td>한기장</td><td class="new">피더 리피트 / 코스 리피트</td><td>feeder stripe repeat</td><td>피더스트라이프는 급사구 배열. 큰 반복은 오토스트라이퍼(엔지니어링 스트라이프).</td></tr><tr><td>수축율</td><td class="new">잔류수축</td><td>residual shrinkage</td><td>장=코스방향, 폭=웨일방향. 컴팩터로 관리.</td></tr><tr><td>노말가공</td><td class="new">일반 열고정</td><td>normal heat-set</td><td>텐터 폭·오버피드만. 약실켓·수지와 구분.</td></tr><tr><td>약실켓</td><td class="new">라이트 머서라이즈</td><td>light mercerize</td><td>광택·염색성. 멜란/화이트 조합 시 말림 주의.</td></tr><tr><td>수지가공</td><td class="new">수지 피니시</td><td>resin finish</td><td>형태안정. 촉감·황변 트레이드오프.</td></tr><tr><td>혼용률</td><td class="new">혼용률 / 파이버 콘텐츠</td><td>fiber content %</td><td>라벨·RSL 기준. 카티온P는 헤더/멜란지.</td></tr><tr><td>컴퓨터 / 댕깡 / 싱컴 / 싱가</td><td class="new">현장속칭 (기종 미확정)</td><td>shop nicknames</td><td>컴퓨터=전자자카드 후보. 싱컴/싱가/댕깡은 표만으로 확정하지 않음.</td></tr><tr><td>S/PLAIN</td><td class="new">싱글저지 플레인</td><td>single jersey plain</td><td>PQ=피케. JQD=자카드.</td></tr><tr><td>원단말림</td><td class="new">컬링 / 에지컬</td><td>edge curling</td><td>싱글저지+이형사(멜란·카티온)에서 흔함. 수지·컴팩션으로 완화.</td></tr><tr><td>편직 로스(수업 목업 예)</td><td class="new">편직 로스(수업 목업 예)</td><td>knitting loss allowance</td><td>불량 큰 조직은 발주량에 로스 넣고 돌린다.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">댕깡/싱가/싱컴 기종 미확정. spec-card.png 숫자는 목업.</p>
+
+<h2 id="art">그림 <span>그림</span></h2>
+<figure class="pic">
+  <img src="img/spec-card.png" alt="스펙 시트 보는 법 카드">
+  <figcaption>그림 2. 스펙카드 도식. 안 숫자는 수업용 목업이다.</figcaption>
+</figure>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+
+<figure class="pic">
+  <img src="img/spec-read-large.png" alt="원단 스펙 읽는 순서 도식">
+  <figcaption>그림. 원단표 읽는 순서 도식(영문 라벨). 숫자는 공개 예. 작지·바이어.</figcaption>
+</figure>
+<figure class="pic">
+  <img src="img/spec-fabric-real.png" alt="원단·스펙 관련 실사">
+  <figcaption>그림. 원단 실사 참고. 스펙 값은 이 사진으로 정하지 않는다.</figcaption>
+</figure>
+
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="1"><b>1. 스펙의 계약 GSM은 보통 어느 쪽인가?</b>
+<button data-j="0">생지 SQM</button><button data-j="1">가공 SQM (피니시드)</button><button data-j="2">편직기 이론치</button>
+<p class="why">작지·바이어 스펙이 우선. 표 숫자는 수업 목업.</p></div><div class="q" data-a="1"><b>2. 생지폭 42, 가공폭 68일 때 먼저 할 일은?</b>
+<button data-j="0">오류로 폐기</button><button data-j="1">단위·튜브/오픈 여부를 확인한 뒤 읽는다</button><button data-j="2">게이지가 바뀐 것</button>
+<p class="why">작지·바이어 스펙이 우선. 표 숫자는 수업 목업.</p></div><div class="q" data-a="1"><b>3. 한기장 스트라이프의 지금 쓰는 용어는?</b>
+<button data-j="0">오토스트라이프만</button><button data-j="1">피더 리피트 / 피더스트라이프</button><button data-j="2">날염 스트라이프</button>
+<p class="why">작지·바이어 스펙이 우선. 표 숫자는 수업 목업.</p></div><div class="q" data-a="1"><b>4. 약실켓의 현재 표기는?</b>
+<button data-j="0">약알칼리 워싱</button><button data-j="1">라이트 머서라이즈</button><button data-j="2">효소 바이오폴리시</button>
+<p class="why">작지·바이어 스펙이 우선. 표 숫자는 수업 목업.</p></div><div class="q" data-a="1"><b>5. 카티온P+린넨 행의 편직 로스(수업 목업 예)는?</b>
+<button data-j="0">염색 수율</button><button data-j="1">편직 불량 대비 발주 여유</button><button data-j="2">바이어 클레임 한도</button>
+<p class="why">작지·바이어 스펙이 우선. 표 숫자는 수업 목업.</p></div>
+
+<footer>교육자료 · 원단스펙</footer>
+</div>
+<script src="_edu.js"></script>
+</body>
+</html>

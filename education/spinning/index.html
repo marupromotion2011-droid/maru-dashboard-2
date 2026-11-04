@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>방적 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+.warn{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#why">왜</a><a href="#cotton">면방적</a><a href="#map">정방</a>
+  <a href="#other">울·화섬</a><a href="#count">번수</a><a href="#blend">혼방</a>
+  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 방적</p>
+<h1>방적</h1>
+<p class="lede">쉬운 말: <b>짧은 섬유를 풀어 나란히 하고, 늘리고, 꼬아 실로 만든다</b>. 티셔츠 사는 주로 면 방식(숏 스테이플) 라인. 재료는 <a href="../fiber/index.html">섬유</a>, 굵기 숫자는 <a href="../count/index.html">번수</a>.</p>
+<div class="pills">
+  <span class="pill">실 뽑는 세 길</span>
+  <span class="pill">면 · 울 · 화섬</span>
+  <span class="pill">굵기 숫자 Ne</span>
+  <span class="pill">CM · CVC · T/C</span>
+</div>
+
+<figure class="hero">
+  <img src="img/spin-routes-plain-hq.png" alt="세 가지 방적 루트">
+  <figcaption>그림 A. 쉬운 말: 꼬아 뽑기(링·컴팩트), 빠르게 굵게(OE), 바람으로 묶기(MVS). 이름은 본문.</figcaption>
+</figure>
+
+<figure class="hero">
+  <img src="img/spinning-routes-hq.png" alt="베일·블로우룸·카딩·연조 이후 링·컴팩트, OE/로터, 보텍스 MVS 루트">
+  <figcaption>그림 1. 베일 → 블로우룸 → 카딩 → 드로잉 이후 링(+컴팩트), OE/로터, 보텍스(MVS). 현장 번수는 Ne. 공개 공정 맵이지 공장 셋팅이 아니다.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>꼬아 뽑기 · 링·컴팩트</b><div class="en">RING / COMPACT</div><p>쉬운 말: 실을 꼬아 뽑는 길. 티 바디 본선. 코마 Ne 26–30은 공개·작지 예.<br><span class="src">이름: Ring / Compact. 조방→콥→권사</span></p></div>
+  <div class="card"><b>빠르게 굵게 · OE</b><div class="en">OE / ROTOR</div><p>쉬운 말: 조방 없이 빠르게 굵은 실. 싼·두꺼운 티·플리스.<br><span class="src">이름: Open-end / rotor. 치즈에 감김</span></p></div>
+  <div class="card"><b>바람으로 묶기 · MVS</b><div class="en">VORTEX / MVS</div><p>쉬운 말: 바람으로 실을 묶음. 잔털·필링 적음. 레이온·멜란지·CVC.<br><span class="src">이름: Vortex / MVS. 옷 에어젯(MJS) 자리</span></p></div>
+</div>
+<div class="grid">
+  <div class="card"><b>카드사</b><div class="en">CARDED</div><p>블로우룸 → 카딩 → 연조. 코밍 없음. 넵이 남는다. 베이직 티, 플리스, OE.</p></div>
+  <div class="card"><b>코마</b><div class="en">COMBED · CM</div><p>코마가 단섬유를 뺀다. 밀에서 CM = 코마 100% 면. 프리미엄 저지 / 컴팩트.</p></div>
+  <div class="card"><b>카티온P = 헤더</b><div class="en">CATIONIC P</div><p>선염표 예의 카티온P는 헤더·멜란지용 CDP(카티온 가염 PET). 원욕 투톤. 면 솔리드와 별개.</p></div>
+</div>
+<p class="note">사이로(siro)는 로빙 두 가닥을 한 방추에 넣는 미니 2합. 셔츠 쪽에 많고 티셔츠 본선은 아니다. 방모 뮬은 옛 간헐 정방 — 공개 티셔츠 밀에서 흔히 안 씀(이름만 남음).</p>
+
+<h2 id="map">정방 루트 <span>지금</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>지금 말</th><th>English</th><th>속도</th><th>조방</th><th>티셔츠</th></tr></thead>
+<tbody>
+<tr><td>링</td><td>Ring</td><td>15–25 m/min</td><td>있음 → 콥 → 권사</td><td>표준 촉감. 바디 본선.</td></tr>
+<tr><td>컴팩트</td><td>Compact</td><td>링과 유사</td><td>있음</td><td>모우 적음. 고급 저지·컴팩트에 흔함.</td></tr>
+<tr><td>사이로</td><td>Siro</td><td>링과 유사</td><td>로빙 2가닥</td><td>미니 2합. 셔츠.</td></tr>
+<tr><td>OE / 로터</td><td>Open-end / rotor</td><td>150–250 m/min</td><td>없음, 치즈</td><td>싼 중·태번수.</td></tr>
+<tr><td>에어젯 MJS</td><td>Air-jet</td><td>빠름</td><td>없음</td><td>혼방. 밀에서는 MVS로 대체.</td></tr>
+<tr><td>보텍스 MVS</td><td>Vortex</td><td>400–550 m/min</td><td>없음, 콘</td><td>저모우·저필링. 비스코스/CVC.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="grid">
+  <div class="card"><b>소모</b><div class="en">WORSTED</div><p>장섬유 코밍, 매끈. 정장. 티셔츠 본선 아님.</p></div>
+  <div class="card"><b>방모</b><div class="en">WOOLLEN</div><p>단섬유, 부피. 코트·스웨터. 뮬은 레거시.</p></div>
+  <div class="card"><b>토우투탑</b><div class="en">TOW-TO-TOP</div><p>토우를 스트레치브레이크해 톱(슬라이버). 블로우룸 면 라인과 다름. PET/레이온/모달/라이오셀 스테이플은 면 라인, 필라멘트(P150D)는 dtex이지 Ne가 아니다.</p></div>
+</div>
+
+<h2 id="count">굵기 숫자 Ne <span>번수</span></h2>
+<p>쉬운 말: 실이 굵은지 가늘지 숫자. 자세한 바꾸 읽기는 <a href="../count/index.html">번수</a> 칸.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>현장 말</th><th>SI</th><th>쓰임</th></tr></thead>
+<tbody>
+<tr><td>Ne 20</td><td>~29.5 tex</td><td>헤비 저지 / 플리스</td></tr>
+<tr><td>Ne 26</td><td>~22.7 tex</td><td>공개 예(바디)</td></tr>
+<tr><td>Ne 30</td><td>~19.7 tex</td><td>가는 코마</td></tr>
+<tr><td>Ne 40</td><td>~14.8 tex</td><td>여름 컴팩트</td></tr>
+<tr><td>P150D</td><td>~167 dtex</td><td>필라멘트 현장명. Ne 아님.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Ne가 클수록 <b>가늘다</b>. tex·데니어가 클수록 <b>굵다</b>. 현장은 여전히 Ne. 표 숫자는 <a href="../count/index.html">번수</a> 칸과 같이 보자.</p>
+
+<h2 id="blend">티셔츠 혼방 <span>혼방</span></h2>
+<div class="grid">
+  <div class="card"><b>코마 100% 면</b><div class="en">CM</div><p>밀 말로 CM = combed cotton. 바디 본선.</p></div>
+  <div class="card"><b>면 다수</b><div class="en">CVC</div><p>cotton &gt;50%. 예: 60/40.</p></div>
+  <div class="card"><b>폴리 다수</b><div class="en">T/C</div><p>polyester majority. 예: 65/35.</p></div>
+  <div class="card"><b>레이온·모달·라이오셀</b><div class="en">RAYON / MODAL</div><p>저지에서는 종종 MVS.</p></div>
+  <div class="card"><b>카티온P 헤더</b><div class="en">CATIONIC P</div><p>선염 원단표 헤더용 CDP. 원욕 투톤 멜란지. 면 솔리드 염료가 아니다.</p></div>
+</div>
+
+<h2 id="gloss">구 → 신 <span>용어</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>옛 교재</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>카드 / 소면</td><td class="new">카딩</td><td>Carding</td><td>2010 용어 교정. 코밍 없음 = 카드사</td></tr>
+<tr><td>정소면</td><td class="new">코마 / CM</td><td>Combed / CM</td><td>밀 CM = 코마 100% 면</td></tr>
+<tr><td>연조</td><td class="new">드로잉</td><td>Drawing</td><td>슬라이버 균제</td></tr>
+<tr><td>조방</td><td class="new">로빙 / 스피드프레임</td><td>Roving / speed frame</td><td>링 계열만. OE·MVS는 생략</td></tr>
+<tr><td>정방</td><td class="new">링 · 컴팩트 · OE · MVS</td><td>Spinning</td><td>티셔츠 본선에서 흔한 정방 네 갈래</td></tr>
+<tr><td>권사</td><td class="new">오토와인더 · 온프레임</td><td>Winding</td><td>링은 콥→콘. OE/MVS는 기계에서 바로</td></tr>
+<tr><td>사이로</td><td class="new">사이로 (로빙 2)</td><td>Siro</td><td>미니 2합. 셔츠</td></tr>
+<tr><td>오픈엔드</td><td class="new">OE / 로터</td><td>Open-end / rotor</td><td>조방 생략, 치즈</td></tr>
+<tr><td>에어젯</td><td class="new">MJS → 현장은 MVS</td><td>Air-jet / vortex</td><td>보텍스가 대체</td></tr>
+<tr><td>면번수</td><td class="new">Ne (클수록 가늘다)</td><td>English cotton count</td><td>현장 번수. Ne 30 ≈ 19.7 tex</td></tr>
+<tr><td>P150D</td><td class="new">필라멘트 dtex</td><td>Denier / dtex</td><td>P150D ≈ 167 dtex. Ne 아님</td></tr>
+<tr><td>CVC / T/C</td><td class="new">면다수 / 폴리다수</td><td>CVC / poly-cotton</td><td>CVC 면&gt;50%. T/C 폴리 다수</td></tr>
+<tr><td>카티온P</td><td class="new">헤더용 CDP</td><td>Cationic PET</td><td>선염표 예 · 헤더·멜란지. 면 솔리드와 별개</td></tr>
+<tr><td>소모 / 방모</td><td class="new">소모 · 방모 (유지)</td><td>Worsted / woollen</td><td>울 루트. 티셔츠 본선 아님</td></tr>
+<tr><td>방모 뮬</td><td class="new">레거시</td><td>Woollen mule</td><td>공개 티셔츠 밀에서 흔히 안 씀</td></tr>
+<tr><td>토우투탑</td><td class="new">스트레치브레이크 톱</td><td>Tow-to-top</td><td>블로우룸 면 라인과 다름</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="art">그림 <span>그림</span></h2>
+<div class="grid">
+  <figure class="pic">
+    <img src="img/ringspinnen.jpg" alt="링 정방 콥">
+    <figcaption>그림 2. 링 정방의 콥(cop). Wikimedia 스틸, Ikiwaner, CC BY-SA 3.0, File:Ringspinnen.jpg.</figcaption>
+  </figure>
+  <figure class="pic">
+    <img src="img/rotorspinnstelle.jpg" alt="OE 로터 정방 유닛">
+    <figcaption>그림 3. OE 로터 정방 유닛. Wikimedia 스틸, Ikiwaner, CC BY-SA 3.0, File:Rotorspinnstelle.jpg.</figcaption>
+  </figure>
+  <figure class="pic">
+    <img src="img/oe-schema.jpg" alt="OE 정방 단면 스키마">
+    <figcaption>그림 4. OE 정방 단면 스키마. Wikimedia 스틸, Ryj, CC BY-SA 3.0, File:Schema der OE-Spinnstelle.jpg.</figcaption>
+  </figure>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="1"><b>1. Ne가 커지면?</b>
+<button data-j="0">굵어진다</button><button data-j="1">가늘어진다</button><button data-j="2">텍스가 같이 커진다</button>
+<p class="why">면번수는 역수. Ne 클수록 가늘다. tex·D는 클수록 굵다.</p></div>
+<div class="q" data-a="1"><b>2. CVC와 T/C의 가름은?</b>
+<button data-j="0">염색 온도</button><button data-j="1">면이 50% 넘으면 CVC, 폴리 다수는 T/C</button><button data-j="2">링 vs OE</button>
+<p class="why">CVC = cotton majority. T/C = polyester majority.</p></div>
+<div class="q" data-a="2"><b>3. 조방(로빙)을 건너뛰는 루트는?</b>
+<button data-j="0">링+컴팩트</button><button data-j="1">사이로만</button><button data-j="2">OE와 MVS</button>
+<p class="why">OE/MVS는 연조 슬라이버에서 바로 정방. 치즈/콘에 감긴다.</p></div>
+<div class="q" data-a="1"><b>4. 선염표 예의 카티온P는?</b>
+<button data-j="0">강도만 올리는 면사</button><button data-j="1">헤더용 CDP, 원욕 투톤</button><button data-j="2">산성염료의 다른 이름</button>
+<p class="why">카티온 가염 PET. 첨부 선염 원단표 헤더/멜란지. 면 솔리드와 별개.</p></div>
+<div class="q" data-a="2"><b>5. 티셔츠 밀에서 방모 뮬은?</b>
+<button data-j="0">본선 공정이다</button><button data-j="1">MVS의 다른 이름이다</button><button data-j="2">레거시, 쓰지 않는다</button>
+<p class="why">옛 방모 간헐 정방. 면 밀 공정이 아니다.</p></div>
+
+<footer>교육자료 · 방적</footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>번수 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px}
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.warn{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:220px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:640px;min-height:280px;object-fit:contain}
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#glance">한 눈에</a><a href="#why">왜</a><a href="#systems">두 갈래</a>
+  <a href="#convert">바꿔 읽기</a><a href="#tee">티 예</a><a href="#shop">현장말</a>
+  <a href="#vid">영상</a><a href="#caution">주의</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 번수</p>
+<h1>번수</h1>
+<p class="lede">실 굵기를 숫자로 말하는 법. 면번수는 숫자 클수록 가늘다. 텍스·데니어는 숫자 클수록 굵다. 합격·규격은 작지·바이어를 본다.</p>
+<div class="pills">
+  <span class="pill">굵기 숫자</span>
+  <span class="pill">면번수 · 텍스</span>
+  <span class="pill">바꿔 읽는 식</span>
+</div>
+
+<h2 id="glance">한 눈에 <span>그림</span></h2>
+<p>같은 면번수(Ne) 줄에서 숫자만 다를 때, 실이 어떻게 달라 보이는지 먼저 본다.</p>
+<figure class="hero">
+  <img src="img/count-feel-hq.png" alt="번수 Ne20은 굵고 Ne40은 가늘다">
+  <figcaption>그림 1. Ne 20은 굵고, Ne 30은 중간, Ne 40은 더 가늘다. 면번수는 숫자 클수록 가늘다. 교육용 비례 도식. 공장 창 아님.</figcaption>
+</figure>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>원사 줄을 읽는다</b><div class="en">READ</div><p>작지·발주에 Ne 30, P150D, Tex 20이 섞여 온다. 어떤 말인지 먼저 가른다.</p></div>
+  <div class="card"><b>방적과 역할 나눔</b><div class="en">SPIN</div><p><a href="../spinning/index.html">방적</a>은 링·OE·MVS처럼 “어떻게 뽑는지”. 이 칸은 굵기 숫자 읽는 법.</p></div>
+  <div class="card"><b>규격은 작지</b><div class="en">NO SPEC</div><p>이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p></div>
+</div>
+
+<h2 id="systems">두 갈래 <span>두 길</span></h2>
+<p>숫자 방향이 서로 반대인 두 갈래가 있다. 단위를 빼고 숫자만 보면 틀린다.</p>
+<figure class="hero">
+  <img src="img/count-two-ways-hq.png" alt="면번수는 숫자 클수록 가늘고 텍스는 숫자 클수록 굵다">
+  <figcaption>그림 2. 왼쪽(Ne·Nm): 숫자 클수록 가늘다. 오른쪽(Tex·Denier·dtex): 숫자 클수록 굵다. 공개 체계 요약.</figcaption>
+</figure>
+<div class="grid">
+  <div class="card"><b>숫자 클수록 가늘어지는 말</b><div class="en">FINER UP</div><p>면 실에서 많이 씀.<br>현장 말: 면번수, 미터번수.<br><span class="src">이름: Ne · Nm</span></p></div>
+  <div class="card"><b>숫자 클수록 굵어지는 말</b><div class="en">COARSER UP</div><p>길이당 무게로 셈.<br>현장 말: 텍스, 데니어.<br><span class="src">이름: Tex · Denier · dtex</span></p></div>
+</div>
+<p class="note">같은 “30”이라도 Ne 30과 Tex 30은 완전히 다르다. 단위를 함께 읽는다.</p>
+
+<div style="overflow:auto;margin-top:14px">
+<table>
+<thead><tr><th>쉬운 말</th><th>현장 말</th><th>한 줄 뜻</th></tr></thead>
+<tbody>
+<tr><td>숫자↑ = 가늘</td><td>면번수 (Ne)</td><td>1 lb에 840 yd 타래가 몇 개</td></tr>
+<tr><td>숫자↑ = 가늘</td><td>미터번수 (Nm)</td><td>1 kg에 1000 m 타래가 몇 개</td></tr>
+<tr><td>숫자↑ = 굵음</td><td>텍스 (Tex)</td><td>1000 m당 몇 g</td></tr>
+<tr><td>숫자↑ = 굵음</td><td>데니어 (Denier)</td><td>9000 m당 몇 g. 필라멘트에 많음</td></tr>
+<tr><td>숫자↑ = 굵음</td><td>디텍스 (dtex)</td><td>10000 m당 몇 g. Tex×10</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="convert">바꿔 읽기 <span>환산</span></h2>
+<p class="src">출처 예: 공개 스레드·텍스타일 스쿨 환산. 대략치. 계약 환산표가 있으면 그쪽.</p>
+<figure class="hero">
+  <img src="img/count-convert-hq.png" alt="면번수와 텍스 바꿔 읽기 시소">
+  <figcaption>그림 3. Ne가 커지면 Tex는 작아진다. 공개 식 Tex ≈ 590.5 / Ne. 예: Ne 30 → 약 19.7 Tex.</figcaption>
+</figure>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>바꿔 읽기</th><th>식</th><th>쉬운 메모</th></tr></thead>
+<tbody>
+<tr><td>텍스 ↔ 면번수</td><td>Tex ≈ 590.5 / Ne</td><td>면번수 클수록 텍스 작음</td></tr>
+<tr><td>데니어 ↔ 텍스</td><td>Denier = 9 × Tex</td><td>길이당 무게 계열</td></tr>
+<tr><td>디텍스 ↔ 텍스</td><td>dtex = 10 × Tex</td><td>필라멘트 표기 많음</td></tr>
+<tr><td>미터번수 ↔ 면번수</td><td>Nm ≈ 1.693 × Ne</td><td>둘 다 “클수록 가늘”</td></tr>
+</tbody>
+</table>
+</div>
+<div class="card" style="margin-top:12px"><b>한 번만 따라가 보기</b><div class="en">WORKED</div>
+  <p>면번수 Ne 30이면 Tex ≈ 590.5 ÷ 30 ≈ 19.7.<br>
+  데니어로 바꾸면 9 × 19.7 ≈ 177.<br>
+  “Ne 30은 꽤 가는 면 실”로 읽으면 된다. 공장 창으로 쓰지 말 것.</p>
+</div>
+
+<h2 id="tee">티셔츠 공개·작지 예 <span>티셔츠</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>표기(예)</th><th>대략</th><th>쓰임(공개·작지 예)</th></tr></thead>
+<tbody>
+<tr><td>Ne 20</td><td>~29.5 tex</td><td>헤비 저지 / 플리스</td></tr>
+<tr><td>Ne 26</td><td>~22.7 tex</td><td>바디 공개 예</td></tr>
+<tr><td>Ne 30</td><td>~19.7 tex</td><td>가는 코마 예</td></tr>
+<tr><td>Ne 40</td><td>~14.8 tex</td><td>여름 컴팩트 예</td></tr>
+<tr><td>P150D</td><td>~167 dtex</td><td>필라멘트 굵기 말. <b>Ne랑 다른 줄</b></td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">표의 Ne 창은 <b>공개·작지에서 자주 보는 예</b>다. 공장 Ne 창을 규칙으로 단정하지 않는다. P150D는 필라멘트 굵기 말. Ne랑 다른 줄. 뽑는 루트는 <a href="../spinning/index.html">방적</a> 칸.</p>
+
+<h2 id="shop">현장말 <span>현장말</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>현장 말</th><th>쉬운 말</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>면번수 / Ne</td><td>숫자 클수록 가늘</td><td>면 실에서 많음</td></tr>
+<tr><td>미터번수 / Nm</td><td>숫자 클수록 가늘</td><td>미터법</td></tr>
+<tr><td>텍스 / Tex</td><td>숫자 클수록 굵음</td><td>g/1000 m</td></tr>
+<tr><td>데니어 / D</td><td>숫자 클수록 굵음</td><td>P150D = 150 데니어급</td></tr>
+<tr><td>디텍스 / dtex</td><td>숫자 클수록 굵음</td><td>Tex×10. Ne와 섞지 말 것</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<p class="note">교육용 영상은 이 페이지에 아직 없다. 숫자 체계만 이 페이지에서 익히고, 뽑는 방법은 <a href="../spinning/index.html">방적</a>으로 간다.</p>
+
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="1"><b>1. 면번수(Ne) 숫자가 커지면?</b>
+<button data-j="0">더 굵어진다</button><button data-j="1">더 가늘어진다</button><button data-j="2">텍스 숫자도 같이 커진다</button>
+<p class="why">면번수는 숫자 클수록 가늘다. 텍스·데니어는 클수록 굵다.</p></div>
+<div class="q" data-a="0"><b>2. 텍스(Tex)는 무엇을 세나?</b>
+<button data-j="0">1000 m당 몇 g</button><button data-j="1">1 lb에 840 yd 타래 개수</button><button data-j="2">9000 m당 몇 g</button>
+<p class="why">Tex = g/1000 m. Denier = g/9000 m. Ne = 840 yd hank/lb.</p></div>
+<div class="q" data-a="2"><b>3. 면번수를 텍스로 바꿔 읽는 공개 식은?</b>
+<button data-j="0">9 × Ne</button><button data-j="1">1.693 × Ne</button><button data-j="2">590.5 / Ne</button>
+<p class="why">Tex ≈ 590.5 / Ne. Denier = 9×Tex. Nm ≈ 1.693×Ne.</p></div>
+<div class="q" data-a="1"><b>4. P150D는?</b>
+<button data-j="0">면번수 Ne 150</button><button data-j="1">필라멘트 굵기 말. Ne랑 다른 줄</button><button data-j="2">미터번수 Nm 150</button>
+<p class="why">P150D ≈ 150 denier급(~167 dtex). 면번수와 혼동 금지.</p></div>
+<div class="q" data-a="0"><b>5. 데니어와 텍스 관계는?</b>
+<button data-j="0">Denier = 9 × Tex</button><button data-j="1">Denier = Tex / 9</button><button data-j="2">같다</button>
+<p class="why">둘 다 길이당 무게. Denier = 9×Tex. dtex = 10×Tex.</p></div>
+<div class="q" data-a="2"><b>6. 이 칸과 방적의 가름은?</b>
+<button data-j="0">같은 칸</button><button data-j="1">번수만 알면 방적 칸은 안 봐도 된다</button><button data-j="2">방적=뽑는 루트, 번수=굵기 숫자 읽기</button>
+<p class="why">../방적/ 은 링·OE·MVS. 이 칸은 숫자 체계.</p></div>
+<div class="q" data-a="1"><b>7. 표의 Ne 20/26/30/40은?</b>
+<button data-j="0">공장 고정 규격</button><button data-j="1">공개·작지 예. 공장 창으로 단정 금지</button><button data-j="2">법정 최소치</button>
+<p class="why">작지·바이어. 이 페이지 예로 공장 Ne 창을 정하지 않는다.</p></div>
+<div class="q" data-a="0"><b>8. 미터번수 Nm ≈ 면번수 Ne × ?</b>
+<button data-j="0">1.693</button><button data-j="1">9</button><button data-j="2">590.5</button>
+<p class="why">Nm ≈ 1.693 × Ne (공개 환산).</p></div>
+
+<footer>교육자료 · 번수</footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>

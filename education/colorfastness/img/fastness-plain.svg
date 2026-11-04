@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" role="img" aria-label="색 빠짐과 다른 옷에 묻음">
+  <rect width="760" height="280" fill="#0d1118"/>
+  <text x="24" y="34" fill="#c9d2de" font-family="sans-serif" font-size="16" font-weight="700">견뢰도가 보는 두 가지</text>
+  <rect x="24" y="56" width="340" height="190" rx="14" fill="#1c3558"/>
+  <text x="44" y="90" fill="#7fd4c8" font-family="sans-serif" font-size="15" font-weight="700">색이 빠졌나?</text>
+  <text x="44" y="118" fill="#fffcf7" font-family="sans-serif" font-size="13">시험 후 원래 색이 얼마나 바뀌었는지</text>
+  <text x="44" y="148" fill="#8a93a0" font-family="sans-serif" font-size="12">쉬운 말: 색 빠짐</text>
+  <text x="44" y="172" fill="#8a93a0" font-family="sans-serif" font-size="12">나중에 나오는 말: 변퇴색</text>
+  <text x="44" y="206" fill="#c9d2de" font-family="sans-serif" font-size="12">회색 척도 1–5 (5=좋음)</text>
+  <rect x="396" y="56" width="340" height="190" rx="14" fill="#3a1a2a"/>
+  <text x="416" y="90" fill="#f0a0b8" font-family="sans-serif" font-size="15" font-weight="700">다른 옷에 묻었나?</text>
+  <text x="416" y="118" fill="#fffcf7" font-family="sans-serif" font-size="13">옆 흰 천에 색이 옮았는지</text>
+  <text x="416" y="148" fill="#8a93a0" font-family="sans-serif" font-size="12">쉬운 말: 다른 옷에 묻음</text>
+  <text x="416" y="172" fill="#8a93a0" font-family="sans-serif" font-size="12">나중에 나오는 말: 오염 · 이염</text>
+  <text x="416" y="206" fill="#c9d2de" font-family="sans-serif" font-size="12">회색 척도 1–5 (5=좋음)</text>
+</svg>

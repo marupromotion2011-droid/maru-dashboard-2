@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>편직 · 교육자료</title>
+<link rel="stylesheet" href="../../_shared/visibility.css">
+<script src="../../_shared/fold-nav.js" defer></script>
+<style>
+/* 교육자료 공통 2026-09-03. 모든 칸 동일 껍데기. */
+:root{
+  --ink:#14171c; --muted:#5c6570; --faint:#8a93a0;
+  --paper:#f4f0e8; --panel:#fffcf7; --line:#e4dccd;
+  --heat:#c45c26; --teal:#0e6e68; --navy:#1c3558;
+  --ok:#1f7a4d; --bad:#b42318; --chip:#efe6d6;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:var(--teal)}
+.sec-nav{position:sticky;top:40px;z-index:70;background:rgba(244,240,232,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.sec-nav .in,.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-nav .in{display:flex;flex-wrap:wrap;gap:6px;padding:8px 20px}
+.sec-nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:4px 10px;border-radius:999px}
+.sec-nav a:hover{background:var(--chip);color:var(--ink)}
+.wrap{padding:0 20px 72px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--heat);font-weight:700;margin-top:28px}
+h1{font-size:clamp(26px,4vw,40px);margin:6px 0 10px;letter-spacing:-.03em}
+.lede{color:var(--muted);font-size:17px;max-width:46em}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px}
+.pill{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--navy)}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.02em}
+h2 span{color:var(--heat);font-size:12px;margin-left:8px;letter-spacing:.08em;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .en{display:block;color:var(--faint);font-size:11px;font-weight:500;letter-spacing:.04em;margin:2px 0 6px} /* KO title first; EN secondary */
+.note{background:#fff6ea;border-left:3px solid var(--heat);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+.fix{background:#fdecea;border-left:3px solid var(--bad);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin:12px 0}
+figure.hero,figure.pic{margin:16px 0;background:#0d1118;border-radius:18px;overflow:hidden}
+figure.hero img,figure.pic img{width:100%;display:block;height:auto;background:#0d1118}
+figure.hero img{min-height:420px;object-fit:contain}
+figure.pic{background:var(--panel);border:1px solid var(--line)}
+figure.pic img{background:#ddd;max-height:780px;min-height:420px;object-fit:contain}
+/* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
+.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+figure.pic figcaption{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.old{color:var(--bad);text-decoration:line-through}
+.new{color:var(--ok);font-weight:650}
+.vid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 10px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}
+.q button.ok{background:#e8f6ee;border-color:var(--ok)}
+.q button.no{background:#fdecea;border-color:var(--bad)}
+.why{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+.why.show{display:block}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.src{font-size:12px;color:var(--faint)}
+/* 공통CSS 보정: 본문 링크 밑줄·상단 메뉴 겹침 */
+html{background:var(--paper)}
+.wrap a:not(.card){text-decoration:underline}
+.fold-nav{position:relative}
+.sec-nav{top:0}
+</style>
+</head>
+<body>
+<nav class="sec-nav"><div class="in">
+  <a href="#basics">기초</a><a href="#types">원단칸</a><a href="#use">현장말</a><a href="#sd">싱글더블</a><a href="#needles">바늘</a>
+  <a href="#org">조직</a><a href="#slang">속칭</a><a href="#gloss">용어</a>
+  <a href="#art">그림</a><a href="#vid">영상</a><a href="#caution">주의</a><a href="#quiz">퀴즈</a>
+</div></nav>
+<div class="wrap">
+<p class="kicker">교육자료 · 편직</p>
+<h1>편직</h1>
+<p class="lede">쉬운 말: <b>실로 고리를 이어서 원단을 만든다</b>. 티셔츠 공장은 대부분 <b>위편·환편</b>(다이마루). 먼저 경편 vs 위편, 환편 vs 횡편을 보고, 그다음 현장 원단칸 이름을 본다.</p>
+<div class="pills">
+  <span class="pill">위편 vs 경편</span>
+  <span class="pill">환편 vs 횡편</span>
+  <span class="pill">현장말·교재말</span>
+  <span class="pill">기종은 작지</span>
+</div>
+<h2 id="basics">기초 먼저 <span>기초</span></h2>
+<p>교재(2010 PDF 캐시)도 먼저 <b>경편성물 / 위편성물</b>로 나눈다. 티셔츠 밀은 위편·환편이 본선. 경편(트리코·라셸)은 옆칸.</p>
+<figure class="hero">
+  <img src="img/warp-vs-weft-hq.png" alt="경편과 위편 비교 도식">
+  <figcaption>그림 A. 위편(가로·코스) vs 경편(세로·웨일). 이미지 영문 라벨. 한글은 본문.</figcaption>
+</figure>
+<div class="grid">
+  <div class="card"><b>위편</b><div class="en">WEFT</div><p>쉬운 말: 실이 <b>가로</b>로 가서 고리를 만든다. 신축이 크고 풀리기 쉽다. 티·양말·립. 환편·횡편·양말기가 여기.</p></div>
+  <div class="card"><b>경편</b><div class="en">WARP</div><p>쉬운 말: 여러 실이 <b>세로</b>로 동시에 고리를 만든다. 더 안정·잘 안 풀림. 트리코·라셸. 환편 티 본선 아님.</p></div>
+  <div class="card"><b>코스 · 웨일</b><div class="en">COURSE / WALE</div><p>쉬운 말: 코스=가로 한 줄(단), 웨일=세로 한 줄(코). 교재·바이어 영문.</p></div>
+</div>
+<figure class="hero">
+  <img src="img/circular-vs-flat-hq.png" alt="환편과 횡편 비교">
+  <figcaption>그림 B. 같은 위편 안: 환편(통 원단) vs 횡편(V베드 개폭). 다이마루=환편 현장말.</figcaption>
+</figure>
+<div class="grid">
+  <div class="card"><b>환편</b><div class="en">CIRCULAR</div><p>쉬운 말: 바늘이 둥근 실린더에 있어 <b>통(튜브)</b> 생지가 나온다. 티셔츠 양산. 바디사이즈·개폭 둘 다 있음.</p></div>
+  <div class="card"><b>횡편</b><div class="en">FLAT</div><p>쉬운 말: 지붕형(V베드) 바늘대. 캐리지가 좌우로 움직여 <b>개폭</b> 편지. 성형·패션 니트. 그래도 위편이다(경편 아님).</p></div>
+</div>
+<p class="note">공개 구조: 위편=한/소수 실이 가로(코스), 경편=바늘마다 실이 세로. 환편 더블=실린더+다이얼. 게이지=1인치당 바늘. 웹 확인은 README.</p>
+
+
+<figure class="hero">
+  <img src="img/knit-types-hq.png" alt="평편 편직">
+  <figcaption>그림 C. 쉬운 말 맵(영문 라벨). 싱글 · 줄무늬 · 이면 루프 · JQD. 한글 이름은 본문. 다이마루=환편.</figcaption>
+</figure>
+
+<figure class="hero">
+  <img src="img/knit-types-hq.png" alt="티셔츠 편직 원단칸 — 싱글, JQD, 멀티JQD, 한기장 댕깡, 쮸리, 미니쮸리, 사카리바">
+  <figcaption>그림 1. 티셔츠 환편 원단칸(영문 라벨 SVG). 댕깡은 원단칸 속칭. 기종은 원단표·작지. 이 페이지로 기종 확정 금지.</figcaption>
+</figure>
+
+
+<h2 id="types">원단칸 <span>종류</span></h2>
+<div class="grid">
+  <div class="card"><b>싱글</b><div class="en">SINGLE</div><p>쉬운 말: 기본 티 원단. 앞뒤가 다르고 가장자리가 말린다.<br><span class="src">이름: single jersey · S/PLAIN</span></p></div>
+  <div class="card"><b>자카드</b><div class="en">JQD</div><p>쉬운 말: 바늘이 골라서 문양. 프린트 아님.<br><span class="src">이름: electronic jacquard · 샵: 컴퓨터</span></p></div>
+  <div class="card"><b>멀티 자카드</b><div class="en">MULTI-JQD</div><p>선염 2도 이상 자카드. 공개 카탈로그 예: JQD선염 2~5도. 공장 색수(도수)는 작지·바이어를 본다.</p></div>
+  <div class="card"><b>한기장 댕깡</b><div class="en">STRIPE</div><p>쉬운 말: 몸통 한 기장짜리 선염 줄무늬. 속칭이지 기종 확정이 아님.<br><span class="src">이름: feeder-repeat stripe</span></p></div>
+  <div class="card"><b>쮸리</b><div class="en">FRENCH TERRY</div><p>쉬운 말: 겉은 평평, 안쪽에 고리. 타올처럼 깎은 가공 아님.<br><span class="src">이름: french terry</span></p></div>
+  <div class="card"><b>미니쮸리</b><div class="en">MINI TERRY</div><p>루프가 더 작거나 가벼운 쮸리. 공개 카탈로그는 싱글·스트라이프 계열에 둔다. 블로그 GSM을 공장 스펙으로 쓰지 말 것.</p></div>
+  <div class="card"><b>사카리바</b><div class="en">SAKARIBA</div><p>쉬운 말: 앞뒤가 다른 특양면. 인터록이라고 덮지 말 것.<br><span class="src">이름: double-face</span></p></div>
+</div>
+
+<h2 id="use">현장말 vs 교육말 <span>쓰임</span></h2>
+<p>쉬운 말 먼저. 작지=현장말, 바이어·교육=둘을 같이. 한쪽으로만 쓰지 말 것. 다이마루=환편.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>현장말</th><th>교육말</th><th>쓰면 안 되는 덤프</th><th>어디에 쓰나</th></tr></thead>
+<tbody>
+<tr><td>쮸리</td><td>french terry / 프렌치테리</td><td>타올 컷파일 테리</td><td>작지 원단칸 / 교육은 둘 다</td></tr><tr><td>사카리바</td><td>특양면 / double-face</td><td>인터록</td><td>작지 / 교육은 특양면도 적음</td></tr><tr><td>댕깡</td><td>선염 스트라이프 원단칸 속칭</td><td>auto-striper 기종</td><td>원단표만. 기종은 작지</td></tr><tr><td>후라이스</td><td>1x1 립 / 시보리</td><td>후리스(fleece)</td><td>넥·커프. 후리스와 다른 말</td></tr><tr><td>분또</td><td>ponte 이중지</td><td>담보루와 같음</td><td>이중지. 삼중지(담보루)와 분리</td></tr><tr><td>양면</td><td>샵에선 립이기도 인터록이기도</td><td>양면=항상 인터록</td><td>작지 확인</td></tr><tr><td>JQD / 컴퓨터</td><td>electronic jacquard</td><td>프린트 문양</td><td>바늘 선택</td></tr><tr><td>피케이/PQ</td><td>weft-knit pique (tuck)</td><td>경이중직 우븐 피케로 덮음</td><td>티셔츠는 위편 턱</td></tr><tr><td>실켓</td><td>mercerize (머서라이즈)</td><td>겉을 태우는 가공</td><td>가스싱잉(그을림)과 다름. 옛 교재 오류</td></tr><tr><td>다이마루</td><td>환편</td><td>—</td><td>봉제 현장말</td></tr><tr><td>메리야스</td><td>니트/편성물</td><td>—</td><td>봉제 현장말</td></tr><tr><td>에리</td><td>칼라/깃</td><td>—</td><td>봉제</td></tr><tr><td>소데</td><td>소매</td><td>—</td><td>봉제</td></tr><tr><td>시보리</td><td>립/리브 (넥·커프·헴)</td><td>홀치기 염색만으로 덮음</td><td>교재 Ⅴ는 염색 뜻도 적음. 티셔츠에선 립</td></tr><tr><td>선염</td><td>yarn-dye / 사염</td><td>—</td><td>실 먼저</td></tr><tr><td>후염</td><td>piece-dye / 포염</td><td>—</td><td>생지 후</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">교육말은 바이어·교재 영문. 현장말은 작지. 이 칸은 둘을 같이 적는다.</p>
+<p class="fix">옛 교재 실켓=원단 겉을 살짝 태운다 → 틀림. 그건 가스 싱잉. 실켓=머서라이즈(NaOH).</p>
+<p class="fix">옛 교재 쮸리=특양면 안쪽을 타올처럼 가공 → 틀림. 쮸리=프렌치테리 조직. 타올 컷파일 아님. 특양면 후가공이 아님.</p>
+
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>싱글</td><td>S/PLAIN / single jersey</td><td>cylinder + sinker</td><td>기본 티, 가장자리 컬</td><td>다이얼 없음</td></tr>
+<tr><td>JQD</td><td>electronic jacquard</td><td>싱글 전자 자카드가 흔함</td><td>바늘 선택 문양 티</td><td>프린트 아님. 샵: 컴퓨터 자카드</td></tr>
+<tr><td>멀티JQD</td><td>선염 자카드 2~5도 (catalog example)</td><td>자카드</td><td>선염 문양</td><td>공개 예 2~5도. 공장 도수는 작지·바이어</td></tr>
+<tr><td>한기장 댕깡</td><td>feeder-repeat stripe (shop nickname)</td><td>미확정</td><td>몸통 한 기장 스트라이프</td><td>원단칸 속칭. 기종은 작지</td></tr>
+<tr><td>쮸리</td><td>french terry</td><td>싱글 3사 흔함</td><td>이면 루프 티·맨투맨 감</td><td>타올 컷파일 테리 아님. (쭈리와 같은 칸)</td></tr>
+<tr><td>미니쮸리</td><td>mini french terry</td><td>싱글 계열</td><td>가벼운 루프</td><td>블로그 GSM을 공장 스펙으로 쓰지 않음</td></tr>
+<tr><td>사카리바</td><td>double-face (특양면)</td><td>더블 계열(바인더)</td><td>앞뒤가 다른 티</td><td>인터록 덤프 금지. 어원 미확정</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="fix">덤프 금지: 댕깡=auto-striper 기종, 사카리바=인터록, 쮸리=타월 테리. 원단칸 속칭과 설비를 한 줄로 묶지 않는다.</p>
+
+<p class="note">본선 7칸은 작지에 자주 나오는 칸. 아래는 환편 샵에서 같이 도는 종류. 한 공장이 전부 짠다고 보지 말 것. 보유·생산 품목은 작지를 본다.</p>
+<h3>싱글 계열</h3>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>싱글</td><td>S/PLAIN / single jersey</td><td>cylinder + sinker</td><td>기본 티, 가장자리 컬</td><td>다이얼 없음</td></tr>
+<tr><td>PQ 피케</td><td>pique</td><td>싱글 4트랙 턱</td><td>폴로·하계 티 표면 요철</td><td>가노꼬=일본 속칭</td></tr>
+<tr><td>싱글 포인텔</td><td>single pointelle</td><td>싱글 miss/tuck</td><td>얇은 구멍 문양 티</td><td>JQD 포인텔과 칸을 섞지 않음</td></tr>
+<tr><td>싱글 엠보싱</td><td>single emboss</td><td>싱글 턱 요철</td><td>표면 엠보 티</td><td>프린트 엠보 아님</td></tr>
+<tr><td>메쉬(싱글)</td><td>single mesh</td><td>싱글 메쉬</td><td>통기 티·이너</td><td>아일렛 메쉬와 칸을 섞지 않음</td></tr>
+</tbody>
+</table>
+</div>
+<h3>쮸리 계열</h3>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>쮸리</td><td>french terry</td><td>싱글 3사 흔함</td><td>이면 루프 티·맨투맨 감</td><td>타올 컷파일 테리 아님. (쭈리와 같은 칸)</td></tr>
+<tr><td>미니쮸리</td><td>mini french terry</td><td>싱글 계열</td><td>가벼운 루프</td><td>블로그 GSM을 공장 스펙으로 쓰지 않음</td></tr>
+<tr><td>3단쮸리</td><td>3-thread terry (shop name)</td><td>쮸리 계열</td><td>두꺼운 루프 감</td><td>GSM은 작지·바이어</td></tr>
+<tr><td>헤비쮸리</td><td>heavy french terry (shop nickname)</td><td>쮸리 계열</td><td>중량 감 티</td><td>중량 속칭. GSM은 작지·바이어</td></tr>
+<tr><td>기모쮸리</td><td>brushed french terry</td><td>조직은 쮸리, 기모는 후가공</td><td>안감 기모 티</td><td>기모=후가공. 조직을 후리스로 바꾸지 않음</td></tr>
+</tbody>
+</table>
+</div>
+<h3>스트라이프</h3>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>피더 스트라이프</td><td>feeder stripe</td><td>급사구 리피트</td><td>좁은 선염 줄 티</td><td>한기장 댕깡과 한 줄로 묶지 않음</td></tr>
+<tr><td>한기장 댕깡</td><td>feeder-repeat stripe (shop nickname)</td><td>미확정</td><td>몸통 한 기장 스트라이프</td><td>원단칸 속칭. 기종은 작지</td></tr>
+<tr><td>PQ 스트라이프</td><td>pique stripe</td><td>피케+스트라이프</td><td>폴로 줄무늬</td><td>피케 조직 위 선염</td></tr>
+<tr><td>쮸리 스트라이프</td><td>french terry stripe</td><td>쮸리+스트라이프</td><td>이면 루프 줄무늬</td><td>후렌치테리 스트라이프</td></tr>
+</tbody>
+</table>
+</div>
+<h3>자카드 · 아일렛</h3>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>JQD</td><td>electronic jacquard</td><td>싱글 전자 자카드가 흔함</td><td>바늘 선택 문양 티</td><td>프린트 아님. 샵: 컴퓨터 자카드</td></tr>
+<tr><td>멀티JQD / JQD선염2~5도</td><td>선염 자카드 2~5도 (catalog example)</td><td>자카드</td><td>선염 문양</td><td>공개 예 2~5도. 공장 도수는 작지·바이어</td></tr>
+<tr><td>JQD양면</td><td>double-knit jacquard</td><td>더블 자카드</td><td>양면 문양 티</td><td>싱글 JQD와 다름. 양면≠항상 인터록</td></tr>
+<tr><td>JQD 포인텔</td><td>jacquard pointelle</td><td>자카드 구멍</td><td>구멍 문양 티</td><td>싱글 포인텔과 구분</td></tr>
+<tr><td>JQD 허니컴</td><td>jacquard honeycomb</td><td>자카드 허니컴</td><td>벌집 요철 티</td><td>조직 자카드. 프린트 아님</td></tr>
+<tr><td>JQD 후라이스</td><td>jacquard 1x1 rib</td><td>립 자카드</td><td>넥·몸통 문양 립</td><td>후라이스는 후리스 아님</td></tr>
+<tr><td>아일렛 / 아일렛JQD</td><td>eyelet / eyelet jacquard</td><td>아일렛 계열</td><td>구멍 조직 티</td><td>메쉬·포인텔과 칸을 바로 합치지 않음</td></tr>
+<tr><td>아일렛 립 · 아일렛 메쉬 · 아일렛 골지</td><td>eyelet rib/mesh/rib</td><td>아일렛 계열</td><td>구멍 립·메쉬·골지</td><td>한 줄로 묶인 변종. 칸을 따로 나누지 않음</td></tr>
+</tbody>
+</table>
+</div>
+<h3>립 · 양면</h3>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>립 / 후라이스 / 시보리</td><td>1x1 rib</td><td>실린더+다이얼</td><td>넥·커프·헴</td><td>1x1을 후라이스라 함. 시보리=용도. 후리스 아님</td></tr>
+<tr><td>골지 2x1·2x2·와이드립</td><td>2x1 / 2x2 / wide rib</td><td>립 계열</td><td>골이 큰 티·커프</td><td>1x1 후라이스와 칸이 다름</td></tr>
+<tr><td>인터록</td><td>interlock</td><td>더블, 마주보는 게이팅</td><td>두꺼운 티·이너, 컬 적음</td><td>샵 '양면'이 립이기도 인터록이기도 — 작지 확인. 양면≠항상 인터록</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">샵 '양면'이 립을 가리키기도, 인터록을 가리키기도 함. 작지에서 어떤 양면인지 확인.</p>
+
+<h3>특양면</h3>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>사카리바</td><td>double-face (특양면)</td><td>더블 계열(바인더)</td><td>앞뒤가 다른 티</td><td>인터록 덤프 금지. 어원 미확정</td></tr>
+<tr><td>분또 / 폰트 (이중지)</td><td>ponte (double-knit)</td><td>더블 이중지</td><td>탄탄한 티·원피스 감</td><td>담보루(삼중지)와 다름</td></tr>
+<tr><td>담보루 (삼중지)</td><td>triple-knit (shop: 골판지)</td><td>삼중지</td><td>두꺼운 구조 티</td><td>골판지 속칭. 분또와 다름</td></tr>
+<tr><td>와플</td><td>waffle</td><td>특양면/요철</td><td>와플 격자 티</td><td>피케·허니컴과 바로 합치지 않음</td></tr>
+<tr><td>오토만</td><td>ottoman</td><td>가로 골</td><td>가로 골 티</td><td>와이드립과 혼동 주의</td></tr>
+<tr><td>시어서커</td><td>seersucker knit</td><td>요철 수축</td><td>하계 요철 티</td><td>직물 시어서커가 아님(편직)</td></tr>
+<tr><td>네오플랜</td><td>neoplan (shop nickname)</td><td>특양면 속칭</td><td>특양면 티</td><td>특양면 속칭. 구조는 작지 확인</td></tr>
+</tbody>
+</table>
+</div>
+<h3>환편 티 본선이 아닌 것</h3>
+<p class="note">옆에 적고 본선·샵 그룹과 섞지 말 것. 환편 티 원단칸이 아님.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>원단칸</th><th>English</th><th>바늘대/계열</th><th>티셔츠에서</th><th>주의</th></tr></thead>
+<tbody>
+<tr><td>3사 후리스</td><td>3-thread fleece</td><td>싱글 3사 후리스기</td><td>기모 후리스 감</td><td>쮸리(프렌치테리)와 구분. 저지 본선 아님</td></tr>
+<tr><td>펄 / links-links</td><td>purl / links-links</td><td>더블 실린더 등 특수</td><td>양면 펄 조직</td><td>티셔츠 본선 아님</td></tr>
+<tr><td>경편 트리코·라셸</td><td>warp knit tricot / raschel</td><td>경편</td><td>경편 원단</td><td>환편 칸 아님</td></tr>
+</tbody>
+</table>
+</div>
+<p class="fix">덤프 금지: 댕깡=auto-striper 기종, 사카리바=인터록, 쮸리=타월 테리. 원단칸 속칭과 설비를 한 줄로 묶지 않는다.</p>
+
+<h2 id="detail">원단 종류 자세히 <span>상세</span></h2>
+<div class="grid"><div class="card"><b>면</b><div class="en">COTTON</div><p>티 솔리드 기본. 흡수·구김. 수는 높을수록 실이 가늘고 원단이 얇아 보이는 경향(공개). 16/20/30/40수는 교재 예. 공장 사용 수는 작지를 본다.</p></div><div class="card"><b>실켓</b><div class="en">SILKET</div><p>머서라이즈. 광택·촉감. 약실켓=라이트. 겉 태우기 아님(가스싱잉과 분리).</p></div><div class="card"><b>양면</b><div class="en">YANGMYEON</div><p>샵 말. 앞뒤가 비슷한 더블(인터록 후보). 립이기도 함. 작지 확인. 양면≠항상 인터록.</p></div><div class="card"><b>특양면</b><div class="en">TEUKYANG</div><p>사카리바. 앞뒤가 다르고 바인더. 교재 '양면보다 두껍고 쮸리보다 얇다'는 감 표현일 뿐 GSM은 작지·바이어. 폴리 혼용 여부는 작지.</p></div><div class="card"><b>분또</b><div class="en">PONTE</div><p>ponte 이중지. 교재 '양면과 같은데 폴리 많음'으로 끝내지 말 것. 담보루(삼중지)와 분리.</p></div><div class="card"><b>쮸리</b><div class="en">FRENCH TERRY</div><p>표면 평편+이면 루프, french terry. 3사 흔함. 타올 가공 아님. 특양면의 후가공 아님.</p></div><div class="card"><b>기모</b><div class="en">BRUSH</div><p>조직이 아니라 후가공(브러시). 기모쮸리=쮸리 조직+기모. 후리스(3사기)와 칸 섞지 말 것.</p></div><div class="card"><b>피케이</b><div class="en">PIQUE</div><p>티셔츠 PQ=위편 턱 피케. 교재 '경이중직'은 우븐 피케 말. 티 칸에 우븐으로 덮지 말 것. 가노꼬=일본 속칭.</p></div><div class="card"><b>폴리에스터</b><div class="en">POLYESTER</div><p>디스퍼스/원착. 흡습 낮음. C/P는 두 섬유.</p></div><div class="card"><b>폴리프리스</b><div class="en">FLEECE</div><p>fleece. 후라이스(립)와 다른 말. 저지 본선 아님.</p></div><div class="card"><b>담보루</b><div class="en">DAMBO</div><p>삼중지. 분또와 분리.</p></div><div class="card"><b>한기장 댕깡</b><div class="en">STRIPE</div><p>선염 스트라이프 속칭. 기종은 작지를 본다.</p></div><div class="card"><b>싱글</b><div class="en">S/PLAIN</div><p>S/PLAIN. 본선 7칸 기본.</p></div></div>
+<p class="note">Ⅰ 깅엄·옥스포드·벨벳 등은 우븐/홈패션 교재. 이 칸 본선 아님.</p>
+
+<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<div class="grid">
+  <div class="card"><b>환편 튜브 생지</b><div class="en">CIRCULAR</div><p>실린더가 돌고 래치 바늘이 루프를 만들며 튜브 생지(greige)가 아래로 감긴다. 생지 다음이 염색·가공이다. 편직 스펙과 가공 스펙을 분리해 적는다.</p></div>
+  <div class="card"><b>바디사이즈 + 개폭</b><div class="en">BODY-SIZE</div><p>바디사이즈 환편 튜브는 여전히 흔하다. 옆솔기 없는 몸통. 개폭(open-width)도 같이 간다. 염색·텐터·와이드 마커용.</p></div>
+  <div class="card"><b>한 줄 스펙 예</b><div class="en">SPEC</div><p>30" × 28G × 4F/inch 싱글 저지, 컴팩트 코튼, 엘라스테인 플레이팅. 바늘 수 ≈ π × 직경(인치) × 게이지. 30×28×3.1416 ≈ 2639본.</p></div>
+</div>
+<p class="note">공개 샵에서 자주 보는 말: 4-track, electronic jacquard, auto-striper, compact cotton, elastane plating, recyclable polyester, digital knit design. auto-striper는 설비 종류일 뿐, 원단표 속칭 댕깡과 같다고 보지 말 것.</p>
+
+<h2 id="sd">싱글 vs 더블 <span>기계</span></h2>
+<figure class="hero">
+  <img src="img/circular-vs-flat-hq.png" alt="싱글 환편(실린더+싱커)과 더블 환편(실린더+다이얼). 급사구·게이지. 설비 칸 vs 원단칸.">
+  <figcaption>그림 2. 싱글(실린더+싱커) vs 더블(실린더+다이얼). 이미지 영문 라벨. 설비 칸 ≠ 원단칸 속칭.</figcaption>
+</figure>
+<div class="grid">
+  <div class="card"><b>싱글 환편</b><div class="en">SINGLE</div><p>cylinder only. 다이얼 없음. 루프는 싱커(sinker)가 잡는다. 오픈탑·싱커기. 조직: jersey / S/PLAIN(single jersey plain), 피케(PQ), 피더 스트라이프, 싱글 전자 자카드.</p></div>
+  <div class="card"><b>더블 환편</b><div class="en">DOUBLE</div><p>cylinder + dial. 립·인터록·자카드. 표준 립·인터록은 다이얼 바늘이 루프를 잡아 싱커가 없는 경우가 많다. 펄(purl)은 특수(더블 실린더 등). 티셔츠 본단의 기본 더블은 립과 인터록.</p></div>
+</div>
+<p class="fix">옛 슬라이드의 <b>dail bed</b>는 <b>dial bed</b>다. 다이얼은 더블 환편의 수평 바늘대.</p>
+
+<h2 id="needles">바늘·게이지·급사구 <span>게이지</span></h2>
+<div class="grid">
+  <div class="card"><b>래치 니들</b><div class="en">NEEDLE</div><p>싱글은 실린더에 수직, 더블은 다이얼에 수평 바늘이 더해진다. 4트랙은 knit / tuck / miss.</p></div>
+  <div class="card"><b>게이지 = 1인치당 바늘</b><div class="en">GAUGE</div><p>티셔츠 흔히 28G. 직경은 인치, 예 30". G를 번수와 섞지 말 것.</p></div>
+  <div class="card"><b>급사구 = feeder</b><div class="en">FEEDER</div><p>원사를 넣는 스테이션. 3F 또는 4F per inch가 흔한 양산. 한기장 스트라이프는 피더 리피트.</p></div>
+</div>
+
+<h2 id="org">티셔츠 조직 <span>스티치</span></h2>
+<div class="grid">
+  <div class="card"><b>싱글 저지 플레인</b><div class="en">S/PLAIN</div><p>앞 V, 뒤 싱커루프. 가장자리 컬. 기본 티.</p></div>
+  <div class="card"><b>피케</b><div class="en">PQ</div><p>4트랙 턱 조합. 표면 요철, 폴로·하계 티.</p></div>
+  <div class="card"><b>립</b><div class="en">RIB</div><p>실린더+다이얼. 1x1 / 2x2. 넥·커프·헴(시보리).</p></div>
+  <div class="card"><b>인터록</b><div class="en">INTERLOCK</div><p>바늘이 마주보는 게이팅. 양면이 비슷하고 컬이 적다. 두꺼운 티·이너.</p></div>
+</div>
+<p class="note">현대 티: 컴팩트 코튼, 엘라스테인 플레이팅, 재생 폴리, 전자 자카드·오토스트라이퍼, 디지털 니트 디자인.</p>
+
+<h2 id="slang">현장속칭 <span>현장말</span></h2>
+<p>원단표 닉네임. 공개 어원이 없으면 <b>현장속칭</b>으로만 둔다. 가짜 어원을 만들지 않는다. 싱가는 싱어 미싱이 아니다. 댕깡·싱가·싱컴은 기종 미확정.</p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>현장속칭</th><th>상태</th><th>매핑</th><th>한국어</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>컴퓨터</td><td>현장속칭 (업계 통용)</td><td>electronic / computer jacquard</td><td>전자 자카드</td><td>판매명 컴퓨터 자카드 환편기. 가짜 어원 없음.</td></tr>
+<tr><td>댕깡</td><td>현장속칭 (기종 미확정)</td><td>원단표 기종란 표기</td><td>확정하지 않음</td><td>선염표에 컴퓨터/싱컴/싱가와 나란히 적힘. 오토스트라이퍼라고 보지 말 것. 어원 미확정. 작지·원단표를 본다.</td></tr>
+<tr><td>싱컴</td><td>현장속칭 (기종 미확정)</td><td>원단표 기종란 표기</td><td>확정하지 않음</td><td>공개 웹에서 어원 확정 못 함. 지어내지 않음. 싱글 컴퓨터 자카드로 읽는 현장도 있으나 기종은 작지·원단표를 본다.</td></tr>
+<tr><td>싱가</td><td>현장속칭 (기종 미확정)</td><td>원단표 기종란 표기</td><td>확정하지 않음</td><td>싱어 미싱과 혼동 금지. 싱글저지 후보는 있으나 공개 웹 어원 없음.</td></tr>
+</tbody>
+</table>
+</div>
+<p class="fix">댕깡을 auto-striper(선염 스트라이프 전용기)로 매핑하지 않는다. 현장속칭·기종 미확정으로만 둔다.</p>
+
+<h2 id="gloss">구 → 신 <span>용어</span></h2>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>옛 표기</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>dail bed / 데일 베드</td><td class="new">dial bed</td><td>Dial bed</td><td>2010 슬라이드 오탈자. 더블 환편의 수평 바늘대.</td></tr>
+<tr><td>싱글 환편 = 한 면</td><td class="new">실린더만 + 싱커</td><td>Cylinder only / jersey</td><td>오픈탑 싱커기. 다이얼 없음.</td></tr>
+<tr><td>더블 환편 = 양면</td><td class="new">실린더+다이얼</td><td>Cylinder + dial</td><td>립·인터록·자카드. 펄은 특수기.</td></tr>
+<tr><td>급사구</td><td class="new">급사구 (피더)</td><td>Feeder</td><td>원사를 바늘에 넣는 스테이션. 인치당 3~4F가 흔한 티셔츠기.</td></tr>
+<tr><td>게이지 / G</td><td class="new">게이지 예: 28G</td><td>Gauge (needles per inch)</td><td>1인치당 바늘 수. 직경은 인치(30인치).</td></tr>
+<tr><td>생지</td><td class="new">생지 / 그레이지</td><td>Greige</td><td>염색 가공 전 편직 원단.</td></tr>
+<tr><td>S/PLAIN</td><td class="new">싱글 저지 플레인</td><td>Single jersey plain</td><td>티셔츠 기본 조직.</td></tr>
+<tr><td>한기장 스트라이프</td><td class="new">피더 스트라이프</td><td>Feeder stripe</td><td>급사구 수에 묶인 선염 리피트. 넓은 리피트는 오토스트라이퍼.</td></tr>
+<tr><td>PQ</td><td class="new">피케</td><td>Pique</td><td>tuck surface. polo.</td></tr>
+<tr><td>4 truck</td><td class="new">4트랙</td><td>4-track</td><td>knit tuck miss cams.</td></tr>
+<tr><td>컴퓨터</td><td class="new">전자 자카드</td><td>Electronic jacquard</td><td>needle selection. digital knit design.</td></tr>
+<tr><td>바디사이즈 환편</td><td class="new">바디사이즈</td><td>Body-size circular knit</td><td>튜브 티는 여전히 흔함. 개폭도 같이.</td></tr>
+<tr><td>스판 넣기</td><td class="new">엘라스테인 플레이팅</td><td>Elastane plating</td><td>plated spandex on chosen feeders.</td></tr>
+<tr><td>컴팩트사</td><td class="new">컴팩트 코튼</td><td>Compact cotton</td><td>low hairiness for high speed.</td></tr>
+<tr><td>리사이클 PET</td><td class="new">순환 폴리에스터</td><td>Recyclable polyester</td><td>mono-material tee programs.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="art">그림 <span>그림</span></h2>
+<p class="src">도식 SVG: warp-vs-weft · circular-vs-flat · single-vs-double · knit-plain/type-map (영문 라벨).</p>
+<div class="grid">
+  <figure class="pic"><img src="img/single_jersey.jpg" alt="싱글 저지 루프"><figcaption>그림 3. 싱글 저지 루프. Wikimedia File:Single jersey.jpg, Elkagye.</figcaption></figure>
+  <figure class="pic"><img src="img/tshirt_bodysize.png" alt="바디사이즈 환편 튜브 티셔츠"><figcaption>그림 4. 바디사이즈 환편 튜브 티셔츠. 옆솔기 없음. Wikimedia File:T-shirt without side-sewing.png, Elkagye.</figcaption></figure>
+  <figure class="pic"><img src="img/circular_vertical_section.jpg" alt="환편기 수직 단면"><figcaption>그림 5. 환편기 수직 단면. Wikimedia File:Circular knitting machine - Vertical section.jpg</figcaption></figure>
+  <figure class="pic"><img src="img/knit-loop-hq.png" alt="위편 루프 모식"><figcaption>그림 6. 위편 고리(루프) 교육용 HQ 도식. 한글 이름은 본문.</figcaption></figure>
+</div>
+
+<h2 id="vid">영상 <span>영상</span></h2>
+<p>공개 교육 링크(텍스트만 · iframe 없음).</p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=GILK9w8U-oE" rel="noopener" target="_blank">Basic weft structures · jersey / rib / interlock (YouTube)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=zc2lnmK0qJc" rel="noopener" target="_blank">Weft knit / tuck / miss loops (YouTube)</a></li>
+</ul>
+<p class="src">외부 영상은 제3자 콘텐츠. 공장 기종·레시피로 쓰지 말 것. 없으면 이 문장만 남겨도 됨.</p>
+
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
+<p class="note">기종·도수·GSM·보유 품목은 이 페이지로 정하지 않는다. 원단표·작지·바이어를 본다.</p>
+<h2 id="quiz">퀴즈 <span>확인</span></h2>
+<div class="q" data-a="0"><b>1. 티셔츠 환편은 보통 어느 쪽인가?</b>
+<button data-j="0">위편 (가로 코스)</button><button data-j="1">경편 트리코</button><button data-j="2">우븐 평직</button>
+<p class="why">환편 티=위편. 경편(트리코·라셸)은 옆칸.</p></div>
+<div class="q" data-a="1"><b>2. 환편과 횡편의 공통점은?</b>
+<button data-j="0">둘 다 경편이다</button><button data-j="1">둘 다 위편이다</button><button data-j="2">둘 다 다이얼만 쓴다</button>
+<p class="why">환편·횡편·양말기=위편. 경편만 제외하면 위편.</p></div>
+<div class="q" data-a="0"><b>3. 싱글 환편기의 바늘대 구성은?</b>
+<button data-j="0">실린더만 (싱커로 루프 홀드)</button><button data-j="1">실린더+다이얼</button><button data-j="2">다이얼만</button>
+<p class="why">싱글 = cylinder only. 다이얼 없음.</p></div>
+<div class="q" data-a="1"><b>4. 28G, 30인치 표기가 뜻하는 것은?</b>
+<button data-j="0">28번수 실, 30cm 폭</button><button data-j="1">1인치당 바늘 28개, 실린더 직경 30인치</button><button data-j="2">급사구 28개, 속도 30rpm</button>
+<p class="why">게이지=needles per inch. 직경은 인치.</p></div>
+<div class="q" data-a="2"><b>5. 급사구의 샵 영어는?</b>
+<button data-j="0">carrier only</button><button data-j="1">creel</button><button data-j="2">feeder</button>
+<p class="why">급사구 = feeder.</p></div>
+<div class="q" data-a="1"><b>6. S/PLAIN 과 PQ 의 흔한 매핑은?</b>
+<button data-j="0">인터록 / 립</button><button data-j="1">싱글 저지 플레인 / 피케</button><button data-j="2">생지 / 가공지</button>
+<p class="why">S/PLAIN=single jersey plain. PQ=pique.</p></div>
+<div class="q" data-a="2"><b>7. 원단표의 댕깡을 어떻게 다루는가?</b>
+<button data-j="0">오토스트라이퍼로 확정</button><button data-j="1">싱어 미싱으로 확정</button><button data-j="2">현장속칭. 기종은 표만으로 확정하지 않음</button>
+<p class="why">공개 어원·기종 매핑이 갈린다. 댕깡/싱가/싱컴 모두 기종 미확정. 작지·원단표를 본다.</p></div>
+<div class="q" data-a="1"><b>8. 쮸리(쭈리)는 무엇인가?</b>
+<button data-j="0">컷파일 타월 테리</button><button data-j="1">french terry (표면 평편, 이면 루프)</button><button data-j="2">인터록 양면</button>
+<p class="why">쮸리 = french terry. 3사 구성이 흔함. 타월 테리가 아님.</p></div>
+<div class="q" data-a="2"><b>9. 사카리바는 무엇인가?</b>
+<button data-j="0">인터록과 같다</button><button data-j="1">싱글 저지 플레인</button><button data-j="2">특양면 (앞뒤가 다르고 바인더사). 인터록이 아님</button>
+<p class="why">사카리바 = 특양면(double-face). 인터록으로 덤프하지 않음. 어원 미확정.</p></div>
+<div class="q" data-a="0"><b>10. 한기장 댕깡을 어떻게 적는가?</b>
+<button data-j="0">원단칸 속칭. 한기장은 피더 리피트. 기종은 표만으로 확정하지 않음</button><button data-j="1">오토스트라이퍼 전용기로 확정</button><button data-j="2">인터록 기종</button>
+<p class="why">한기장 = feeder repeat(몸통 한 기장). 댕깡 = 원단칸 속칭. 기종 미확정.</p></div>
+
+<div class="q" data-a="1"><b>11. 후라이스는 무엇인가?</b>
+<button data-j="0">후리스(fleece)와 같다</button><button data-j="1">1x1 립/시보리 계열</button><button data-j="2">3사 쮸리</button>
+<p class="why">후라이스 = 1x1 rib. 시보리 계열. 후리스(fleece)와 다른 말.</p></div>
+<div class="q" data-a="2"><b>12. 분또와 담보루는?</b>
+<button data-j="0">같은 원단칸이다</button><button data-j="1">둘 다 싱글 저지</button><button data-j="2">분또=이중지, 담보루=삼중지. 같지 않음</button>
+<p class="why">분또/폰트=ponte 이중지. 담보루=삼중지(골판지 속칭). 한 칸으로 묶지 않음.</p></div>
+
+<div class="q" data-a="0"><b>13. 실켓은 겉을 태우나?</b>
+<button data-j="0">아니다. 머서라이즈. 태우기는 가스싱잉.</button><button data-j="1">맞다. 원단 겉을 살짝 태운다.</button><button data-j="2">실켓은 가스싱잉과 같다.</button>
+<p class="why">실켓=머서라이즈(NaOH). 겉을 태우는 것은 가스싱잉. 옛 교재 오류.</p></div>
+<div class="q" data-a="1"><b>14. 쮸리는 특양면 타올 가공인가?</b>
+<button data-j="0">맞다. 특양면 안쪽을 타올처럼 가공한다.</button><button data-j="1">아니다. 프렌치테리 조직.</button><button data-j="2">컷파일 타올 테리다.</button>
+<p class="why">쮸리 = french terry. 타올 컷파일 아님. 특양면 후가공이 아님.</p></div>
+<div class="q" data-a="2"><b>15. 작지에는 어느 말을 쓰나?</b>
+<button data-j="0">교육말만</button><button data-j="1">영문만</button><button data-j="2">현장말. 교육 페이지는 둘을 나란히.</button>
+<p class="why">작지·원단칸·봉제 지시=현장말. 이 교육 페이지는 현장말과 교육말을 나란히.</p></div>
+
+<footer>교육자료 · 편직</footer>
+</div>
+<script src="_edu.js"></script>
+</body></html>
