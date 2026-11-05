@@ -1,7 +1,7 @@
-/* MARU 데이터 복호 게이트 v2 — 비밀번호/해시를 담지 않음. 데이터는 *.enc(AES-GCM)로만 배포. */
+/* 데이터 복호 게이트 v2 — 비밀번호/해시를 담지 않음. 데이터는 *.enc(AES-GCM)로만 배포. */
 (function () {
   'use strict';
-  var SKEY = 'maru_pages_key_v2';           // sessionStorage: {salt, key(raw base64)} — 탭 닫으면 삭제
+  var SKEY = 'pages_key_v2';           // sessionStorage: {salt, key(raw base64)} — 탭 닫으면 삭제
   // 사이트 루트 = 이 스크립트(<루트>/js/secure-gate.js)의 한 단계 위. 저장소 이름·호스팅 경로와 무관
   var BASE = new URL('..', (document.currentScript && document.currentScript.src) || location.href).pathname;
   var ITER = 600000;
@@ -53,22 +53,22 @@
       function mount() {
         if (!ui) {
           var w = document.createElement('div');
-          w.id = 'maru-auth-gate';
+          w.id = 'pg-auth-gate';
           w.setAttribute('style', 'position:fixed;inset:0;z-index:2147483647;background:#0f172a;display:flex;align-items:center;justify-content:center;font-family:sans-serif;');
           w.innerHTML =
-            '<form id="maru-auth-form" style="background:#fff;box-sizing:border-box;padding:28px 24px;border-radius:12px;width:min(92vw,380px);box-shadow:0 12px 40px rgba(0,0,0,.35)">' +
-            '<div style="font-size:20px;font-weight:800;color:#1c3558;margin-bottom:8px">MARU 대시보드</div>' +
+            '<form id="pg-auth-form" style="background:#fff;box-sizing:border-box;padding:28px 24px;border-radius:12px;width:min(92vw,380px);box-shadow:0 12px 40px rgba(0,0,0,.35)">' +
+            '<div style="font-size:20px;font-weight:800;color:#1c3558;margin-bottom:8px">생산 대시보드</div>' +
             '<div style="font-size:16px;font-weight:600;color:#1e293b;margin-bottom:16px">비밀번호를 입력하세요<br><span style="font-size:15px;font-weight:600;color:#334155">한 번 입력하면 탭을 닫을 때까지 유지됩니다</span></div>' +
-            '<input id="maru-auth-pass" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;padding:12px;font-size:17px;color:#0f172a;border:2px solid #1c3558;border-radius:8px;margin-bottom:10px" />' +
-            '<div id="maru-auth-err" role="alert" style="display:none;font-size:16px;font-weight:700;color:#b91c1c;margin-bottom:10px">비밀번호가 맞지 않습니다. 다시 입력하세요.</div>' +
-            '<div id="maru-auth-wait" style="display:none;font-size:16px;font-weight:600;color:#1c3558;margin-bottom:10px">확인 중…</div>' +
+            '<input id="pg-auth-pass" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;padding:12px;font-size:17px;color:#0f172a;border:2px solid #1c3558;border-radius:8px;margin-bottom:10px" />' +
+            '<div id="pg-auth-err" role="alert" style="display:none;font-size:16px;font-weight:700;color:#b91c1c;margin-bottom:10px">비밀번호가 맞지 않습니다. 다시 입력하세요.</div>' +
+            '<div id="pg-auth-wait" style="display:none;font-size:16px;font-weight:600;color:#1c3558;margin-bottom:10px">확인 중…</div>' +
             '<button type="submit" style="width:100%;padding:12px;font-size:17px;font-weight:800;color:#fff;background:#1c3558;border:0;border-radius:8px;cursor:pointer">열기</button></form>';
           document.body.appendChild(w);
           document.documentElement.style.overflow = 'hidden';
           ui = { w: w };
         }
-        var input = document.getElementById('maru-auth-pass'), err = document.getElementById('maru-auth-err'), wait = document.getElementById('maru-auth-wait');
-        var form = document.getElementById('maru-auth-form');
+        var input = document.getElementById('pg-auth-pass'), err = document.getElementById('pg-auth-err'), wait = document.getElementById('pg-auth-wait');
+        var form = document.getElementById('pg-auth-form');
         form.onsubmit = function (ev) {
           ev.preventDefault(); err.style.display = 'none'; wait.style.display = 'block';
           resolve({
@@ -129,10 +129,61 @@
       var html = new TextDecoder().decode(b);
       document.open(); document.write(html); document.close();
       hookLinks(document);
+      if (typeof nasMark === 'function') nasMark(document, BASE);
     }).catch(function (e) {
       document.body.insertAdjacentHTML('afterbegin', '<div style="font:700 17px sans-serif;color:#b91c1c;background:#fff;padding:16px">페이지를 열지 못했습니다: ' + e.message + '</div>');
     });
   }
-  window.MaruSecure = { bytes: bytes, page: page, blobUrl: blobUrl, hookLinks: hookLinks,
+  window.PageSecure = { bytes: bytes, page: page, blobUrl: blobUrl, hookLinks: hookLinks,
     json: function (url) { return bytes(url).then(function (b) { return JSON.parse(new TextDecoder().decode(b)); }); } };
 })();
+
+/* 「NAS 전용」 공통 규칙 (단일 원본). 빌드가 secure-gate.js 끝에 붙이고, NAS 링크가 있는 공개 페이지엔 인라인으로 넣는다.
+   웹(file: 아님)에서 사이트 루트 밖 또는 생산부/·GOODTRUST/ 경로를 가리키는 a → 클릭 불가 표시, img → 「NAS 전용」 칸. 동적 생성도 MutationObserver로 처리. */
+function nasMark(doc, base) {
+  if (location.protocol === 'file:') return;
+  var NAS_RE = /\/(생산부|1\. ?GOODTRUST|GOODTRUST)\//;
+  var CSS = 'font-weight:800;color:#7c2d12;background:#fff7ed;border:2px solid #9a3412;border-radius:6px;padding:1px 6px;font-size:max(14px,1em);line-height:1.5;cursor:not-allowed;';
+  function isNas(v) {
+    if (!v || /^(#|javascript:|mailto:|tel:|data:|blob:)/i.test(v)) return false;
+    var u; try { u = new URL(v, location.href); } catch (e) { return false; }
+    if (u.protocol === 'file:') return true;
+    if (u.origin !== location.origin) return false;
+    var p; try { p = decodeURIComponent(u.pathname); } catch (e) { p = u.pathname; }
+    return u.pathname.indexOf(base) !== 0 || NAS_RE.test(p);
+  }
+  function fix(root) {
+    if (!root || !root.querySelectorAll) return;
+    var as = root.querySelectorAll('a[href]'), i;
+    for (i = 0; i < as.length; i++) {
+      var a = as[i]; if (!isNas(a.getAttribute('href'))) continue;
+      var s = doc.createElement('span'); s.setAttribute('data-nas-only', 'a');
+      s.title = 'NAS 전용 · 사내 Z 드라이브에서 열기'; s.setAttribute('style', CSS);
+      s.appendChild(doc.createTextNode('「NAS 전용」 '));
+      while (a.firstChild) s.appendChild(a.firstChild);
+      a.parentNode.replaceChild(s, a);
+    }
+    var im = root.querySelectorAll('img[src]');
+    for (i = 0; i < im.length; i++) {
+      var g = im[i]; if (!isNas(g.getAttribute('src'))) continue;
+      var b = doc.createElement('span'); b.setAttribute('data-nas-only', 'img'); b.title = 'NAS 전용 · 사내 Z 드라이브에서 보기';
+      b.setAttribute('style', CSS + 'display:inline-flex;align-items:center;justify-content:center;min-width:96px;min-height:64px;width:' + (g.getAttribute('width') ? g.getAttribute('width') + 'px' : '100%') + ';box-sizing:border-box;');
+      b.textContent = 'NAS 전용';
+      g.parentNode.replaceChild(b, g);
+    }
+  }
+  fix(doc);
+  try {
+    new MutationObserver(function (ms) {
+      for (var i = 0; i < ms.length; i++) {
+        if (ms[i].type === 'attributes') { fix(ms[i].target.parentNode); continue; }
+        for (var j = 0; j < ms[i].addedNodes.length; j++) { var n = ms[i].addedNodes[j]; if (n.nodeType === 1) fix(n.parentNode || n); }
+      }
+    }).observe(doc.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['href', 'src'] });
+  } catch (e) {}
+  // 안전망: 그래도 남은 NAS 링크 클릭은 막음(404 이동 없음)
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+    if (a && isNas(a.getAttribute('href'))) { ev.preventDefault(); ev.stopPropagation(); }
+  }, true);
+}

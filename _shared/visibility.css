@@ -1,4 +1,4 @@
-/* MARU dashboard visibility — R10 */
+/* dashboard visibility — R10 */
 :root{
   --bg:#ffffff; --card:#fff; --ink:#1c2a3a; --muted:#3e4c5c; /* 2026-10-09: was #5a6b7d (5.5:1) -> 8.8:1 on #fff, >=7.6:1 on #f0f4f8/#f4f0e8 */
   --navy:#1c3558; --blue:#2f6fed; --heat:#c45c26; --ok:#1f8a4c; --warn:#d97706; --danger:#c0392b;

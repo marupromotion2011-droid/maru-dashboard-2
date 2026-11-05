@@ -1,7 +1,7 @@
-/*! MARU fold-nav — NAS/file:///mobile safe */
+/*! fold-nav — NAS/file:///mobile safe */
 (function () {
-  if (window.__MARU_FOLD_NAV__) return;
-  window.__MARU_FOLD_NAV__ = true;
+  if (window.__FOLD_NAV__) return;
+  window.__FOLD_NAV__ = true;
 
   function scriptBase() {
     var nodes = document.getElementsByTagName("script");
