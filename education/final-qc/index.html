@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -86,22 +86,19 @@ html{background:var(--paper)}
   <span class="pill">완성 ≠ 원단 롤</span>
 </div>
 
-<figure class="hero">
-  <img src="img/aql-flow-hq.png" alt="로트에서 뽑아 통과 반려 정하는 공개 연습 흐름">
-  <figcaption>그림 1. 공개 연습 숫자: 옷 5000장 → 보통 II → 코드 L → 200장 → 큰문제 예 통과10/반려11. 공장 규칙 아님. 바이어 스펙.</figcaption>
-</figure>
+<p class="src">뽑아 보기(AQL) 흐름: 로트 → 검사 수준 고르기 → 샘플 뽑기 → 판정(통과/반려). 공개 연습 숫자: 옷 5000장 → 보통 II → 코드 L → 200장. 공장 규칙이 아니다. 작지·바이어.</p>
 
-<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<h2 id="why">왜 배우나 <span>왜</span></h2>
 <div class="grid">
   <div class="card"><b>최종·출하 전</b><div class="en">FINAL</div><p>완성 옷을 몇 장 뽑아 본다. 라인 중 잡기와 시점·목적이 다르다.</p></div>
-  <div class="card"><b>전수가 기본은 아님</b><div class="en">SAMPLE</div><p>공개 업계는 정해진 장수만 뽑는다. 전수는 바이어·리스크가 따로 정할 때.</p></div>
+  <div class="card"><b>전수가 기본은 아니다</b><div class="en">SAMPLE</div><p>공개 업계는 정해진 장수만 뽑는다. 전수는 바이어·리스크가 따로 정할 때.</p></div>
   <div class="card"><b>합격 = 바이어</b><div class="en">SPEC</div><p>이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p></div>
 </div>
 <p class="note"><b>라인 QC</b>: 봉제 중·직후 공정 안 잡기. <b>완성검사</b>: 로트·출하 단위로 뽑아 판정. 짧게만 — 둘 다 필요, 하나가 다른 하나를 대신하지 않는다.</p>
 
 <h2 id="aql">뽑아 보는 방식 <span>표본</span></h2>
-<p>쉬운 말: 전량 안 보고, 정해진 장수만 보고 통과/반려를 정한다. 공개 업계에서 자주 쓰는 방식이다.<br>
-<span class="src">표준 이름(참고): AQL · ISO 2859-1. 표 읽는 법만 — 공장 검사 매뉴얼 아님.</span></p>
+<p>전량 안 보고, 정해진 장수만 보고 통과/반려를 정한다. 공개 업계에서 자주 쓰는 방식이다.<br>
+<span class="src">표준 이름(참고): AQL · ISO 2859-1. 표 읽는 법만 — 공장 검사 매뉴얼이 아니다.</span></p>
 <div class="grid">
   <div class="card"><b>검사 수준</b><div class="en">LEVEL</div><p>일반 I / II / III. 공개 기본은 종종 II. 바이어가 지정.</p></div>
   <div class="card"><b>코드 문자</b><div class="en">CODE</div><p>로트 크기 + 수준 → 샘플 코드(예: L). 그다음 뽑는 장수·통과/반려 수.</p></div>
@@ -119,12 +116,9 @@ html{background:var(--paper)}
 </tbody>
 </table>
 </div>
-<p class="warn"><b>공개 연습 숫자.</b> 공장 규칙으로 제시하지 않는다. 이 페이지 예가 공장 합격·불합격이 아님. 바이어 SPEC·계약서를 확인.</p>
+<p class="warn"><b>공개 연습 숫자.</b> 공장 규칙으로 제시하지 않는다. 이 페이지 예가 공장 합격·불합격이 아니다. 바이어 SPEC·계약서를 확인.</p>
 
-<figure class="pic">
-  <img src="img/aql-sample-flow.png" alt="AQL 샘플 흐름 도식: 로트·수준·샘플·판정">
-  <figcaption>그림 1b. 뽑아 보기 흐름 도식(영문 라벨). 숫자는 공개 연습 예. 공장 규칙 아님. 작지·바이어.</figcaption>
-</figure>
+
 
 <h2 id="class">결함 급 <span>분류</span></h2>
 <div class="grid">
@@ -134,16 +128,13 @@ html{background:var(--paper)}
 </div>
 <p class="note">급 정의·숫자는 계약마다 다르다. “자주 보는 예”는 공개 관행 힌트일 뿐.</p>
 
-<h2 id="tee">티셔츠 체크 포인트 <span>티셔츠</span></h2>
+<h2 id="tee">티셔츠에서 볼 것 <span>티셔츠</span></h2>
 <figure class="hero">
-  <img src="img/aql-checklist-hq.png" alt="완성 티 뽑아 볼 때 체크 목록">
-  <figcaption>그림 2. 치수·솔기·색·라벨·바늘·프린트·패킹. 공개 예 목록. 허용은 바이어.</figcaption>
+  <img src="img/aql-checklist.jpg" alt="노란 조끼 작업자가 탁자 위에 흰 티셔츠를 펴 놓고 살펴보는 검사 현장">
+  <figcaption>그림 1. 완성 티셔츠 검사 현장. 다 만든 티를 탁자에 펴 놓고 치수 · 솔기 · 색 · 라벨 · 프린트 · 얼룩을 하나씩 본다. 확인 항목과 허용 범위는 바이어가 정한다. 사진: Fahad Faisal, CC BY-SA 4.0, 위키미디어 공용</figcaption>
 </figure>
 
-<figure class="pic">
-  <img src="img/qc-checklist-board.png" alt="완성검사 체크 항목 보드 도식">
-  <figcaption>그림 2b. 완성 티 체크 보드(영문 라벨). 항목 안내일 뿐 합격 기준 아님. 작지·바이어.</figcaption>
-</figure>
+<p class="src">체크 항목: 치수 · 솔기 · 색 · 라벨 · 바늘(부러진 바늘 확인) · 프린트 · 패킹. 항목 안내일 뿐 합격 기준이 아니다. 작지·바이어.</p>
 <div style="overflow:auto">
 <table>
 <thead><tr><th>포인트</th><th>보는 것(공개 예)</th></tr></thead>
@@ -162,13 +153,13 @@ html{background:var(--paper)}
 <h2 id="vs">원단검사와 가름 <span>가름</span></h2>
 <div class="grid">
   <div class="card"><b>원단 롤 검사</b><div class="en">FABRIC</div><p><a href="../fabric-inspect/index.html">원단검사</a>는 롤 시각 4점(ASTM D5430 계열). 재단 전 원단.</p></div>
-  <div class="card"><b>완성 옷 검사</b><div class="en">GARMENT</div><p>이 칸은 완성 옷·출하 단위로 뽑아 본다. 원단 롤 검사를 대신하지 않는다.</p></div>
+  <div class="card"><b>완성 옷 검사</b><div class="en">GARMENT</div><p>이 페이지는 완성 옷·출하 단위로 뽑아 본다. 원단 롤 검사를 대신하지 않는다.</p></div>
 </div>
 <p class="note">원단이 깨끗해도 봉제·프린트·라벨에서 떨어질 수 있다. 둘 다 별개 칸.</p>
 
 <figure class="pic">
-  <img src="img/fabric-inspection-machine.jpg" alt="원단 롤 검단기 — 완성 옷 검사와 다른 칸">
-  <figcaption>그림 3. 원단 롤 검단 설비 예(실사). <b>완성검사 칸이 아님</b> — 재단 전 원단 쪽. 자세한 내용은 <a href="../fabric-inspect/index.html">원단검사</a>.</figcaption>
+  <img src="img/fabric-inspection-machine.jpg" alt="원단 롤을 풀어 비스듬한 판 위로 넘기는 검단기">
+  <figcaption>그림 2. 원단 검단기. 완성검사가 아니라 재단 전 원단을 보는 기계다. 자세한 내용은 원단검사. 사진: Jamain, CC BY-SA 4.0, 위키미디어 공용</figcaption>
 </figure>
 
 <h2 id="vid">영상 <span>영상</span></h2>
@@ -185,7 +176,7 @@ html{background:var(--paper)}
 <p class="why">공개 표: 3201–10000 · II → L → 200.</p></div>
 <div class="q" data-a="2"><b>3. 공개 연습: 큰문제 2.5 · 코드 L의 통과/반려는?</b>
 <button data-j="0">통과 0 / 반려 1</button><button data-j="1">통과 21 / 반려 22</button><button data-j="2">통과 10 / 반려 11</button>
-<p class="why">공개 연습 숫자. 공장 규칙 아님.</p></div>
+<p class="why">공개 연습 숫자. 공장 규칙이 아니다.</p></div>
 <div class="q" data-a="1"><b>4. 위험에 공개에서 자주 쓰는 것은?</b>
 <button data-j="0">4.0</button><button data-j="1">하나라도 안 됨(AQL 0 등)</button><button data-j="2">샘플 생략</button>
 <p class="why">종종 AQL 0. 항상 바이어 스펙.</p></div>
@@ -196,10 +187,10 @@ html{background:var(--paper)}
 <button data-j="0">같은 칸</button><button data-j="1">완성만 하면 원단검사 생략</button><button data-j="2">원단=롤 검사, 완성=옷 뽑기 — 별개</button>
 <p class="why">../원단검사/</p></div>
 <div class="q" data-a="1"><b>7. 라인 QC와 완성검사의 짧은 가름은?</b>
-<button data-j="0">이름만 다름</button><button data-j="1">라인=공정 중 잡기, 완성=로트·출하 뽑아 판정</button><button data-j="2">완성만 하면 라인 불필요</button>
-<p class="why">시점·단위가 다름. 둘 다 필요.</p></div>
+<button data-j="0">이름만 다르다</button><button data-j="1">라인=공정 중 잡기, 완성=로트·출하 뽑아 판정</button><button data-j="2">완성만 하면 라인 불필요</button>
+<p class="why">시점·단위가 다르다. 둘 다 필요.</p></div>
 <div class="q" data-a="0"><b>8. 표의 5000→200→통과10은?</b>
-<button data-j="0">공개 연습 숫자. 공장 규칙으로 쓰지 말 것</button><button data-j="1">모든 공장에 강제</button><button data-j="2">티셔츠 법정 최소</button>
+<button data-j="0">공개 연습 숫자. 공장 규칙으로 쓰지 않는다</button><button data-j="1">모든 공장에 강제</button><button data-j="2">티셔츠 법정 최소</button>
 <p class="why">바이어 SPEC. 이 페이지 예로 공장 합격을 정하지 않는다.</p></div>
 
 <footer>교육자료 · 완성검사</footer>

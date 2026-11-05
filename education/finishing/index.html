@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -70,11 +70,48 @@ html{background:var(--paper)}
 .fold-nav{position:relative}
 .sec-nav{top:0}
 </style>
+<style id="v5viz">
+.vz{background:radial-gradient(120% 90% at 30% 0%,#fffdf8 0%,#f4f0e8 70%);padding:30px 28px 26px;color:#1c3558;font-size:17px;line-height:1.45;border-bottom:1px solid #e4dccd}
+.vz *{box-sizing:border-box}
+.vz .ttl{font-weight:800;font-size:18px;margin:0 0 14px}
+.vz .row{display:grid;grid-template-columns:120px 1fr 120px;gap:16px;align-items:center;margin:18px 0}
+.vz .lab{font-weight:800}.vz .val{font-weight:700;color:#c45c26;text-align:right}
+.vz .sub{display:block;font-weight:500;color:#5c6570;font-size:14px}
+.vz .yarn{border-radius:999px;box-shadow:0 6px 10px -4px rgba(28,53,88,.45);background:repeating-linear-gradient(118deg,rgba(255,255,255,.0) 0 7px,rgba(255,255,255,.35) 7px 9px,rgba(0,0,0,.08) 9px 12px),linear-gradient(180deg,#fffef9 0%,#efe6d3 45%,#cdbf9f 100%)}
+.vz .seg{height:46px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;position:relative}
+.vz .cot{background:repeating-linear-gradient(118deg,transparent 0 7px,rgba(255,255,255,.45) 7px 9px,rgba(0,0,0,.07) 9px 12px),linear-gradient(180deg,#fffef9 0%,#efe6d3 45%,#cbbd9c 100%);color:#1c3558}
+.vz .pol{background:repeating-linear-gradient(118deg,transparent 0 7px,rgba(255,255,255,.18) 7px 9px,rgba(0,0,0,.18) 9px 12px),linear-gradient(180deg,#5a7cab 0%,#1c3558 55%,#0f2140 100%);color:#fff}
+.vz .org{background:linear-gradient(180deg,#f0a06c 0%,#c45c26 55%,#8f3f15 100%);color:#fff}
+.vz .track{position:relative;border-radius:999px;display:flex;overflow:hidden;box-shadow:0 8px 14px -6px rgba(28,53,88,.5),inset 0 0 0 1px rgba(28,53,88,.15)}
+.vz .half{position:absolute;top:-8px;bottom:-8px;left:50%;border-left:3px dashed #c45c26}
+.vz .leg{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;color:#5c6570;margin-top:10px}
+.vz .leg i{display:inline-block;width:26px;height:16px;border-radius:8px;vertical-align:-2px;margin-right:6px}
+.vz .ball{display:inline-block;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 6%,#f6b48a 14%,#c45c26 52%,#7a3410 100%);box-shadow:0 4px 6px rgba(0,0,0,.25)}
+.vz .xs{border-radius:50%;background:radial-gradient(circle at 34% 30%,#fffef9 0 10%,#efe6d3 40%,#b9a882 100%);box-shadow:0 5px 8px rgba(28,53,88,.35);margin:auto}
+.vz .card{background:#fffcf7;border:1px solid #e4dccd;border-radius:16px;padding:18px;box-shadow:0 10px 20px -12px rgba(28,53,88,.35)}
+.vz .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vz .ruler{height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,#1c3558 0 2px,transparent 2px 10%),linear-gradient(180deg,#f3e2b3,#d9c07e);box-shadow:0 3px 5px rgba(0,0,0,.2)}
+.vz .note2{font-size:15px;color:#5c6570;margin-top:12px}
+.vz .row4{display:grid;grid-template-columns:120px 1fr 90px 130px;gap:16px;align-items:center;margin:18px 0}
+.vz .rowf{grid-template-columns:130px 1fr 170px}
+.vz .seg .st{position:relative;z-index:2;white-space:nowrap;padding:2px 8px;border-radius:999px}
+.vz .cot .st{background:rgba(255,253,248,.85)}
+.vz .half{z-index:1}
+.vz .plist{display:none;margin-top:10px;font-weight:800;color:#c45c26;font-size:15px}
+.vz .therm{display:grid;grid-template-columns:60px repeat(4,1fr);gap:10px;align-items:end}
+.vz .tube{height:300px}.vz .tsc{height:300px}
+@media(max-width:640px){.vz{padding:22px 14px}.vz .row,.vz .row4,.vz .rowf{grid-template-columns:1fr auto;gap:8px 12px;margin:14px 0}
+.vz .row .lab,.vz .row4 .lab,.vz .rowf .lab{grid-column:1/-1}
+.vz .row4 .xsw{display:none}.vz .two{grid-template-columns:1fr}
+.vz .seg{font-size:13px}.vz .seg .st{padding:1px 5px}
+.vz .pl{display:none}.vz .plist{display:block}
+.vz .therm{grid-template-columns:repeat(2,1fr);gap:22px 10px}.vz .tscw{display:none}.vz .tube{height:200px}}
+</style>
 </head>
 <body>
 <nav class="sec-nav"><div class="in">
-  <a href="#why">왜</a><a href="#map">본선</a><a href="#when">가공</a>
-  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#quiz">퀴즈</a>
+  <a href="#why">왜</a><a href="#map">본선</a><a href="#when">가공</a><a href="#types">종류</a><a href="#gsm">무게</a><a href="#shrinktest">수축 재기</a><a href="#spiral">비틀림</a>
+  <a href="#gloss">용어</a><a href="#art">그림</a><a href="#vid">영상</a><a href="#caution">주의</a><a href="#quiz">퀴즈</a>
 </div></nav>
 <div class="wrap">
 <p class="kicker">교육자료 · 후가공</p>
@@ -87,103 +124,205 @@ html{background:var(--paper)}
 </div>
 
 <figure class="hero">
-  <img src="img/finish-line-hq.png" alt="저지 후가공 본선 쉬운 말">
-  <figcaption>그림 1. 쉬운 말 본선: 패딩(약제) → 텐터(폭·열) → 컴팩터(수축 미리 잡기) → 롤. 목표·온도창은 작지·바이어.</figcaption>
+  <img src="img/finish-line.jpg" alt="열풍 방이 한 줄로 길게 이어진 텐터 기계 전체, 위에 은색 배관">
+  <figcaption>그림 1. 텐터(스텐터) 전체 모습. 은색 배관 아래 열풍 방이 한 줄로 길게 이어져 있다. 원단은 한쪽 끝에서 들어가 양옆을 핀 체인에 잡힌 채 방들을 지나며 폭이 잡히고 마른다. 앞에서 약제를 먹이는 패딩과 뒤의 컴팩터는 이 사진 밖에 있다. 상표는 흐리게 지우고 색을 보정했다. 사진: Adlerhorst321, CC BY-SA 3.0, 위키미디어 공용</figcaption>
 </figure>
 
 <figure class="pic">
-  <img src="img/finishing-stenter-line.png" alt="니트 저지 후가공 라인: 그레이지·패딩·텐터·컴팩터·롤">
-  <figcaption>그림 2. 니트(저지) 후가공 라인: 그레이지 투입 → 패딩(약제, 염색 아님) → 텐터(폭·열·GSM) → 컴팩터(오버피드·잔류수축) → 완제품 롤. 이미지 영문은 도식용. 숫자창은 작지·바이어.</figcaption>
+  <img src="img/finishing-stenter-line.jpg" alt="둥근 통 안에 빨간 원단이 둘레로 담긴 원심 탈수기">
+  <figcaption>그림 2. 원심 탈수기. 염색이 끝난 원단을 통에 넣고 빠르게 돌려 물을 뺀다. 그 다음 텐터에서 폭·무게(GSM)를 잡고, 컴팩터에서 길이 수축을 미리 뺀다. 숫자는 작지·바이어. 사진: RAJIVVASUDEV, CC BY-SA 4.0, 위키미디어 공용</figcaption>
 </figure>
+<figure class="pic"><img src="img/tenter-frame-museum.jpg" alt="나무와 쇠로 된 옛 틀에 흰 모직 천을 위아래 가장자리 갈고리로 걸어 팽팽하게 편 사진."><figcaption>사진. 옛날 텐터 틀(박물관에 있는 옛 기계). 천 가장자리를 갈고리에 걸어 폭을 펴 놓고 말렸다. 지금 공장의 텐터는 핀이나 집게가 원단 양옆을 잡고 열 속을 지나가지만, 폭을 잡아 편다는 뜻은 같다. 사진: Clem Rutter, CC BY 3.0, 위키미디어 공용</figcaption></figure>
 
-<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<h2 id="why">왜 배우나 <span>왜</span></h2>
 <div class="grid">
   <div class="card"><b>본선 세 칸</b><div class="en">KNIT TEE</div><p>염색이 색을 넣으면 후가공은 치수와 손맛을 잠근다. 약제는 패딩, 폭·열은 텐터, 세탁 수축은 컴팩터.</p></div>
-  <div class="card"><b>폭·열 잡기 = 텐터</b><div class="en">STENTER</div><p>핀·클립이 변부를 잡고 열풍으로 건조·열고정. 한국어 mill 말. 天塔이 아니다. 저지 니트는 거의 핀 텐터.</p></div>
+  <div class="card"><b>폭·열 잡기 = 텐터</b><div class="en">STENTER</div><p>핀·클립이 변부를 잡고 열풍으로 건조·열고정. 현장에서 부르는 말. 저지 니트는 거의 핀 텐터.</p></div>
   <div class="card"><b>수축 미리 잡기 = 컴팩터</b><div class="en">COMPACT</div><p>펠트·고무벨트로 루프를 이완한다. 텐터(열)와 역할이 다르다. 스판 혼방은 텐터가 먼저다.</p></div>
 </div>
-<p class="fix">옛 슬라이드가 텐터를 天塔으로 적었다. <b>틀림.</b> 天塔은 한국어 mill 용어가 아니다. RAM TUMBLING / SNAILER / ASTRA와 전모·해모·폴리싱은 파일·플리스 레거시다. 저지 티셔츠 코어가 아니다.</p>
+<p class="fix">파일 텀블·기모 설비와 전모·해모·폴리싱은 파일·플리스 원단용이다. 저지 티셔츠 본선 공정이 아니다.</p>
 <p class="note">잔류수축 3–5%는 흔히 인용되는 상업 범위일 뿐, <b>공장 목표가 아니다.</b> 이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어를 본다. ZDHC MRSL·OEKO-TEX는 바이어가 요구할 때의 계약 언어. 저욕비 1:5는 공개 소프트플로 예시. 현장 설비 액비는 작지·설비를 본다.</p>
 
 <h2 id="map">본선 × 역할 <span>지금</span></h2>
 <div style="overflow:auto">
 <table>
-<thead><tr><th>쉬운 말</th><th>지금 말</th><th>English</th><th>하는 일</th><th>메모</th></tr></thead>
+<thead><tr><th>쉬운 말</th><th>지금 말</th><th>영어</th><th>하는 일</th><th>메모</th></tr></thead>
 <tbody>
-<tr><td>약제 적시기</td><td>패딩</td><td>pad</td><td>약제 pickup</td><td>유연·수지·기능제. 본선 첫 칸.</td></tr>
-<tr><td>폭·열 잡기</td><td>텐터</td><td>stenter / tenter</td><td>폭고정·열고정·큐어링</td><td>핀 텐터. 오버피드. 天塔 아님.</td></tr>
+<tr><td>약제 적시기</td><td>패딩</td><td>pad</td><td>약제 묻히기(pickup)</td><td>유연·수지·기능제. 본선 첫 칸.</td></tr>
+<tr><td>폭·열 잡기</td><td>텐터</td><td>stenter / tenter</td><td>폭고정·열고정·큐어링</td><td>핀 텐터. 오버피드.</td></tr>
 <tr><td>수축 미리 잡기</td><td>컴팩터</td><td>compactor</td><td>남는 수축 이완</td><td>튜블러 / 오픈와이드. 펠트·고무벨트.</td></tr>
 <tr><td>일반 열고정</td><td>노말가공</td><td>normal finish</td><td>기능제 없는 기본</td><td>기능제 없는 텐터 코스.</td></tr>
 <tr><td>가벼운 머서</td><td>약실켓</td><td>light mercerize</td><td>라이트 머서라이즈</td><td>우븐 본실켓을 저지에 그대로 쓰지 않는다.</td></tr>
-<tr><td>선택 표면</td><td>캘린더 · 피칭</td><td>calender / peach</td><td>평활·짧은 잔털</td><td>필수는 아님. 기모·전모와 구분.</td></tr>
-<tr><td>파일·플리스 레거시</td><td>RAM / SNAILER / ASTRA</td><td>legacy pile</td><td>텀블·기모·광택</td><td>파일·플리스. 티셔츠 코어 아님.</td></tr>
+<tr><td>선택 표면</td><td>캘린더 · 피칭</td><td>calender / peach</td><td>평활·짧은 잔털</td><td>필수는 아니다. 기모·전모와 구분.</td></tr>
+<tr><td>파일·플리스 전용</td><td>파일 텀블 · 기모 설비</td><td>pile tumbling / raising</td><td>텀블·기모·광택</td><td>파일·플리스. 티셔츠 본선이 아니다.</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2 id="when">가공을 넣는 칸 <span>언제</span></h2>
+<h2 id="when">가공을 넣는 자리 <span>언제</span></h2>
 <div class="grid">
   <div class="card"><b>약제 적시기(패딩)</b><div class="en">1 PAD</div><p>실리콘 유연·수지·흡습·항필을 골고루 묻힌다. 본선 입구.</p></div>
-  <div class="card"><b>폭·열 잡기(텐터)</b><div class="en">2 STENTER</div><p>열×시간×장력이 한 세트. 현장 인용 창(코튼-스판 저지 공개 예): 175–180°C, 체류 35–50초, 오버피드 15–25%. <b>공장 창이 아니다.</b> 작지·설비를 본다. 온도만 올리면 엘라스테인이 먼저 죽는다.</p></div>
+  <div class="card"><b>폭·열 잡기(텐터)</b><div class="en">2 STENTER</div><p>열×시간×장력이 한 세트. 현장에서 인용하는 범위(코튼-스판 저지 공개 예): 175–180°C, 체류 35–50초, 오버피드 15–25%. <b>공장 기준이 아니다.</b> 작지·설비를 본다. 온도만 올리면 엘라스테인이 먼저 죽는다.</p></div>
   <div class="card"><b>수축 미리 잡기(컴팩터)</b><div class="en">3 COMPACT</div><p>세탁이 할 일을 미리 한다. 길이 수축을 기계적으로 잠근다. 컴팩터만으로 스판덱스 열기억은 못 잡는다.</p></div>
   <div class="card"><b>촉감</b><div class="en">4 HAND</div><p>캘린더(평활)·피칭(짧은 잔털)·효소(셀룰라제)·친수 실리콘. 과하면 종이 촉감·구멍.</p></div>
   <div class="card"><b>기능 · 약실켓</b><div class="en">5 FUNC</div><p>흡습속건·항필링·저포름 수지. 약실켓=가벼운 머서(라이트 머서라이즈). 노말가공=일반 열고정(기능제 없음).</p></div>
-  <div class="card"><b>원단 vs 의류</b><div class="en">6 PRINT</div><p>로터리 안료 / 반응성 / 디지털 안료는 원단 단. DTG·DTF는 완성 티셔츠. 상세는 <a href="../print/index.html">프린트</a> 칸. 날염 dump 금지.</p></div>
+  <div class="card"><b>원단 vs 의류</b><div class="en">6 PRINT</div><p>로터리 안료 / 반응성 / 디지털 안료는 원단 단. DTG·DTF는 완성 티셔츠. 상세는 <a href="../print/index.html">프린트</a> 페이지.</p></div>
 </div>
 
+<h2 id="types">목적별 후가공 <span>종류</span></h2>
+<p>후가공은 짜거나 엮은 원단에 물리적·화학적 처리를 해서 겉모습, 촉감, 성능을 좋게 하는 마지막 공정이다. 목적에 따라 크게 세 갈래로 나눈다.</p>
+<h3>1. 겉모습 · 촉감 가공 (주로 기계 가공, 실켓·유연은 화학 처리)</h3>
+<div class="grid">
+<div class="card"><b>기모</b><div class="en">NAPPING / RAISING</div><p>원단 겉의 섬유를 긁어 일으킨다. 부드럽고 따뜻해진다. 예: 플리스, 기모 맨투맨.</p></div>
+<div class="card"><b>캘린더</b><div class="en">CALENDERING</div><p>뜨거운 롤러 사이로 눌러 지나게 한다. 겉이 매끈해지고 광택이 난다.</p></div>
+<div class="card"><b>피치 스킨 · 샌드 워시</b><div class="en">PEACH SKIN / SAND WASH</div><p>고운 사포나 모래로 겉을 살짝 긁는다. 복숭아 껍질처럼 보들보들해진다.</p></div>
+<div class="card"><b>엠보싱</b><div class="en">EMBOSSING</div><p>무늬를 새긴 롤러로 열과 압력을 주어 겉에 도톰한 무늬를 찍는다.</p></div>
+<div class="card"><b>실켓</b><div class="en">MERCERIZATION · 화학 처리</div><p>면을 진한 가성소다(수산화나트륨) 액에 처리한다. 실크 같은 광택이 나고 염료가 더 잘 먹는다.</p></div>
+<div class="card"><b>유연 가공</b><div class="en">SOFTENING · 화학 처리</div><p>짜고 염색하며 뻣뻣해진 원단에 유연제를 준다. 섬유끼리 마찰이 줄어 부드러워진다.</p></div>
+</div>
+<figure class="pic"><img src="img/raising-machine-old.jpg" alt="큰 옛 기계에 원단 롤이 감겨 있고, 위쪽 롤러 겉에 갈색 가시 열매가 줄지어 박혀 있다" style="min-height:0"><figcaption>그림 3. 옛 기모기(1920년대 기계, 박물관 전시). 젖은 원단을 산토끼꽃 열매(티즐) 가시가 촘촘히 박힌 롤러에 스치게 해 겉의 섬유를 긁어 일으킨다. 지금 공장 기모기는 쇠 바늘 롤러를 쓰지만, 겉 섬유를 긁어 세운다는 원리는 같다. 사진: Imus Eus, CC BY 3.0, 위키미디어 공용</figcaption></figure>
+<h3>2. 기능을 더하는 가공 (주로 화학 가공)</h3>
+<div style="overflow:auto"><table>
+<thead><tr><th>가공</th><th>하는 일</th><th>쓰는 곳 예</th></tr></thead>
+<tbody>
+<tr><td>방수 (waterproof)</td><td>물이 스며들지 않게 막는다. 주로 코팅·막을 입힌다.</td><td>우비, 아웃도어</td></tr>
+<tr><td>발수 (water repellent)</td><td>겉에서 물방울이 굴러 떨어지게 한다. 숨은 쉰다.</td><td>아웃도어, 재킷</td></tr>
+<tr><td>방염 (flame retardant)</td><td>불이 잘 안 붙고, 붙어도 스스로 꺼지게 한다.</td><td>커튼, 소방복</td></tr>
+<tr><td>항균 방취 (anti-microbial)</td><td>세균이 덜 자라 냄새를 줄인다.</td><td>양말, 속옷, 이불</td></tr>
+<tr><td>방추 · 형태 안정 (anti-crease)</td><td>수지로 구김을 덜 가게 한다.</td><td>링클프리 셔츠</td></tr>
+<tr><td>대전 방지 (anti-static)</td><td>정전기를 줄여 먼지가 덜 붙는다.</td><td>합섬 옷, 안감</td></tr>
+<tr><td>자외선 차단 (UV protection)</td><td>자외선을 흡수·반사하는 약품을 준다.</td><td>래시가드, 여름 옷</td></tr>
+<tr><td>흡습 (moisture absorbency)</td><td>폴리·나일론이 땀을 잘 빨고 빨리 내보내게 한다.</td><td>운동복, 이너</td></tr>
+</tbody></table></div>
+<p class="note">방축 가공(산포라이징, 컴팩터)은 약품이 아니라 기계로 미리 줄여 두는 가공이다. 위 <a href="#when">가공을 넣는 자리</a>의 컴팩터를 본다.</p>
+<h3>냉감 가공</h3>
+<p>이미 만든 원단에 약품을 입혀 시원한 느낌을 준다. 실 자체를 바꾸는 것보다 쉽고 싸다. 대신 빨래를 거듭하면 효과가 점점 줄어든다. 그래서 캡슐에 싸거나 접착제(바인더)로 단단히 붙이는 방법을 쓴다.</p>
+<div style="overflow:auto"><table>
+<thead><tr><th>구분</th><th>쓰는 것</th><th>원리</th></tr></thead>
+<tbody>
+<tr><td>열을 빨아들이는 반응</td><td>자일리톨, 에리스리톨</td><td>땀에 녹을 때 주변 열을 빼앗는다. 땀이 나면 바로 시원하다.</td></tr>
+<tr><td>상태가 바뀌는 물질 (PCM)</td><td>캡슐에 싼 파라핀 등</td><td>고체에서 액체로 바뀌며 열을 흡수한다. 냉감 패드·매트에도 쓴다.</td></tr>
+<tr><td>열을 빨리 옮기는 코팅</td><td>특수 수지, 광물 가루</td><td>피부가 닿는 순간 열이 원단으로 빨리 옮겨 가 차갑게 느낀다(접촉 냉감).</td></tr>
+<tr><td>두 가지를 함께</td><td>복합 가공제</td><td>추울 땐 열을 지키고, 땀이 나면 접촉 냉감과 증발 냉각을 같이 낸다.</td></tr>
+</tbody></table></div>
+<div class="card" style="margin-top:12px"><b>접촉 냉감 재는 값 · 큐맥스</b><div class="en">Q-MAX (W/cm²)</div><p>피부가 원단에 닿는 순간 열이 빠져나가는 최대 속도를 잰다. 값이 클수록 더 차갑게 느낀다. 기준값은 바이어 스펙을 본다.</p></div>
+<h3>3. 특수 가공</h3>
+<div class="grid">
+<div class="card"><b>번아웃</b><div class="en">BURN-OUT / DEVORÉ</div><p>섞어 짠 원단에 산 성분 풀을 찍어 한 섬유(주로 면·레이온)만 녹여 낸다. 녹은 자리가 비쳐 무늬가 된다.</p></div>
+<div class="card"><b>코팅</b><div class="en">COATING</div><p>겉에 폴리우레탄(PU)·아크릴 수지를 입힌다. 바람·물을 막거나 독특한 광택을 낸다.</p></div>
+<div class="card"><b>워싱</b><div class="en">WASHING</div><p>일부러 구기며 빨아 자연스러운 잔주름과 부드러운 느낌을 낸다. 예: 워싱 린넨, 워싱 면.</p></div>
+</div>
+<figure class="pic"><img src="img/devore-velvet.jpg" alt="초록 벨벳에 번아웃으로 비치는 꽃무늬가 난 원단 사진"><figcaption>그림 4. 번아웃(데보레) 벨벳. 털 부분을 녹여 낸 자리가 비치는 무늬가 된다. <span class="src">사진: Libby norman, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/wiki/File:Devor%C3%A9_velvet_(also_known_as_burnout_technique).jpg">위키미디어 공용</a></span></figcaption></figure>
+<h2 id="gsm">원단 무게 재기 <span>중량</span></h2>
+<p>가공을 마친 원단은 무게를 재서 스펙과 맞는지 본다. 보통 1 m × 1 m 넓이의 무게(g/m², GSM 또는 SQM)로 말한다.</p>
+<div class="grid">
+<p class="src">원형 시료 칼: 원단을 판 위에 놓고 눌러 100 cm² 둥근 시료를 오려 낸 뒤 저울에 단다.</p>
+<figure class="pic"><div class="vz"><div class="two" style="align-items:center">
+<div class="card" style="text-align:center"><div class="ttl">원단 1 m² (100 cm × 100 cm)</div>
+<div style="position:relative;width:min(100%,320px);aspect-ratio:1;margin:0 auto;border-radius:6px;background:repeating-linear-gradient(0deg,transparent 0 9.6%,rgba(28,53,88,.12) 9.6% 10%),repeating-linear-gradient(90deg,transparent 0 9.6%,rgba(28,53,88,.12) 9.6% 10%),repeating-linear-gradient(118deg,#f8f2e6 0 3px,#ece2cf 3px 6px);box-shadow:0 12px 20px -10px rgba(28,53,88,.5),inset 0 0 0 2px #1c3558">
+<div style="position:absolute;left:0;top:0;width:10%;height:10%;background:linear-gradient(135deg,#f0a06c,#c45c26 60%,#8f3f15);box-shadow:0 2px 4px rgba(0,0,0,.3)"></div></div>
+<div class="note2">격자 한 칸 = 10 cm × 10 cm = 100 cm². 1 m²에 이런 칸이 100개 있다. 주황 칸이 그중 하나다.</div></div>
+<div class="card" style="text-align:center"><div class="ttl">시료 한 장 = 100 cm²</div>
+<div style="position:relative;width:min(100%,300px);aspect-ratio:1;margin:0 auto">
+<div style="position:absolute;left:5.7%;top:5.7%;width:88.6%;height:88.6%;border-radius:4px;background:linear-gradient(135deg,#f6b48a,#e0874f);opacity:.85;box-shadow:inset 0 0 0 2px #c45c26"></div>
+<div style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;background:repeating-linear-gradient(118deg,rgba(248,242,230,.85) 0 3px,rgba(236,226,207,.85) 3px 6px);box-shadow:0 10px 18px -8px rgba(28,53,88,.55),inset 0 0 0 3px #1c3558"></div></div>
+<div class="note2">주황 네모(10 cm × 10 cm)와 원형 칼 시료(지름 약 11.3 cm)는 넓이가 같다(100 cm²). 그래서 시료 무게(g) × 100 = GSM이다.</div></div>
+</div></div><figcaption>그림 5. GSM(1 m² 무게) 재는 원리. 왼쪽 1 m² 원단을 10 cm 격자로 나누면 100칸이고, 주황 칸 하나가 100 cm²다. 오른쪽: 그 10 cm 네모와 지름 약 11.3 cm 원형 시료는 넓이가 같다. 그래서 시료 무게(g) × 100 = GSM이다.</figcaption></figure>
+</div>
+<div class="grid">
+<div class="card"><b>왜 지름 약 11.3 cm인가</b><div class="en">100 cm² CIRCLE</div><p>원형 칼은 100 cm² 넓이(1 m²의 1/100)를 오린다.<br>원 넓이 = π × 반지름².<br>100 ÷ 3.1416 ≈ 31.83 → 반지름 ≈ 5.64 cm → 지름 ≈ 11.28 cm.<br>그래서 저울 값에 100을 곱하면 g/m²다. 예: 1.75 g → 175 g/m².</p></div>
+<div class="card"><b>야드당 무게로 바꾸기</b><div class="en">g/m² → g/yd</div><p>전폭(인치) × g/m² × 0.02323 = 1야드 길이의 무게(g).<br>0.02323 = 0.0254 m(1인치) × 0.9144 m(1야드).<br>예: 전폭 67인치, 175 g/m² → 67 × 175 × 0.02323 ≈ 272 g/yd.</p></div>
+</div>
+<h2 id="shrinktest">세탁 수축 재기 <span>수축</span></h2>
+<p>후가공으로 수축을 미리 잡았는지는 빨아 보고 잰다. 원리는 간단하다.</p>
+<figure class="pic"><div class="vz"><div class="two" style="align-items:end">
+<div class="card" style="text-align:center"><div class="ttl">세탁 전</div><div style="position:relative;width:100%;aspect-ratio:100/100;margin:0 auto;border-radius:8px;background:repeating-linear-gradient(90deg,#f8f2e6 0 4px,#e7dcc6 4px 6px),#f1e9da;box-shadow:0 14px 22px -12px rgba(28,53,88,.55),inset 0 0 0 1px #cfc5b3"><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:85%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:85%;transform:translate(-50%,-50%)"></span></div><div class="val" style="text-align:center;margin-top:10px">점 사이 50.0 cm</div></div>
+<div class="card" style="text-align:center"><div class="ttl">세탁·건조 뒤</div><div style="position:relative"><div style="position:relative;width:97%;aspect-ratio:97/97;margin:1.5% auto 1.5%;border-radius:8px;background:repeating-linear-gradient(90deg,#f8f2e6 0 4px,#e7dcc6 4px 6px),#f1e9da;box-shadow:0 14px 22px -12px rgba(28,53,88,.55),inset 0 0 0 1px #cfc5b3"><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:85%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:85%;transform:translate(-50%,-50%)"></span></div><div style="position:absolute;left:0;top:0;border:3px dashed #8a93a0;border-radius:8px;width:100%;aspect-ratio:1;pointer-events:none"></div></div><div class="val" style="text-align:center;margin-top:20px">점 사이 48.5 cm</div></div>
+</div><div class="note2" style="font-size:16px;color:#1c3558"><b>수축률 = (처음 − 나중) ÷ 처음 × 100 = (50.0 − 48.5) ÷ 50.0 × 100 = 3%</b>. 오른쪽 원단은 왼쪽보다 정확히 3% 작게 그렸고, 회색 점선이 처음 크기다. 숫자는 계산 연습용 예이고 공장 목표가 아니다.</div></div><figcaption>그림 6. 수축 재기. 세탁 전 원단에 점 네 개를 찍어 점 사이를 재고(예 50.0 cm), 세탁·건조 뒤 다시 잰다(예 48.5 cm). 수축률 = (50.0 − 48.5) ÷ 50.0 × 100 = 3%. 계산 연습용 예이고 목표는 작지·바이어를 본다.</figcaption></figure>
+<div class="grid">
+<div class="card"><b>점 찍고 재기</b><div class="en">BENCHMARKS</div><p>지워지지 않는 펜으로 길이(세로)와 폭(가로) 방향에 점을 찍는다. 정해진 방법으로 빨고 말린 뒤 다시 잰다.</p></div>
+<div class="card"><b>% 로 적는다</b><div class="en">DIMENSIONAL CHANGE</div><p>(빤 뒤 길이 − 처음 길이) ÷ 처음 길이 × 100. 마이너스면 줄어든 것, 플러스면 늘어난 것이다. 예: 50 cm가 48 cm → −4%.</p></div>
+<div class="card"><b>방법과 합격선은 바이어</b><div class="en">BUYER METHOD</div><p>세탁 온도·횟수·건조 방법은 바이어가 정한 시험법을 따른다. 결과는 재단·패턴 여유를 정할 때 쓴다. 표시 간격도 시험법마다 다르다(예: 50 cm).</p></div>
+</div>
+<h2 id="spiral">옆선 비틀림 <span>비틀림</span></h2>
+<p>싱글 저지 티셔츠를 빨고 나면 옆선이 앞쪽으로 돌아가는 일이 있다. 이것을 비틀림(스파이럴리티, spirality)이라고 한다. 현장에서는 니트도 사행이라 부르기도 한다. 우븐 사행은 씨실이 휘거나 기운 것(bow·skew)이라 원인이 다르다.</p>
+<p class="src">사행(스파이럴리티): 빨래 뒤 옆선이 한쪽으로 비스듬히 돌아가고 밑단도 기우는 것. 환편 원단의 꼬임 때문에 생긴다. </p>
+<div class="grid">
+<div class="card"><b>왜 생기나 · 실</b><div class="en">YARN TWIST</div><p>실에 꼬임을 많이 줄수록 실이 풀리려는 힘이 남는다. 이 힘이 고리(루프)를 기울게 한다.</p></div>
+<div class="card"><b>왜 생기나 · 편직</b><div class="en">FEEDERS</div><p>환편기는 실을 넣는 곳(급사구)이 많아 코스가 나선처럼 쌓인다. 실 꼬임 방향과 기계 회전 방향에 따라 더해지거나 줄어든다.</p></div>
+<div class="card"><b>줄이는 방법</b><div class="en">REDUCE</div><p>꼬임이 알맞은 실이나 합사 사용, 편직 조건 조정, 텐터에서 결을 바로 잡고 고정한다. 리브·인터록은 거의 안 생긴다. 조건은 작지·편직 칸과 함께 본다.</p></div>
+</div>
+<p class="note">비틀림은 빨래 뒤에 커지는 경우가 많다. 그래서 수축 시험 때 옆선 비틀림도 함께 본다. 옆선이 돌아간 정도는 % 또는 각도로 잰다.</p>
+<p class="src">자주 보는 시험법 이름(참고용): 수축은 ISO 6330·ISO 5077, AATCC 135. 비틀림은 AATCC 179, ISO 16322. 방법·합격선은 바이어 스펙을 본다.</p>
+<p class="src">참고: <a href="https://members.aatcc.org/store/tm135/543/">가정 세탁 치수 변화 시험법 요약</a> · <a href="https://www.cottoninc.com/wp-content/uploads/2017/12/TRI-2002-Knit-Fabrics-and-the-Reduction-of-Torque.pdf">니트 비틀림 줄이기 기술 자료</a> · <a href="https://ebooks.inflibnet.ac.in/hsp08/chapter/knitted-fabric-defects/">니트 원단 결점 강의</a></p>
 <h2 id="gloss">구 → 신 <span>용어</span></h2>
 <div style="overflow:auto">
 <table>
-<thead><tr><th>옛 교재</th><th>지금(쉬운 말)</th><th>English</th><th>근거</th></tr></thead>
+<thead><tr><th>옛 말</th><th>지금(쉬운 말)</th><th>영어</th><th>근거</th></tr></thead>
 <tbody>
-<tr><td>天塔</td><td class="new">텐터 / 열풍 텐터(폭·열 잡기)</td><td>stenter / tenter</td><td>한자 오기. mill 용어는 텐터</td></tr>
 <tr><td>노말가공 애매</td><td class="new">노말가공 = 일반 열고정</td><td>normal finish</td><td>기능제 없는 텐터 코스</td></tr>
 <tr><td>약실켓 = 본실켓</td><td class="new">약실켓 = 가벼운 머서</td><td>light mercerize</td><td>저지용 저농도·단시간</td></tr>
-<tr><td>RAM TUMBLING 본선</td><td class="new">레거시 파일 텀블</td><td>pile tumbling</td><td>저지 코어 아님</td></tr>
-<tr><td>SNAILER / ASTRA 본선</td><td class="new">레거시 기모·광택</td><td>pile / fleece</td><td>2010 카탈로그 잔존</td></tr>
+<tr><td>파일 텀블을 본선으로 봄</td><td class="new">파일 원단 전용</td><td>pile tumbling</td><td>저지 본선이 아니다</td></tr>
 <tr><td>전모·해모·폴리싱 기본</td><td class="new">파일·플리스 전용</td><td>shear / brush / polish</td><td>벨로어·기모</td></tr>
-<tr><td>날염 dump</td><td class="new">원단 프린트 vs DTG·DTF</td><td>rotary / digital / DTG</td><td>설비 분리</td></tr>
-<tr><td>잔류 3–5% = 공장값</td><td class="new">업계 인용, 바이어 스펙</td><td>residual shrinkage</td><td>공장 스펙 아님. 바이어</td></tr>
-<tr><td>ZDHC를 기본 숙제</td><td class="new">바이어 요구 시 MRSL</td><td>ZDHC / OEKO-TEX</td><td>기본 숙제로 쓰지 않음</td></tr>
-<tr><td>저욕비 1:5 = 공장값</td><td class="new">공개 예시, 액비 미확인</td><td>low liquor</td><td>mill LR unverified</td></tr>
+<tr><td>날염을 한데 묶음</td><td class="new">원단 프린트 vs 의류 프린트</td><td>rotary / digital / DTG</td><td>설비가 다르다</td></tr>
+<tr><td>잔류 3–5% = 공장값</td><td class="new">업계 인용, 바이어 스펙</td><td>residual shrinkage</td><td>공장 스펙이 아니다. 바이어</td></tr>
+<tr><td>ZDHC를 기본 숙제</td><td class="new">바이어 요구 시 MRSL</td><td>ZDHC / OEKO-TEX</td><td>기본 숙제로 쓰지 않는다</td></tr>
+<tr><td>저욕비 1:5 = 공장값</td><td class="new">공개 예시일 뿐</td><td>low liquor ratio</td><td>액비는 작지·설비</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2 id="art">그림 <span>그림</span></h2>
 <figure class="hero">
-  <img src="img/tenter-hooks.jpg" alt="역사적 tenter hooks — 폭을 잡아 말리던 가시">
-  <figcaption>그림 3. 역사적 tenter hooks (Helmshore). 폭을 잡아 말리던 가시 — 현대 핀 체인의 조상. Clem Rutter, CC BY 3.0.</figcaption>
+  <img src="img/tenter-hooks.jpg" alt="나무 틀에 줄지어 박힌 쇠 갈고리">
+  <figcaption>그림 7. 옛 텐터 갈고리(tenter hooks), 영국 박물관 전시. 폭을 잡아 말리던 가시로, 지금 핀 체인의 조상이다. 사진: Clem Rutter, CC BY 3.0, 위키미디어 공용</figcaption>
 </figure>
 <div class="grid">
-  <figure class="pic"><img src="img/calender-process.png" alt="캘린더 압착 롤 원리"><figcaption>그림 4. 캘린더 압착 롤 원리. Laurens van Lieshout, Public Domain.</figcaption></figure>
-  <figure class="pic"><img src="img/circular-knitting.jpg" alt="환편기"><figcaption>그림 5. 환편기. 저지 원단의 출발. 후가공이 루프를 안정시킨다. Dvortygirl, CC BY-SA 3.0.</figcaption></figure>
-  <figure class="pic"><img src="img/tshirt-tubular.png" alt="바디사이즈 환편 통원단 티셔츠"><figcaption>그림 6. 바디사이즈 환편 통원단 티셔츠. 재단 전 폭·수축이 여기서 결정된다. Elkagye / Commons.</figcaption></figure>
-  <figure class="pic"><img src="img/mercerize.jpg" alt="1947 머서라이즈 현장"><figcaption>그림 7. 머서라이즈 현장, 1947. 저지 약실켓(가벼운 머서)의 조상. Tekniska museet / DigitaltMuseum.</figcaption></figure>
-  <figure class="pic"><img src="img/digital-print.jpg" alt="Stork 디지털 텍스타일 프린터"><figcaption>그림 8. 디지털 텍스타일 잉크젯 (Stork). 원단 롤 프린트. Joop Anker, CC BY-SA 2.0.</figcaption></figure>
-  <figure class="pic"><img src="img/garment-print.jpg" alt="완성 의류 캐러셀 프린트"><figcaption>그림 9. 완성 의류 캐러셀 프린트. DTG/DTF와 함께 의류 단. Fahad Faisal, CC BY-SA 4.0.</figcaption></figure>
+  <p class="src">캘린더: 원단을 뜨겁고 무거운 롤러 사이로 눌러 지나가게 해 표면을 평평하고 매끈하게 만든다. 롤러를 여러 개 지그재그로 거치기도 한다.</p>
+  <figure class="pic"><img src="img/circular-knitting.jpg" alt="환편기"><figcaption>그림 8. 환편기. 저지 원단의 출발. 후가공이 루프를 안정시킨다. Dvortygirl, CC BY-SA 3.0.</figcaption></figure>
+  <p class="src">바디사이즈 티셔츠: 몸판 폭에 맞춘 통 원단으로 짜서 옆솔기 없이 만든다. 재단 전 폭·수축이 여기서 결정된다.</p>
+  <p class="src">머서라이즈: 면을 진한 가성소다에 잠깐 담갔다 씻으면 섬유가 둥글게 부풀어 광택과 염색성이 좋아진다. 저지에 쓰는 가벼운 머서도 같은 원리다.</p>
+  <figure class="pic"><img src="img/digital-print.jpg" alt="원단 롤에 찍는 디지털 잉크젯 프린터"><figcaption>그림 9. 디지털 텍스타일 잉크젯. 원단 롤 프린트. Joop Anker, CC BY-SA 2.0.</figcaption></figure>
+  <figure class="pic"><img src="img/garment-print.jpg" alt="완성 의류 캐러셀 프린트"><figcaption>그림 10. 완성 의류 캐러셀 프린트. DTG/DTF와 함께 의류 단. Fahad Faisal, CC BY-SA 4.0.</figcaption></figure>
 </div>
 
 <h2 id="vid">영상 <span>영상</span></h2>
 <p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
 
+<h2 id="caution">주의 <span>주의</span></h2>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
 <h2 id="quiz">퀴즈 <span>확인</span></h2>
-<div class="q" data-a="0"><b>1. 2010 교재의 天塔은 무엇인가?</b>
+<div class="q" data-a="0"><b>1. 핀으로 원단 변부를 잡고 폭·열을 고정하는 설비는?</b>
 <button data-j="0">텐터(폭·열 잡기 / stenter)</button><button data-j="1">천탑 건조기</button><button data-j="2">텀블 건조기</button>
-<p class="why">天塔은 한자 오기. 현장 말은 텐터다. 핀이 변부를 잡고 폭·열을 고정한다.</p></div>
+<p class="why">텐터다. 핀이 변부를 잡고 열풍으로 폭·열을 고정한다.</p></div>
 <div class="q" data-a="2"><b>2. 면 저지에서 세탁 후 남는 수축을 기계적으로 빼 두는 본선 설비는?</b>
-<button data-j="0">전모기</button><button data-j="1">SNAILER</button><button data-j="2">컴팩터</button>
-<p class="why">텐터는 열·폭, 컴팩터는 기계적 이완. SNAILER는 레거시 파일.</p></div>
-<div class="q" data-a="0"><b>3. RAM TUMBLING / SNAILER / ASTRA는?</b>
-<button data-j="0">레거시 파일 공정. 코어 아님</button><button data-j="1">티셔츠 본선</button><button data-j="2">노말가공의 다른 이름</button>
+<button data-j="0">전모기</button><button data-j="1">캘린더</button><button data-j="2">컴팩터</button>
+<p class="why">텐터는 열·폭, 컴팩터는 기계적 이완. 캘린더는 표면을 매끈하게 한다.</p></div>
+<div class="q" data-a="0"><b>3. 파일 텀블·기모 설비는?</b>
+<button data-j="0">파일·플리스 원단용. 저지 본선이 아니다</button><button data-j="1">티셔츠 본선</button><button data-j="2">노말가공의 다른 이름</button>
 <p class="why">파일·플리스 특수 설비. 저지 본선은 패딩→텐터→컴팩터.</p></div>
 <div class="q" data-a="2"><b>4. 노말가공과 약실켓은?</b>
-<button data-j="0">노말=실리콘, 약실켓=전모</button><button data-j="1">둘 다 RAM tumbling</button><button data-j="2">노말=일반 열고정, 약실켓=가벼운 머서</button>
+<button data-j="0">노말=실리콘, 약실켓=전모</button><button data-j="1">둘 다 파일 텀블</button><button data-j="2">노말=일반 열고정, 약실켓=가벼운 머서</button>
 <p class="why">노말가공은 기능제 없는 일반 열고정. 약실켓은 저지용 라이트 머서라이즈.</p></div>
 <div class="q" data-a="1"><b>5. 잔류수축 3–5%와 저욕비 1:5를 공장 값이라고 해도 되나?</b>
 <button data-j="0">된다. 공장 표준이다</button><button data-j="1">공개 인용·예시일 뿐. 현장 스펙·액비는 작지를 본다</button><button data-j="2">ZDHC가 정한 값이다</button>
 <p class="why">3–5%는 흔히 인용. 1:5는 공개 예시. ZDHC MRSL은 바이어 요구 시. 공장 스펙·액비가 아니다.</p></div>
 
+<div class="q" data-a="1"><b>6. 물방울이 겉에서 굴러 떨어지게 하고 숨은 쉬게 하는 가공은?</b>
+<button data-j="0">방수</button><button data-j="1">발수</button><button data-j="2">방염</button>
+<p class="why">발수 = 물방울을 튕긴다. 방수 = 물이 스며들지 못하게 막는다. 방염 = 불.</p></div>
+<div class="q" data-a="2"><b>7. 원형 시료 칼로 오린 원단이 1.80 g이면?</b>
+<button data-j="0">18 g/m²</button><button data-j="1">1.8 g/m²</button><button data-j="2">180 g/m²</button>
+<p class="why">원형 칼은 1 m²의 1/100(100 cm²)을 오린다. 100을 곱한다.</p></div>
+<div class="q" data-a="0"><b>8. 냉감 후가공의 약점은?</b>
+<button data-j="0">빨래를 거듭하면 효과가 줄어든다</button><button data-j="1">면에는 못 쓴다</button><button data-j="2">실을 바꾸는 것보다 비싸다</button>
+<p class="why">겉에 입힌 약품이라 빨수록 빠진다. 캡슐·바인더로 보완한다.</p></div>
+<div class="q" data-a="2"><b>9. 50 cm 표시가 빨래 뒤 48 cm가 됐다. 치수 변화는?</b>
+<button data-j="0">+4%</button><button data-j="1">−2%</button><button data-j="2">−4%</button>
+<p class="why">(48 − 50) ÷ 50 × 100 = −4%. 마이너스는 줄어듦.</p></div>
+<div class="q" data-a="0"><b>10. 싱글 저지 옆선 비틀림의 큰 원인은?</b>
+<button data-j="0">실 꼬임이 남긴 힘과 많은 급사구</button><button data-j="1">염료 색</button><button data-j="2">원형 시료 칼</button>
+<p class="why">실의 꼬임 힘과 환편기 급사구 수가 주된 원인이다. 리브·인터록은 거의 없다.</p></div>
 <footer>교육자료 · 후가공</footer>
 </div>
 <script src="_edu.js"></script>

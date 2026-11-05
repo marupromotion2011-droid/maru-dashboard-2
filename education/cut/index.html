@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -76,33 +76,34 @@ html{background:var(--paper)}
 <div class="wrap">
 <p class="kicker">교육자료 · 재단</p>
 <h1>재단</h1>
-<p class="lede">원단을 쌓고, 재단 도면 맞춰 자르는 칸. 색 그룹(셰이드)을 한 장에 섞지 말 것. 연단·마커·커팅은 아래에서.</p>
+<p class="lede">원단을 쌓고, 재단 도면 맞춰 자르는 일을 다룬다. 색 그룹(셰이드)을 한 장에 섞지 않는다. 연단·마커·커팅은 아래에서.</p>
 <div class="pills">
   <span class="pill">원단 쌓기</span>
   <span class="pill">재단 도면</span>
   <span class="pill">같은 색·같은 사이즈</span>
 </div>
 <figure class="hero">
-  <img src="img/cut-steps-hq.png" alt="재단 순서">
-  <figcaption>그림 A. 쉬운 말: 원단 쌓기(연단) · 재단 도면(마커) · 자르기(커팅).</figcaption>
+  <img src="img/cut-steps.jpg" alt="사진 세 장. 재단 테이블에 여러 겹 편 분홍 원단, 옷 조각이 빼곡히 배치된 마커 화면, 레이 위를 움직이는 자동 재단기">
+  <figcaption>그림 1. 왼쪽부터 ① 연단(재단 테이블에 원단을 여러 겹 편다) → ② 마커(CAD 화면, 옷 조각을 원단 폭에 빼곡히 배치) → ③ 커팅(자동 재단기가 진공으로 누른 레이를 마커대로 자른다). 사진: Fahad Faisal, CC BY-SA 4.0, 위키미디어 공용(②③ 화면 글자·상표는 잘라냄)</figcaption>
 </figure>
+<figure class="pic"><img src="img/round-knife-cut.jpg" alt="책상 위 청록색 원단을 둥근 칼날 재단기로 자르는 사진. 칼날 앞쪽으로 파란 선을 따라 잘린 자국이 보인다."><figcaption>사진. 둥근 칼 재단기. 원형 칼날이 돌면서 그어 둔 선을 따라 원단을 자른다. 손에 들고 밀며 쓰는 작은 기계라 겹이 얇을 때 쓴다. 사진: Thiet Bi M5s, CC BY-SA 4.0, 위키미디어 공용</figcaption></figure>
 <figure class="hero">
-  <img src="img/cut-marker-map.png" alt="티셔츠 재단 — 연단(spreading), 마커(marker), 커팅">
-  <figcaption>그림 1. 티셔츠 재단 — 연단·마커·커팅. 그림 폭 숫자는 단순 예시일 수 있음. 스펙 시트 폭을 본다. 공장 효율이 아니다. 이미지 영문은 도식용. 한글 명칭은 본문.</figcaption>
+  <img src="img/cut-marker-map.jpg" alt="사진 네 장 격자. 원단 롤이 쌓인 창고, 여러 겹 편 원단, 마커 화면, 자동 재단기 위 잘린 패널">
+  <figcaption>그림 2. 티셔츠 재단 흐름. 왼쪽 위부터 ① 원단 롤(창고, 예시는 데님 롤) → ② 연단(spreading, 여러 겹 펴기) → ③ 마커(marker, CAD 배치 화면) → ④ 커팅 후 잘린 패널(자동 재단기 위). 다음은 번호 붙이기·번들(사진 없음). 스트레이트 나이프·밴드나이프도 쓴다(본문). 폭과 효율 숫자는 스펙 시트. 사진: Fahad Faisal, CC BY-SA 4.0, 위키미디어 공용(④는 CC BY-SA 3.0, ③ 화면 글자 잘라냄)</figcaption>
 </figure>
 <h2 id="steps">본선 세 칸 <span>순서</span></h2>
 <div class="grid">
-  <div class="card"><b>원단 쌓기</b><div class="en">SPREADING</div><p>쉬운 말: 롤을 겹겹이 까는 것. 겹 수는 작지.<br><span class="src">현장: 연단 · 이름: spreading · ply</span></p></div>
-  <div class="card"><b>재단 도면</b><div class="en">MARKER</div><p>쉬운 말: 패턴을 빈트없이 배치한 도면. 효율%·폭 숫자는 이 페이지 공장치 아님.<br><span class="src">현장: 마커 · 이름: marker</span></p></div>
-  <div class="card"><b>자르기</b><div class="en">CUTTING</div><p>쉬운 말: 도면 따라 부품 절단. 기종은 설비·작지.<br><span class="src">현장: 커팅 · 이름: cutting</span></p></div>
+  <div class="card"><b>원단 쌓기</b><div class="en">SPREADING</div><p>롤을 겹겹이 까는 것. 겹 수는 작지.<br><span class="src">현장: 연단 · 이름: spreading · ply</span></p></div>
+  <div class="card"><b>재단 도면</b><div class="en">MARKER</div><p>패턴을 빈트없이 배치한 도면. 효율%·폭 숫자는 이 페이지 공장치가 아니다.<br><span class="src">현장: 마커 · 이름: marker</span></p></div>
+  <div class="card"><b>자르기</b><div class="en">CUTTING</div><p>도면 따라 부품 절단. 기종은 설비·작지.<br><span class="src">현장: 커팅 · 이름: cutting</span></p></div>
 </div>
 <p class="note">연단→마커→커팅은 공개 apparel 커팅 흐름. 폭·플라이·효율%·보유 기종은 스펙·현장에 따른다. 공장 숫자로 끝내지 않는다.</p>
 <h2 id="shade">셰이드 밴드 <span>색차</span></h2>
-<p class="src">셰이드 그룹을 한 가먼트에 섞지 말 것. 출처: 공개 shade band 실무(Textile Blog / Runtang류).</p>
+<p class="src">셰이드 그룹을 한 가먼트에 섞지 않는다. 출처: 공개 shade band 실무(Textile Blog / Runtang류).</p>
 <div class="grid">
   <div class="card"><b>롤별 스와치</b><div class="en">SWATCH / ROLL</div><p>롤마다 스와치를 떠 비교한다. 롯·염룩 단위.</p></div>
   <div class="card"><b>표준광</b><div class="en">D65</div><p>D65 등 표준광 아래서 색차 판단(공개 shade band 실무).</p></div>
-  <div class="card"><b>셰이드 그룹</b><div class="en">A / B / C</div><p>A/B/C 그룹으로 나눔. 레이·번들은 그룹을 섞지 않음.</p></div>
+  <div class="card"><b>셰이드 그룹</b><div class="en">A / B / C</div><p>A/B/C 그룹으로 나눔. 레이·번들은 그룹을 섞지 않는다.</p></div>
   <div class="card"><b>패치워크 경고</b><div class="en">PATCHWORK</div><p>4점 합격 롤도 서로 색이 다르면 한 장에 붙이면 패치워크.</p></div>
 </div>
 <p class="warn">원단검사 4점과 셰이드는 다른 축. 검사 합격이어도 색 그룹이 다르면 한 장에 섞지 않는다.</p>
@@ -112,7 +113,7 @@ html{background:var(--paper)}
   <div class="card"><b>같은 사이즈</b><div class="en">SAME SIZE</div><p>같은 사이즈 부품을 함께 묶는다.</p></div>
   <div class="card"><b>봉제 라인으로</b><div class="en">TO SEWING</div><p>재단 후 번들을 봉제 라인으로 넘긴다.</p></div>
 </div>
-<p class="note">번들 규칙·태그 수는 현장마다 다름. 공장 번들 규칙은 작지·QC를 본다.</p>
+<p class="note">번들 규칙·태그 수는 현장마다 다르다. 공장 번들 규칙은 작지·QC를 본다.</p>
 <h2 id="link">연결 <span>연결</span></h2>
 <div class="grid">
   <a class="card" href="../fabric-inspect/index.html"><b>원단검사</b><div class="en">FABRIC INSPECTION</div><p>4점 검사 → 재단 전 원단 품질</p></a>
@@ -125,7 +126,7 @@ html{background:var(--paper)}
 <tr><td>마커</td><td class="new">marker</td><td>패턴 네스팅. 효율=패턴/마커 면적.</td><td>커팅 전</td></tr>
 <tr><td>재단</td><td class="new">cutting</td><td>straight/band/자동커터 공개 종류.</td><td>부품 절단</td></tr>
 <tr><td>번들</td><td class="new">bundle</td><td>같은 셰이드·같은 사이즈.</td><td>봉제 전달</td></tr>
-<tr><td>음영/셰이드</td><td class="new">shade</td><td>A/B/C 그룹. 한 가먼트에 섞지 말 것.</td><td>색 관리</td></tr>
+<tr><td>음영/셰이드</td><td class="new">shade</td><td>A/B/C 그룹. 한 가먼트에 섞지 않는다.</td><td>색 관리</td></tr>
 <tr><td>플라이</td><td class="new">ply</td><td>원단 겹 단위. 수는 작지.</td><td>연단</td></tr>
 </tbody></table></div>
 <p class="note">공장 효율%·플라이 수·보유 재단기는 이 페이지로 정하지 않는다.</p>
@@ -138,9 +139,9 @@ html{background:var(--paper)}
 <div class="q" data-a="1"><b>3. 셰이드 그룹을 한 가먼트에 섞으면?</b><button data-j="0">무조건 효율 상승</button><button data-j="1">패치워크(색 차이) 위험</button><button data-j="2">4점 자동 합격</button><p class="why">그룹이 다르면 한 장에서 패치워크.</p></div>
 <div class="q" data-a="0"><b>4. 번들의 기본 조건은?</b><button data-j="0">같은 셰이드 + 같은 사이즈</button><button data-j="1">다른 롯 섞기</button><button data-j="2">플라이 수만 같으면 됨</button><p class="why">같은 셰이드·같은 사이즈 부품. 봉제 라인으로.</p></div>
 <div class="q" data-a="2"><b>5. 플라이(ply)는?</b><button data-j="0">바늘 종류</button><button data-j="1">ISO 스티치 클래스</button><button data-j="2">원단 겹 단위</button><p class="why">플라이 = 원단 겹. 수는 작지.</p></div>
-<div class="q" data-a="1"><b>6. 그림의 58/60 폭 숫자를 어떻게 보나?</b><button data-j="0">공장 폭으로 본다</button><button data-j="1">단순 예시일 수 있음 — 스펙 시트 폭을 본다</button><button data-j="2">효율 % 공식</button><p class="why">캡션: 그림 폭 숫자는 단순 예시일 수 있음. 스펙 시트. 공장 효율이 아니다.</p></div>
+<div class="q" data-a="1"><b>6. 그림의 58/60 폭 숫자를 어떻게 보나?</b><button data-j="0">공장 폭으로 본다</button><button data-j="1">단순 예시일 수 있음 — 스펙 시트 폭을 본다</button><button data-j="2">효율 % 공식</button><p class="why">캡션: 그림 폭 숫자는 단순 예시일 수 있다. 스펙 시트. 공장 효율이 아니다.</p></div>
 <div class="q" data-a="0"><b>7. 커팅 기기 공개 종류에 해당하지 않는 것은?</b><button data-j="0">오버록 Class 500</button><button data-j="1">straight knife</button><button data-j="2">band knife</button><p class="why">오버록은 봉제 본선. 커팅은 straight/band/자동커터.</p></div>
-<div class="q" data-a="2"><b>8. 4점 합격 롤도 서로 색이 다르면?</b><button data-j="0">한 장에 붙여도 됨</button><button data-j="1">셰이드 검사 불필요</button><button data-j="2">한 장에 붙이면 패치워크</button><p class="why">검사 합격과 셰이드는 다른 축. 색 다르면 섞지 않음.</p></div>
+<div class="q" data-a="2"><b>8. 4점 합격 롤도 서로 색이 다르면?</b><button data-j="0">한 장에 붙여도 됨</button><button data-j="1">셰이드 검사 불필요</button><button data-j="2">한 장에 붙이면 패치워크</button><p class="why">검사 합격과 셰이드는 다른 축. 색 다르면 섞지 않는다.</p></div>
 <div class="q" data-a="1"><b>9. face-up / face-to-face는 무엇에 따르나?</b><button data-j="0">공장 고정 규정</button><button data-j="1">원단·작지</button><button data-j="2">ISO 4915</button><p class="why">연단 방식은 원단·작지에 따른다.</p></div>
 <footer>교육자료 · 재단</footer>
 </div>

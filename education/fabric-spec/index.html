@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -87,26 +87,23 @@ html{background:var(--paper)}
   <span class="pill">수업 목업</span>
 </div>
 
-<figure class="hero">
-  <img src="img/spec-read-order-hq.png" alt="원단표 읽는 순서 도식">
-  <figcaption>그림 1. 쉬운 말 순서: 사종 → 기종·게이지 → 생지/가공 폭·GSM → 줄·수축. 계약은 보통 피니시드.</figcaption>
-</figure>
+<p class="src">읽는 순서: 사종(실) → 기종·게이지(편직기) → 생지/가공 폭·GSM → 줄·수축. 계약은 보통 가공 후(피니시드) 기준. 값은 작지·바이어.</p>
 
-<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<h2 id="why">왜 배우나 <span>왜</span></h2>
 <div class="grid">
-  <div class="card"><b>한 줄 = 한 원단</b><div class="en">ONE ROW</div><p>쉬운 말: 표의 한 행이 한 스펙이다. 사종·조직·기종·폭·GSM·가공·수축을 같이 본다.</p></div>
+  <div class="card"><b>한 줄 = 한 원단</b><div class="en">ONE ROW</div><p>표의 한 행이 한 스펙이다. 사종·조직·기종·폭·GSM·가공·수축을 같이 본다.</p></div>
   <div class="card"><b>생지 ≠ 가공</b><div class="en">GREIGE / FINISHED</div><p>생지(그레이지)는 편직 직후. 계약·바이어 숫자는 보통 가공(피니시드) 폭·GSM.</p></div>
   <div class="card"><b>표·그림은 수업용</b><div class="en">MOCKUP</div><p>아래 샘플 3행·스펙카드 숫자는 수업 목업이다. 공장 셋팅·합격점으로 쓰지 않는다.</p></div>
 </div>
 
 <h2 id="read">읽는 법 <span>방법</span></h2>
 <div class="grid">
-  <div class="card"><b>① 무슨 실</b><div class="en">1 YARN</div><p>쉬운 말: 면·폴리·카티온·린넨 조합. CM은 코마 면. P150D는 필라멘트(Ne 아님).</p></div>
-  <div class="card"><b>② 어느 기계</b><div class="en">2 MACHINE</div><p>쉬운 말: 직경×게이지. 표의 컴퓨터·댕깡·싱가는 현장속칭 — 기종을 표만으로 확정하지 않는다.</p></div>
-  <div class="card"><b>③ 폭·무게</b><div class="en">3 WIDTH / GSM</div><p>쉬운 말: 생지→가공. 생지폭이 더 작아 보여도 튜브 접은 폭일 수 있다. 단위·작지 칸을 먼저 본다.</p></div>
-  <div class="card"><b>④ 줄·수축</b><div class="en">4 STRIPE / SHRINK</div><p>쉬운 말: 한기장(피더 리피트), 장/폭 남은 수축. 숫자창은 작지.</p></div>
+  <div class="card"><b>① 무슨 실</b><div class="en">1 YARN</div><p>면·폴리·카티온·린넨 조합. CM은 코마 면. P150D는 필라멘트(Ne가 아니다).</p></div>
+  <div class="card"><b>② 어느 기계</b><div class="en">2 MACHINE</div><p>직경×게이지. 표의 컴퓨터·댕깡·싱가는 현장속칭 — 기종을 표만으로 확정하지 않는다.</p></div>
+  <div class="card"><b>③ 폭·무게</b><div class="en">3 WIDTH / GSM</div><p>생지→가공. 생지폭이 더 작아 보여도 튜브 접은 폭일 수 있다. 단위·작지 칸을 먼저 본다.</p></div>
+  <div class="card"><b>④ 줄·수축</b><div class="en">4 STRIPE / SHRINK</div><p>한기장(피더 리피트), 장/폭 남은 수축. 숫자 범위는 작지.</p></div>
 </div>
-<p class="note">약실켓 = 라이트 머서라이즈. 노말가공 = 일반 열고정(텐터 폭·오버피드). 한기장 = 피더 리피트. 중량(롤/길이)과 SQM(g/m²)은 따로 본다. 생지폭&lt;가공폭이면 단위 또는 튜브/오픈을 확인. 접은폭×2 후 텐터는 가설. 작지 단위 칸 없이 단정 금지.</p>
+<p class="note">약실켓 = 라이트 머서라이즈. 노말가공 = 일반 열고정(텐터 폭·오버피드). 한기장 = 피더 리피트. 중량(롤/길이)과 SQM(g/m²)은 따로 본다. 생지폭&lt;가공폭이면 단위 또는 튜브/오픈을 확인. 접은폭×2 후 텐터는 가설. 작지 단위 칸 없이 단정하지 않는다.</p>
 
 <h2 id="table">샘플 3행 <span>표본</span></h2>
 <p class="src">수업용 목업. 실제 작지·바이어 스펙과 바꿔 쓰지 않는다.</p>
@@ -125,32 +122,23 @@ html{background:var(--paper)}
 <h2 id="gloss">용어 <span>용어</span></h2>
 <div style="overflow:auto">
 <table>
-<thead><tr><th>옛 교재</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
+<thead><tr><th>옛 자료</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
 <tbody>
-<tr><td>생지</td><td class="new">그레이지</td><td>greige</td><td>편직기에서 막 나온 미가공. 계약 중량은 보통 피니시드.</td></tr><tr><td>가공</td><td class="new">피니시드</td><td>finished</td><td>염색·텐터·컴팩터 이후. 바이어 스펙의 기준.</td></tr><tr><td>SQM</td><td class="new">g/m² (GSM)</td><td>grams per square metre</td><td>ISO 3801 / ASTM D3776. 커터 100cm² ×100. 허용 ±3~5%.</td></tr><tr><td>IN,GG</td><td class="new">직경(in) × 게이지</td><td>diameter × gauge</td><td>30&quot;28G = 실린더 30인치, 28게이지.</td></tr><tr><td>한기장</td><td class="new">피더 리피트 / 코스 리피트</td><td>feeder stripe repeat</td><td>피더스트라이프는 급사구 배열. 큰 반복은 오토스트라이퍼(엔지니어링 스트라이프).</td></tr><tr><td>수축율</td><td class="new">잔류수축</td><td>residual shrinkage</td><td>장=코스방향, 폭=웨일방향. 컴팩터로 관리.</td></tr><tr><td>노말가공</td><td class="new">일반 열고정</td><td>normal heat-set</td><td>텐터 폭·오버피드만. 약실켓·수지와 구분.</td></tr><tr><td>약실켓</td><td class="new">라이트 머서라이즈</td><td>light mercerize</td><td>광택·염색성. 멜란/화이트 조합 시 말림 주의.</td></tr><tr><td>수지가공</td><td class="new">수지 피니시</td><td>resin finish</td><td>형태안정. 촉감·황변 트레이드오프.</td></tr><tr><td>혼용률</td><td class="new">혼용률 / 파이버 콘텐츠</td><td>fiber content %</td><td>라벨·RSL 기준. 카티온P는 헤더/멜란지.</td></tr><tr><td>컴퓨터 / 댕깡 / 싱컴 / 싱가</td><td class="new">현장속칭 (기종 미확정)</td><td>shop nicknames</td><td>컴퓨터=전자자카드 후보. 싱컴/싱가/댕깡은 표만으로 확정하지 않음.</td></tr><tr><td>S/PLAIN</td><td class="new">싱글저지 플레인</td><td>single jersey plain</td><td>PQ=피케. JQD=자카드.</td></tr><tr><td>원단말림</td><td class="new">컬링 / 에지컬</td><td>edge curling</td><td>싱글저지+이형사(멜란·카티온)에서 흔함. 수지·컴팩션으로 완화.</td></tr><tr><td>편직 로스(수업 목업 예)</td><td class="new">편직 로스(수업 목업 예)</td><td>knitting loss allowance</td><td>불량 큰 조직은 발주량에 로스 넣고 돌린다.</td></tr>
+<tr><td>생지</td><td class="new">그레이지</td><td>greige</td><td>편직기에서 막 나온 미가공. 계약 중량은 보통 피니시드.</td></tr><tr><td>가공</td><td class="new">피니시드</td><td>finished</td><td>염색·텐터·컴팩터 이후. 바이어 스펙의 기준.</td></tr><tr><td>SQM</td><td class="new">g/m² (GSM)</td><td>grams per square metre</td><td>ISO 3801 / ASTM D3776. 커터 100cm² ×100. 허용 ±3~5%.</td></tr><tr><td>IN,GG</td><td class="new">직경(in) × 게이지</td><td>diameter × gauge</td><td>30&quot;28G = 실린더 30인치, 28게이지.</td></tr><tr><td>한기장</td><td class="new">피더 리피트 / 코스 리피트</td><td>feeder stripe repeat</td><td>피더스트라이프는 급사구 배열. 큰 반복은 오토스트라이퍼(엔지니어링 스트라이프).</td></tr><tr><td>수축율</td><td class="new">잔류수축</td><td>residual shrinkage</td><td>장=코스방향, 폭=웨일방향. 컴팩터로 관리.</td></tr><tr><td>노말가공</td><td class="new">일반 열고정</td><td>normal heat-set</td><td>텐터 폭·오버피드만. 약실켓·수지와 구분.</td></tr><tr><td>약실켓</td><td class="new">라이트 머서라이즈</td><td>light mercerize</td><td>광택·염색성. 멜란/화이트 조합 시 말림 주의.</td></tr><tr><td>수지가공</td><td class="new">수지 피니시</td><td>resin finish</td><td>형태안정. 촉감·황변 트레이드오프.</td></tr><tr><td>혼용률</td><td class="new">혼용률 / 파이버 콘텐츠</td><td>fiber content %</td><td>라벨·RSL 기준. 카티온P는 헤더/멜란지.</td></tr><tr><td>컴퓨터 / 댕깡 / 싱컴 / 싱가</td><td class="new">현장속칭 (기종 미확정)</td><td>shop nicknames</td><td>컴퓨터=전자자카드 후보. 싱컴/싱가/댕깡은 표만으로 확정하지 않는다.</td></tr><tr><td>S/PLAIN</td><td class="new">싱글저지 플레인</td><td>single jersey plain</td><td>PQ=피케. JQD=자카드.</td></tr><tr><td>원단말림</td><td class="new">컬링 / 에지컬</td><td>edge curling</td><td>싱글저지+이형사(멜란·카티온)에서 흔하다. 수지·컴팩션으로 완화.</td></tr><tr><td>편직 로스(수업 목업 예)</td><td class="new">편직 로스(수업 목업 예)</td><td>knitting loss allowance</td><td>불량 큰 조직은 발주량에 로스 넣고 돌린다.</td></tr>
 </tbody>
 </table>
 </div>
 <p class="note">댕깡/싱가/싱컴 기종 미확정. spec-card.png 숫자는 목업.</p>
 
 <h2 id="art">그림 <span>그림</span></h2>
-<figure class="pic">
-  <img src="img/spec-card.png" alt="스펙 시트 보는 법 카드">
-  <figcaption>그림 2. 스펙카드 도식. 안 숫자는 수업용 목업이다.</figcaption>
-</figure>
+<p class="src">스펙카드 줄: 사종 · 기종 · 폭 · 무게(GSM) · 줄·수축. 칸마다 실제 값은 작지와 바이어 스펙을 본다.</p>
 
 <h2 id="vid">영상 <span>영상</span></h2>
 <p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
 
 
-<figure class="pic">
-  <img src="img/spec-read-large.png" alt="원단 스펙 읽는 순서 도식">
-  <figcaption>그림. 원단표 읽는 순서 도식(영문 라벨). 숫자는 공개 예. 작지·바이어.</figcaption>
-</figure>
-<figure class="pic">
-  <img src="img/spec-fabric-real.png" alt="원단·스펙 관련 실사">
-  <figcaption>그림. 원단 실사 참고. 스펙 값은 이 사진으로 정하지 않는다.</figcaption>
-</figure>
+
+
 
 <h2 id="quiz">퀴즈 <span>확인</span></h2>
 <div class="q" data-a="1"><b>1. 스펙의 계약 GSM은 보통 어느 쪽인가?</b>

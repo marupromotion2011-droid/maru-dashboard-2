@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -70,26 +70,61 @@ html{background:var(--paper)}
 .fold-nav{position:relative}
 .sec-nav{top:0}
 </style>
+<style id="v5viz">
+.vz{background:radial-gradient(120% 90% at 30% 0%,#fffdf8 0%,#f4f0e8 70%);padding:30px 28px 26px;color:#1c3558;font-size:17px;line-height:1.45;border-bottom:1px solid #e4dccd}
+.vz *{box-sizing:border-box}
+.vz .ttl{font-weight:800;font-size:18px;margin:0 0 14px}
+.vz .row{display:grid;grid-template-columns:120px 1fr 120px;gap:16px;align-items:center;margin:18px 0}
+.vz .lab{font-weight:800}.vz .val{font-weight:700;color:#c45c26;text-align:right}
+.vz .sub{display:block;font-weight:500;color:#5c6570;font-size:14px}
+.vz .yarn{border-radius:999px;box-shadow:0 6px 10px -4px rgba(28,53,88,.45);background:repeating-linear-gradient(118deg,rgba(255,255,255,.0) 0 7px,rgba(255,255,255,.35) 7px 9px,rgba(0,0,0,.08) 9px 12px),linear-gradient(180deg,#fffef9 0%,#efe6d3 45%,#cdbf9f 100%)}
+.vz .seg{height:46px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;position:relative}
+.vz .cot{background:repeating-linear-gradient(118deg,transparent 0 7px,rgba(255,255,255,.45) 7px 9px,rgba(0,0,0,.07) 9px 12px),linear-gradient(180deg,#fffef9 0%,#efe6d3 45%,#cbbd9c 100%);color:#1c3558}
+.vz .pol{background:repeating-linear-gradient(118deg,transparent 0 7px,rgba(255,255,255,.18) 7px 9px,rgba(0,0,0,.18) 9px 12px),linear-gradient(180deg,#5a7cab 0%,#1c3558 55%,#0f2140 100%);color:#fff}
+.vz .org{background:linear-gradient(180deg,#f0a06c 0%,#c45c26 55%,#8f3f15 100%);color:#fff}
+.vz .track{position:relative;border-radius:999px;display:flex;overflow:hidden;box-shadow:0 8px 14px -6px rgba(28,53,88,.5),inset 0 0 0 1px rgba(28,53,88,.15)}
+.vz .half{position:absolute;top:-8px;bottom:-8px;left:50%;border-left:3px dashed #c45c26}
+.vz .leg{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;color:#5c6570;margin-top:10px}
+.vz .leg i{display:inline-block;width:26px;height:16px;border-radius:8px;vertical-align:-2px;margin-right:6px}
+.vz .ball{display:inline-block;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 6%,#f6b48a 14%,#c45c26 52%,#7a3410 100%);box-shadow:0 4px 6px rgba(0,0,0,.25)}
+.vz .xs{border-radius:50%;background:radial-gradient(circle at 34% 30%,#fffef9 0 10%,#efe6d3 40%,#b9a882 100%);box-shadow:0 5px 8px rgba(28,53,88,.35);margin:auto}
+.vz .card{background:#fffcf7;border:1px solid #e4dccd;border-radius:16px;padding:18px;box-shadow:0 10px 20px -12px rgba(28,53,88,.35)}
+.vz .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vz .ruler{height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,#1c3558 0 2px,transparent 2px 10%),linear-gradient(180deg,#f3e2b3,#d9c07e);box-shadow:0 3px 5px rgba(0,0,0,.2)}
+.vz .note2{font-size:15px;color:#5c6570;margin-top:12px}
+.vz .row4{display:grid;grid-template-columns:120px 1fr 90px 130px;gap:16px;align-items:center;margin:18px 0}
+.vz .rowf{grid-template-columns:130px 1fr 170px}
+.vz .seg .st{position:relative;z-index:2;white-space:nowrap;padding:2px 8px;border-radius:999px}
+.vz .cot .st{background:rgba(255,253,248,.85)}
+.vz .half{z-index:1}
+.vz .plist{display:none;margin-top:10px;font-weight:800;color:#c45c26;font-size:15px}
+.vz .therm{display:grid;grid-template-columns:60px repeat(4,1fr);gap:10px;align-items:end}
+.vz .tube{height:300px}.vz .tsc{height:300px}
+@media(max-width:640px){.vz{padding:22px 14px}.vz .row,.vz .row4,.vz .rowf{grid-template-columns:1fr auto;gap:8px 12px;margin:14px 0}
+.vz .row .lab,.vz .row4 .lab,.vz .rowf .lab{grid-column:1/-1}
+.vz .row4 .xsw{display:none}.vz .two{grid-template-columns:1fr}
+.vz .seg{font-size:13px}.vz .seg .st{padding:1px 5px}
+.vz .pl{display:none}.vz .plist{display:block}
+.vz .therm{grid-template-columns:repeat(2,1fr);gap:22px 10px}.vz .tscw{display:none}.vz .tube{height:200px}}
+</style>
 </head>
 <body>
 <nav class="sec-nav"><div class="in"><a href="#why">왜</a><a href="#tenter">폭·건조</a><a href="#compact">길이 잡기</a><a href="#test">테스트</a><a href="#spiral">비뚤어짐</a><a href="#quiz">퀴즈</a></div></nav>
 <div class="wrap">
 <p class="kicker">교육자료 · 수축</p>
 <h1>수축 · 치수 안정</h1>
-<p class="lede">세탁 후 티셔츠가 줄어들거나 틀어지지 않게 잡는 칸. 폭·길이를 맞추는 건조·수축 잡기 기계를 먼저 본다.</p>
+<p class="lede">세탁 후 티셔츠가 줄어들거나 틀어지지 않게 잡는 일을 다룬다. 폭·길이를 맞추는 건조·수축 잡기 기계를 먼저 본다.</p>
 <div class="pills"><span class="pill">신입용</span><span class="pill">폭·길이 잡기</span><span class="pill">목표%=바이어</span></div>
 
 <figure class="hero">
-  <img src="img/shrink-two-hq.png" alt="폭·길이를 맞추는 두 기계">
-  <figcaption>그림 1. 왼쪽은 폭을 잡고 말리는 기계(텐터). 오른쪽은 길이를 미리 빼 두는 기계(컴팩터). 역할이 다르다.</figcaption>
+  <img src="img/shrink-two.jpg" alt="열풍 방이 줄지어 이어진 텐터 기계, 위에 은색 배관">
+  <figcaption>그림 1. 텐터. 원단 양옆을 핀으로 잡아 폭을 펴고 열풍 방을 지나며 말린다. 길이 수축을 미리 빼는 컴팩터는 두 롤러 사이로 원단을 밀어 넣어 길이를 줄여 둔다. 상표는 흐리게 지우고 색을 보정했다. 사진: Adlerhorst321, CC BY-SA 3.0, 위키미디어 공용</figcaption>
 </figure>
 
 <p class="warn"><b>두 기계는 다르다.</b> 텐터는 폭·열·오버피드. 컴팩터는 루프를 눌러 세탁 후 줄어들 여유를 미리 잡는다. 열고정을 대신하지 않는다.</p>
 
-<figure class="pic">
-  <img src="img/shrink-map.png" alt="니트 수축·치수 안정 맵 보조">
-  <figcaption>그림 2. 보조 맵. 공개 잔류수축 상업 예 ~3–5%(공장 목표 아님). 목표 %는 바이어.</figcaption>
-</figure>
+<p class="src">순서: 원단에 표시 → 세탁·건조 → 다시 잰다. 공개 잔류수축 상업 예 ~3–5%(공장 목표가 아니다). 목표는 작지·바이어.</p>
+<figure class="pic"><img src="img/wascator-washer.jpg" alt="노란색 앞문 드럼 세탁기 사진. 문이 열려 있어 안쪽 스테인리스 드럼이 보인다. 위쪽에 조작판이 있다."><figcaption>사진. 수축 시험용 세탁기. 시험실에서 원단이나 옷을 정해진 방법대로 빨고 말린 뒤 줄어든 길이를 잰다. 집 세탁기와 비슷해 보이지만 시험 방법에 맞춘 기계다. 상표는 흐리게 지웠다. 사진: Lokal_Profil, CC BY-SA 4.0, 위키미디어 공용</figcaption></figure>
 
 <h2 id="why">왜 수축이 생기나 <span>왜</span></h2>
 <div class="grid">
@@ -99,7 +134,7 @@ html{background:var(--paper)}
 </div>
 
 <h2 id="tenter">폭을 잡고 말리는 기계 <span>텐터</span></h2>
-<p>쉬운 말: 폭·길이를 맞추는 건조·열 잡기 기계. 이름: 텐터 (stenter / tenter).</p>
+<p>폭·길이를 맞추는 건조·열 잡기 기계. 이름: 텐터 (stenter / tenter).</p>
 <div class="grid">
   <div class="card"><b>폭</b><div class="en">WIDTH</div><p>핀·클립이 변부를 잡고 지정 폭으로 연다.</p></div>
   <div class="card"><b>길이 여유(오버피드)</b><div class="en">OVERFEED</div><p>길이에 여유를 넣어 루프가 너무 팽팽하지 않게. 폭만 늘리면 무게(GSM)가 떨어질 수 있다.</p></div>
@@ -108,15 +143,15 @@ html{background:var(--paper)}
 <p class="note">텐터는 열·폭 칸이다. 세탁이 할 기계적 이완을 대신하지 않는다.</p>
 
 <h2 id="compact">길이를 미리 빼 두는 기계 <span>컴팩터</span></h2>
-<p>쉬운 말: 세탁 후 줄어들 길이를 미리 잡아 두는 수축 잡기 기계. 이름: 컴팩터 (compactor).</p>
+<p>세탁 후 줄어들 길이를 미리 잡아 두는 수축 잡기 기계. 이름: 컴팩터 (compactor).</p>
 <div class="grid">
   <div class="card"><b>눌러서 이완</b><div class="en">MECHANICAL</div><p>펠트·고무벨트 사이에서 오버피드로 루프를 압축.</p></div>
-  <div class="card"><b>남는 수축 낮춤</b><div class="en">RESIDUAL</div><p>세탁이 할 길이 수축을 미리 빼 둔다. <b>열고정 아님.</b></p></div>
+  <div class="card"><b>남는 수축 낮춤</b><div class="en">RESIDUAL</div><p>세탁이 할 길이 수축을 미리 빼 둔다. <b>열고정이 아니다.</b></p></div>
   <div class="card"><b>컴팩터 ≠ 텐터</b><div class="en">NOT HEAT-SET</div><p>스판 열기억은 컴팩터만으로 못 잡는다. 역할이 다르다.</p></div>
 </div>
 
 <h2 id="test">테스트 <span>시험</span></h2>
-<p>쉬운 말: 세탁 전후 길이와 폭을 재서 %로 본다. 표준 이름은 표에.</p>
+<p>세탁 전후 길이와 폭을 재서 %로 본다. 표준 이름은 표에.</p>
 <div style="overflow:auto"><table>
 <thead><tr><th>쉬운 말</th><th>이름</th><th>내용</th></tr></thead>
 <tbody>
@@ -124,29 +159,26 @@ html{background:var(--paper)}
 <tr><td>% 계산</td><td>ISO 5077</td><td>((세탁후 − 세탁전) / 세탁전) × 100. 길이·폭.</td></tr>
 <tr><td>미국 쪽 치수변화</td><td>AATCC 135</td><td>미국 바이어가 지정할 수 있는 치수변화 테스트.</td></tr>
 </tbody></table></div>
-<p class="warn">공개 잔류수축 상업 예 ~3–5%. <b>공장 목표 아님.</b> 이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어를 본다.</p>
+<p class="warn">공개 잔류수축 상업 예 ~3–5%. <b>공장 목표가 아니다.</b> 이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어를 본다.</p>
 
 <h2 id="spiral">비뚤어짐 <span>사행</span></h2>
-<p>쉬운 말: 원단·옷이 비스듬히 틀어지는 것. 이름: 사행(스큐)·토크.</p>
+<p>원단·옷이 비스듬히 틀어지는 것. 이름: 사행(스큐)·토크.</p>
 <div class="grid">
   <div class="card"><b>비뚤어짐(사행)</b><div class="en">SKEW</div><p>원단 코스가 비스듬히 비틀린 현상. 재단·봉제 후 다리 비뚤어짐으로 이어질 수 있다.</p></div>
   <div class="card"><b>세탁 후 틀어짐</b><div class="en">TORQUE</div><p>세탁 후 의류가 비틀어지는 현상. 니트에서 종종. (토크)</p></div>
   <div class="card"><b>평가 이름 예</b><div class="en">AATCC179</div><p>스큐(사행) 평가 표준 예: AATCC 179. 자세한 프로토콜·한도는 바이어.</p></div>
 </div>
-<p><a href="../finishing/index.html">후가공</a>은 텐터·컴팩터 설비 칸. 이 칸은 치수변화 테스트·개념. <a href="../fabric-spec/index.html">원단스펙</a>은 표 읽는 법.</p>
+<p><a href="../finishing/index.html">후가공</a>은 텐터·컴팩터 설비 페이지. 이 페이지는 치수변화 테스트·개념. <a href="../fabric-spec/index.html">원단스펙</a>은 표 읽는 법.</p>
 
 <h2 id="vid">영상 <span>영상</span></h2>
 <p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
 
 
-<figure class="pic">
-  <img src="img/shrink-before-after.png" alt="수축 전후 비교 도식">
-  <figcaption>그림. 세탁·건조 전후 길이 변화 도식(영문 라벨). 공개 예. 작지·바이어.</figcaption>
-</figure>
-<figure class="pic">
-  <img src="img/shrink-fabric-real.png" alt="수축·원단 관련 실사">
-  <figcaption>그림. 원단 실사 참고. 잔류수축 목표는 이 사진으로 정하지 않는다.</figcaption>
-</figure>
+<figure class="pic"><div class="vz"><div class="two" style="align-items:end">
+<div class="card" style="text-align:center"><div class="ttl">세탁 전</div><div style="position:relative;width:100%;aspect-ratio:100/100;margin:0 auto;border-radius:8px;background:repeating-linear-gradient(90deg,#f8f2e6 0 4px,#e7dcc6 4px 6px),#f1e9da;box-shadow:0 14px 22px -12px rgba(28,53,88,.55),inset 0 0 0 1px #cfc5b3"><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:85%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:85%;transform:translate(-50%,-50%)"></span></div><div class="val" style="text-align:center;margin-top:10px">점 사이 50.0 cm</div></div>
+<div class="card" style="text-align:center"><div class="ttl">세탁·건조 뒤</div><div style="position:relative"><div style="position:relative;width:97%;aspect-ratio:97/97;margin:1.5% auto 1.5%;border-radius:8px;background:repeating-linear-gradient(90deg,#f8f2e6 0 4px,#e7dcc6 4px 6px),#f1e9da;box-shadow:0 14px 22px -12px rgba(28,53,88,.55),inset 0 0 0 1px #cfc5b3"><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:15%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:15%;top:85%;transform:translate(-50%,-50%)"></span><span class="ball" style="position:absolute;width:18px;height:18px;left:85%;top:85%;transform:translate(-50%,-50%)"></span></div><div style="position:absolute;left:0;top:0;border:3px dashed #8a93a0;border-radius:8px;width:100%;aspect-ratio:1;pointer-events:none"></div></div><div class="val" style="text-align:center;margin-top:20px">점 사이 48.5 cm</div></div>
+</div><div class="note2" style="font-size:16px;color:#1c3558"><b>수축률 = (처음 − 나중) ÷ 처음 × 100 = (50.0 − 48.5) ÷ 50.0 × 100 = 3%</b>. 오른쪽 원단은 왼쪽보다 정확히 3% 작게 그렸고, 회색 점선이 처음 크기다. 숫자는 계산 연습용 예이고 공장 목표가 아니다.</div></div><figcaption>그림 2. 수축 재기. 세탁 전 원단에 점 네 개를 찍어 점 사이를 재고(예 50.0 cm), 세탁·건조 뒤 다시 잰다(예 48.5 cm). 수축률 = (50.0 − 48.5) ÷ 50.0 × 100 = 3%. 계산 연습용 예이고 목표는 작지·바이어를 본다.</figcaption></figure>
+
 
 <h2 id="caution">주의 <span>주의</span></h2>
 <p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
@@ -157,10 +189,10 @@ html{background:var(--paper)}
 <div class="q" data-a="0"><b>4. 컴팩터가 남는 수축을 낮추는 방법은?</b><button data-j="0">오버피드로 루프 압축·이완</button><button data-j="1">폭만 늘리기</button><button data-j="2">염료 농도 낮추기</button><p class="why">펠트·고무벨트 + 오버피드.</p></div>
 <div class="q" data-a="0"><b>5. 치수변화 % 계산 이름(예)는?</b><button data-j="0">ISO 5077</button><button data-j="1">ISO 105-C06</button><button data-j="2">ASTM D5430</button><p class="why">ISO 6330 세탁 + ISO 5077 % 계산.</p></div>
 <div class="q" data-a="2"><b>6. AATCC 135은?</b><button data-j="0">시각 4점법</button><button data-j="1">일광 견뢰도</button><button data-j="2">치수변화(수축) 테스트 예</button><p class="why">바이어가 지정할 수 있다.</p></div>
-<div class="q" data-a="1"><b>7. ~3–5% 잔류수축은?</b><button data-j="0">공장 공식 목표</button><button data-j="1">공개 상업 예. 공장 목표 아님</button><button data-j="2">ISO 법정 최대치</button><p class="why">바이어가 정한다. 이 페이지 %로 공장 목표를 정하지 않는다.</p></div>
+<div class="q" data-a="1"><b>7. ~3–5% 잔류수축은?</b><button data-j="0">공장 공식 목표</button><button data-j="1">공개 상업 예. 공장 목표가 아니다</button><button data-j="2">ISO 법정 최대치</button><p class="why">바이어가 정한다. 이 페이지 %로 공장 목표를 정하지 않는다.</p></div>
 <div class="q" data-a="0"><b>8. 비뚤어짐(사행)·토크 평가 이름 예는?</b><button data-j="0">AATCC 179</button><button data-j="1">ISO 105-X12</button><button data-j="2">AATCC 61</button><p class="why">스큐 평가. 한도는 바이어.</p></div>
 <div class="q" data-a="0"><b>9. 텐터에서 폭만 늘리면?</b><button data-j="0">GSM이 떨어질 수 있다</button><button data-j="1">잔류수축이 0이 된다</button><button data-j="2">염색이 해결된다</button><p class="why">오버피드·GSM·폭이 한 세트.</p></div>
-<div class="q" data-a="2"><b>10. 이 칸과 후가공·원단스펙의 관계는?</b><button data-j="0">같은 칸</button><button data-j="1">수축만 하면 텐터 생략</button><button data-j="2">후가공=설비, 수축=테스트·개념, 스펙=표 읽기 — 별개</button><p class="why">../후가공/ · ../원단스펙/</p></div>
+<div class="q" data-a="2"><b>10. 이 페이지와 후가공·원단스펙의 관계는?</b><button data-j="0">같은 칸</button><button data-j="1">수축만 하면 텐터 생략</button><button data-j="2">후가공=설비, 수축=테스트·개념, 스펙=표 읽기 — 별개</button><p class="why">../후가공/ · ../원단스펙/</p></div>
 <footer>교육자료 · 수축</footer>
 </div>
 <script src="_edu.js"></script>

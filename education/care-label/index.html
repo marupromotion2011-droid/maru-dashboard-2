@@ -46,8 +46,8 @@ figure.hero img{min-height:420px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:720px;min-height:400px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -79,7 +79,7 @@ html{background:var(--paper)}
 <div class="wrap">
 <p class="kicker">교육자료 · 케어라벨</p>
 <h1>케어라벨</h1>
-<p class="lede">옷 세탁·건조·다릴 때 보면 되는 그림 기호. 왼쪽부터 세탁 → 표백 → 건조 → 다림질 → 전문세탁. 읽는 법만 — 법률 자문 아님.</p>
+<p class="lede">옷 세탁·건조·다릴 때 보면 되는 그림 기호. 왼쪽부터 세탁 → 표백 → 건조 → 다림질 → 전문세탁. 읽는 법만 — 법률 자문이 아니다.</p>
 <div class="pills">
   <span class="pill">다섯 그림</span>
   <span class="pill">살살 · 하지 마</span>
@@ -87,20 +87,20 @@ html{background:var(--paper)}
 </div>
 
 <figure class="hero">
-  <img src="img/care-five-hq.png" alt="세탁 표백 건조 다림질 전문세탁 다섯 그림">
-  <figcaption>그림 1. 왼쪽부터: 세탁(통) → 표백(삼각) → 건조(사각) → 다림질(다리미) → 전문세탁(원). 교육용 도식. 상용 기호 도안은 GINETEX 상표.</figcaption>
+  <img src="img/care-five.png" style="min-height:0;background:#f4f0e8" alt="흰 카드 다섯 장에 물 담긴 통, 삼각형, 사각형, 다리미, 원 기호">
+  <figcaption>그림 1. 기본 기호 다섯 가지. 왼쪽부터 세탁(물 담긴 통) → 표백(삼각) → 건조(사각) → 다림질(다리미) → 전문세탁(원). ISO 3758 순서다. 기호: André Riemann, 퍼블릭 도메인, 위키미디어 공용</figcaption>
 </figure>
 <figure class="pic">
-  <img src="img/care-symbols-large.png" alt="케어라벨 5아이콘 대형 상세 도식">
-  <figcaption>그림 1b. 세탁·표백·건조·다림질·전문세탁 대형 도식(ISO 3758 순서). 교육용. 상용 도안은 GINETEX 상표. 한글 설명은 본문.</figcaption>
+  <img src="img/care-symbols-large.png" style="min-height:0;background:#f4f0e8" alt="통 안 숫자 40, 가위표 친 삼각, 사각 안 원과 점 하나, 점 둘 다리미, 원 안 P 기호">
+  <figcaption>그림 2. 실제 라벨 모양 예. 왼쪽부터 통 안 40 = 물 온도 40°C 이하로 세탁 · 가위표 친 삼각 = 표백하지 않음 · 사각 안 원에 점 하나 = 건조기 낮은 온도 · 다리미 점 둘 = 중간 온도 다림질 · 원 안 P = 전문 드라이클리닝. 기호: André Riemann, 퍼블릭 도메인, 위키미디어 공용</figcaption>
 </figure>
 
 
-<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<h2 id="why">왜 배우나 <span>왜</span></h2>
 <div class="grid">
   <div class="card"><b>기호를 읽는다</b><div class="en">READ</div><p>완성 티 라벨에서 손질 줄만 본다. 섬유 조성·사이즈·원산지는 별 칸 주제.</p></div>
   <div class="card"><b>순서가 있다</b><div class="en">ORDER</div><p>다섯 그림은 왼쪽부터 고정 순서. 섞어 쓰면 표준 코드와 어긋난다.</p></div>
-  <div class="card"><b>교육 ≠ 법률</b><div class="en">NO LAW</div><p>표시 의무·문구는 시장·바이어·법규. 이 칸은 기호 읽기. 법률 자문 아님.</p></div>
+  <div class="card"><b>교육 ≠ 법률</b><div class="en">NO LAW</div><p>표시 의무·문구는 시장·바이어·법규. 이 페이지는 기호 읽기. 법률 자문이 아니다.</p></div>
 </div>
 
 <h2 id="five">다섯 그림 <span>다섯</span></h2>
@@ -118,38 +118,38 @@ html{background:var(--paper)}
 </table>
 </div>
 <p class="src">ISO 3758:2023. 교육은 표준 이름만. 상용 도안은 GINETEX가 여러 나라에서 상표로 보유.</p>
-<p class="note">섬유 조성 / 케어 / 사이즈 / 원산지는 라벨에서 <b>주제별</b>로 나뉜다. 이 칸은 손질 그림에 집중.</p>
+<p class="note">섬유 조성 / 케어 / 사이즈 / 원산지는 라벨에서 <b>주제별</b>로 나뉜다. 이 페이지는 손질 그림에 집중.</p>
 <figure class="pic">
-  <img src="img/care-label-photo.jpg" alt="실제 케어라벨 기호 예(브랜드 가림)">
-  <figcaption>실사 예: 라벨 오른쪽에 손질 기호. 브랜드·상표 영역은 가림. Wikimedia, Public domain, File:Label with care symbols.JPG.</figcaption>
+  <img src="img/care-label-photo.jpg" alt="검은 직조 라벨에 흰 실로 짠 손세탁, 가위표 삼각, 다리미, 원 안 P 기호와 옆의 치수 라벨">
+  <figcaption>그림 3. 실제 니트 옷 라벨의 손질 기호. 위부터 손세탁(통 안의 손) · 염소 표백 금지(가위표 친 삼각) · 다림질(다리미) · 전문 드라이클리닝(원 안 P). 오른쪽 작은 라벨은 치수다. 상표 부분은 잘라 냈다. 사진: Elkagye, 퍼블릭 도메인, 위키미디어 공용</figcaption>
 </figure>
 
 
 <h2 id="mod">붙는 표시 읽기 <span>수식</span></h2>
 <figure class="hero">
-  <img src="img/care-tips-hq.png" alt="한 줄 살살, 두 줄 더 살살, 가위표 하지 마">
-  <figcaption>그림 2. 한 줄=살살, 두 줄=더 살살, 가위표=하지 마.</figcaption>
+  <img src="img/care-tips.png" style="min-height:0;background:#f4f0e8" alt="숫자 40 통 기호 네 칸. 줄 없음, 아래 줄 하나, 아래 줄 둘, 통 위에 겹친 가위표">
+  <figcaption>그림 4. 통 아래 줄과 가위표. 왼쪽부터 줄 없음 = 보통 세탁 · 줄 하나 = 약하게 · 줄 둘 = 아주 약하게 · 통 위에 겹친 가위표 = 물세탁 하지 않음. 통 안 숫자 40은 물 온도 상한이다. 기호: André Riemann, 퍼블릭 도메인, 위키미디어 공용</figcaption>
 </figure>
 <div class="grid">
   <div class="card"><b>한 줄 = 살살</b><div class="en">BAR</div><p>기호 아래 한 줄은 온화하게(살살). 두 줄은 더 살살(아주 온화).</p></div>
   <div class="card"><b>숫자 = 물온도</b><div class="en">°C</div><p>통 안 숫자는 최대 물온도(°C). 바이어·표준 기호표를 본다.</p></div>
   <div class="card"><b>점 = 열</b><div class="en">DOTS</div><p>다림질·건조(텀블)에서 점은 열 강도. 점 많을수록 더 높은 열(표준 표 기준).</p></div>
-  <div class="card"><b>가위표 = 하지 마</b><div class="en">X</div><p>기호 위 가위표(X)는 그 손질은 하지 말 것.</p></div>
+  <div class="card"><b>가위표 = 하지 마</b><div class="en">X</div><p>기호 위 가위표(X)는 그 손질은 하지 않는다.</p></div>
 </div>
 <p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
 
 <h2 id="region">지역 메모 <span>지역</span></h2>
 <div class="grid">
-  <div class="card"><b>우리나라 · KS K 0021</b><div class="en">KR</div><p>우리나라 쪽도 같은 그림 체계를 쓴다(공개). KS K 0021. 시장·개정본은 표준서를 본다. 법률 자문 아님.</p></div>
+  <div class="card"><b>한국 · KS K 0021</b><div class="en">KR</div><p>한국 쪽도 같은 그림 체계를 쓴다(공개). KS K 0021. 시장·개정본은 표준서를 본다. 법률 자문이 아니다.</p></div>
   <div class="card"><b>미국 쪽 메모</b><div class="en">US</div><p>ASTM D5489 / FTC는 기호·문장 체계가 다를 수 있다. 바이어 스펙이 우선.</p></div>
 </div>
-<p class="note">수출 티는 도착국·바이어 라벨 지침이 갈린다. 교육 칸은 “차이가 있다” 정도만.</p>
+<p class="note">수출 티는 도착국·바이어 라벨 지침이 갈린다. 교육 자료에서는 “차이가 있다” 정도만.</p>
 
 <h2 id="tee">니트 티 공개 팁 <span>티셔츠</span></h2>
 <div class="grid">
-  <div class="card"><b>살살 세탁</b><div class="en">MILD</div><p>공개 업계 예: 니트는 살살·낮은 온도·약 회전을 자주 본다. 공장 SOP 아님.</p></div>
+  <div class="card"><b>살살 세탁</b><div class="en">MILD</div><p>공개 업계 예: 니트는 살살·낮은 온도·약 회전을 자주 본다. 공장 SOP가 아니다.</p></div>
   <div class="card"><b>형태 잡기</b><div class="en">RESHAPE</div><p>공개 예: 젖은 뒤 모양 잡기·뉘어 말리기 안내가 많다. 바이어 카피 따름.</p></div>
-  <div class="card"><b>SOP 아님</b><div class="en">NOT SOP</div><p>팁은 공개 산업 예. 라인 작업 지시·합격 기준이 아니다.</p></div>
+  <div class="card"><b>SOP가 아니다</b><div class="en">NOT SOP</div><p>팁은 공개 산업 예. 라인 작업 지시·합격 기준이 아니다.</p></div>
 </div>
 
 <h2 id="vid">영상 <span>영상</span></h2>
@@ -162,9 +162,9 @@ html{background:var(--paper)}
 <div class="q" data-a="0"><b>2. 기호 아래 한 줄은?</b>
 <button data-j="0">살살 (온화)</button><button data-j="1">더 높은 온도</button><button data-j="2">하지 마</button>
 <p class="why">한 줄=살살, 두 줄=더 살살. 가위표=하지 마.</p></div>
-<div class="q" data-a="2"><b>3. 우리나라 쪽 공개 표준은?</b>
+<div class="q" data-a="2"><b>3. 한국 쪽 공개 표준은?</b>
 <button data-j="0">ASTM D5430</button><button data-j="1">ISO 105-C06</button><button data-j="2">KS K 0021 (같은 그림 체계)</button>
-<p class="why">KS K 0021. ISO 3758 계열. 공개 사실. 법률 자문 아님.</p></div>
+<p class="why">KS K 0021. ISO 3758 계열. 공개 사실. 법률 자문이 아니다.</p></div>
 <div class="q" data-a="1"><b>4. GINETEX는?</b>
 <button data-j="0">한국 법정 검사기관</button><button data-j="1">케어 기호를 여러 나라에서 상표로 보유(상용)</button><button data-j="2">뽑기 검사 표 작성자</button>
 <p class="why">교육은 표준 이름만 인용. 상용 도안·라이선스는 GINETEX.</p></div>
@@ -174,12 +174,12 @@ html{background:var(--paper)}
 <div class="q" data-a="2"><b>6. 미국 쪽과 이 그림 체계의 관계는?</b>
 <button data-j="0">항상 1:1 동일</button><button data-j="1">미국만 기호 금지</button><button data-j="2">문장·기호가 다를 수 있음 → 바이어 스펙</button>
 <p class="why">가볍게만. 차이 가능. 바이어 지시 우선.</p></div>
-<div class="q" data-a="1"><b>7. 이 칸이 다루지 않는 것은?</b>
+<div class="q" data-a="1"><b>7. 이 페이지가 다루지 않는 것은?</b>
 <button data-j="0">그림 순서·살살 표시</button><button data-j="1">법률 자문·표시 의무 확정</button><button data-j="2">니트 티 공개 팁</button>
-<p class="why">교육용 읽기. 법률 자문 아님.</p></div>
+<p class="why">교육용 읽기. 법률 자문이 아니다.</p></div>
 <div class="q" data-a="0"><b>8. 가위표(X)가 겹친 기호는?</b>
 <button data-j="0">하지 마</button><button data-j="1">강한 처리</button><button data-j="2">전문세탁만</button>
-<p class="why">그 손질은 금지.</p></div>
+<p class="why">그 손질은 하지 않는다.</p></div>
 
 <footer>교육자료 · 케어라벨</footer>
 </div>

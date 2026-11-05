@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -78,19 +78,16 @@ html{background:var(--paper)}
 <h1>봉제기기</h1>
 <p class="lede">공업용 미싱이 뭘 하는지, 실이 몇 가닥 들어가는지. 티셔츠 중심. 라인 배치는 작지·바이어를 본다.</p>
 <div class="pills"><span class="pill">신입용</span><span class="pill">실 몇 가닥</span><span class="pill">티셔츠 중심</span></div>
-<p class="note">공정 순서(어깨·넥·헴)는 <a href="../sewing/index.html">봉제</a>를 본다. 이 칸은 기종·실 가닥 수.</p>
+<p class="note">공정 순서(어깨·넥·헴)는 <a href="../sewing/index.html">봉제</a>를 본다. 이 페이지는 기종·실 가닥 수.</p>
 
-<figure class="hero">
-  <img src="img/cone-count-hq.png" alt="실이 몇 가닥 들어가는지">
-  <figcaption>그림 1. 콘수 = 실이 몇 가닥 들어가는지. 본봉 2경로 · 오버록 3/4실 · 커버 2바늘=3가닥. 보유·댓수는 설비를 본다.</figcaption>
-</figure>
+<p class="src">콘수 = 실 가닥 수: 본봉 2(윗실 + 밑실) · 오버록 3실 또는 4실 · 커버 2바늘 3가닥. 보유·댓수는 설비 목록.</p>
 
 <h2 id="types">본선 기종 <span>종류</span></h2>
 <p class="src">쉬운 말 먼저. 괄호는 이름. 보유 기종은 작지·설비 목록을 본다.</p>
 <div class="grid">
   <div class="card"><b>1 일반 솔기 미싱</b><div class="en">LOCKSTITCH</div><p>위실+보빈이 맞물림. 라벨·탑스티치·일부 넥. 현장: 본봉·플레인·싱글. (Class 301)<br>니트 옆솔기를 이것만으로 돌리면 실 터질 수 있음(공개).</p></div>
   <div class="card"><b>2 쌍침 일반 솔기</b><div class="en">TWIN NEEDLE</div><p>바늘 두 개로 겉에 두 줄. 포켓·플랙·일부 넥 테이프. 위실 2 + 보빈 1~2.</p></div>
-  <div class="card"><b>3 가장자리 감침 3/4/5실</b><div class="en">OVERLOCK</div><p>잘라진 끝을 감쌈. 3실=바늘1+루퍼2, 4실=바늘2+루퍼2(니트 티 어깨·사이드 흔함), 5실=오버록+체인(우븐/고강도 쪽 — 티 필수라고 보지 말 것). 현장: 오버록·오바록. (Class 500)</p></div>
+  <div class="card"><b>3 가장자리 감침 3/4/5실</b><div class="en">OVERLOCK</div><p>잘라진 끝을 감쌈. 3실=바늘1+루퍼2, 4실=바늘2+루퍼2(니트 티 어깨·사이드 흔하다), 5실=오버록+체인(우븐/고강도 쪽 — 티 필수라고 보지 않는다). 현장: 오버록·오바록. (Class 500)</p></div>
   <div class="card"><b>4 단 접어 두줄 / 후락</b><div class="en">COVER</div><p>소매·밑단 헴. 406·407은 Class 400(하단 커버). 602·605는 Class 600(탑커버). 현장: 후락·플랫락·커버.</p></div>
   <div class="card"><b>5 체인 솔기</b><div class="en">CHAIN</div><p>바늘1+루퍼1=실 2가닥. 잘 늘어남. 일부 솔기·헴·바인딩. (401)</p></div>
   <div class="card"><b>6 강화 바택</b><div class="en">BARTACK</div><p>포켓·슬릿·벨트 고리 등 짧은 구간 강화. 티셔츠에서는 옵션.</p></div>
@@ -100,18 +97,10 @@ html{background:var(--paper)}
   <div class="card"><b>10 지그재그</b><div class="en">ZIGZAG</div><p>스판 트림·장식. 본선 솔기보다 마감/트림.</p></div>
 </div>
 
-<figure class="pic">
-  <img src="img/sew-thread-cones.png" alt="실 콘 개념 보조 그림">
-  <figcaption>그림 2. 실 콘 개념(보조). 숫자는 아래 표. 3실 오버록=바늘1+루퍼2=3가닥.</figcaption>
-</figure>
-<figure class="pic">
-  <img src="img/machines-cones-large.png" alt="봉제 기종과 실 가닥(콘) 수">
-  <figcaption>그림 3. 기종별 실 경로·콘수 큰 그림. 숫자는 교육용. 보유·댓수는 설비 목록.</figcaption>
-</figure>
-<figure class="pic">
-  <img src="img/overlock-head-photo.png" alt="오버록 머리(헤드) 실사">
-  <figcaption>그림 4. 오버록 머리 실사(education). 보유·댓수는 설비 목록.</figcaption>
-</figure>
+<p class="src">콘 하나에서 실 한 가닥이 나와 가이드를 지나 바늘이나 루퍼로 간다. 그래서 콘 수 = 실 가닥 수(3실 오버록 = 바늘1 + 루퍼2). 실물은 아래 오버록 사진.</p>
+
+
+<figure class="pic"><img src="img/overlock-4thread.jpg" alt="빨간 실 콘 네 개를 위 막대에 걸고 실을 기계로 내린 오버록 미싱 사진. 앞에 색이 다른 실 조절 다이얼 네 개가 있다."><figcaption>사진. 오버록 미싱. 실 콘 네 개에서 내려온 실이 각자 다이얼(장력)을 지나 바늘과 루퍼로 간다. 그래서 오버록은 콘을 여러 개 건다. 가정용 작은 기계이지만 실 거는 방식은 공장 기계와 같다. 사진: Jeremy Mikesell, CC BY-SA 3.0, 위키미디어 공용</figcaption></figure>
 
 
 
@@ -123,8 +112,8 @@ html{background:var(--paper)}
 <tr><td>본봉</td><td>일반 솔기</td><td>301</td><td>1</td><td>보빈 1</td><td>경로 2 (위실+보빈)</td><td>라벨·탑</td><td>니트 사이드 본봉만은 피함(공개)</td></tr>
 <tr><td>쌍침본봉</td><td>쌍침 일반 솔기</td><td>301×2</td><td>2</td><td>보빈 1~2</td><td>위 2 + 보빈 1~2</td><td>테이프·포켓</td><td>보빈 수 기종마다</td></tr>
 <tr><td>오버록 3실</td><td>가장자리 감침 3가닥</td><td>504</td><td>1</td><td>루퍼 2</td><td>3 = N1+L2</td><td>가장자리·가벼운 솔</td><td>표 기준</td></tr>
-<tr><td>오버록 4실</td><td>가장자리 감침 4가닥</td><td>514</td><td>2</td><td>루퍼 2</td><td>4 = N2+L2</td><td>니트 티 어깨·사이드 흔함</td><td>니트 본선 솔 예</td></tr>
-<tr><td>오버록 5실 안전</td><td>감침+체인 5가닥</td><td>516</td><td>2</td><td>루퍼 3</td><td>5 = 오버록+체인</td><td>티에선 흔하지 않음</td><td>우븐/고강도 흔함</td></tr>
+<tr><td>오버록 4실</td><td>가장자리 감침 4가닥</td><td>514</td><td>2</td><td>루퍼 2</td><td>4 = N2+L2</td><td>니트 티 어깨·사이드 흔하다</td><td>니트 본선 솔 예</td></tr>
+<tr><td>오버록 5실 안전</td><td>감침+체인 5가닥</td><td>516</td><td>2</td><td>루퍼 3</td><td>5 = 오버록+체인</td><td>티에선 흔하지 않다</td><td>우븐/고강도 흔하다</td></tr>
 <tr><td>커버/후락 2바늘</td><td>단 접어 두줄</td><td>406</td><td>2</td><td>루퍼 1</td><td>3 = N2+L1</td><td>소매·밑단 헴</td><td>Class 400 · 공개 콘수</td></tr>
 <tr><td>커버 3바늘</td><td>단 접어 세줄</td><td>407</td><td>3</td><td>루퍼 1</td><td>4 = N3+L1</td><td>넓은 헴</td><td>표면 3줄</td></tr>
 <tr><td>탑커버 602</td><td>양면 단 마감</td><td>602</td><td>2</td><td>루퍼1+탑 1</td><td>4 = N2+L1+탑1</td><td>헴 양면</td><td>Class 600</td></tr>
@@ -135,15 +124,15 @@ html{background:var(--paper)}
 <p class="note">본봉: 위실 콘1 + 보빈(보빈은 콘에서 감음) → 경로 2. 오버록·커버는 보빈 대신 루퍼.</p>
 
 <h2 id="use">어디에 쓰나 <span>쓰임</span></h2>
-<p class="src">공정 × 추천 기종. 공개 apparel 라인 예. 특정 공장 OB 아님 — 작지·바이어를 본다.</p>
+<p class="src">공정 × 추천 기종. 공개 apparel 라인 예. 특정 공장 OB가 아니다 — 작지·바이어를 본다.</p>
 <div style="overflow:auto"><table>
 <thead><tr><th>공정</th><th>추천(공개 예)</th><th>메모</th></tr></thead>
 <tbody>
-<tr><td>어깨</td><td>오버록 4실 (514)</td><td>니트 티 흔함. 3실도 가능.</td></tr>
+<tr><td>어깨</td><td>오버록 4실 (514)</td><td>니트 티 흔하다. 3실도 가능.</td></tr>
 <tr><td>넥(리브/바인딩)</td><td>오버록 + (옵션) 본봉/커버 테이프</td><td>공장마다 다름.</td></tr>
 <tr><td>소매헴</td><td>커버 406/407 ± 탑커버</td><td>현장 후락.</td></tr>
 <tr><td>소매달기</td><td>오버록 4실</td><td>어깨와 같은 계.</td></tr>
-<tr><td>사이드</td><td>오버록 4실 (5실은 우븐 예)</td><td>티에 5실 필수라고 보지 말 것. 본봉만은 피함(공개).</td></tr>
+<tr><td>사이드</td><td>오버록 4실 (5실은 우븐 예)</td><td>티에 5실 필수라고 보지 않는다. 본봉만은 피함(공개).</td></tr>
 <tr><td>밑단 헴</td><td>커버 406/407/602/605</td><td>헴 폭에 따라 2/3바늘.</td></tr>
 <tr><td>라벨</td><td>본봉 301</td><td>케어·메인·사이즈.</td></tr>
 </tbody></table></div>
@@ -151,13 +140,13 @@ html{background:var(--paper)}
 <h2 id="needle">바늘 <span>바늘</span></h2>
 <p class="src">공개 업계에서 자주 보는 시스템. 사이즈는 원단·작지를 본다.</p>
 <div class="grid">
-  <div class="card"><b>본봉 — DBx1 흔함</b><div class="en">LOCKSTITCH</div><p>사이즈·점도는 원단·작지. 이 페이지로 공장 규격을 정하지 않는다.</p></div>
-  <div class="card"><b>커버/후락 — UY128GAS 흔함</b><div class="en">COVER</div><p>2/3바늘 모두. 공개에서 자주 봄.</p></div>
-  <div class="card"><b>니트 — 둥근 끝(볼포인트)</b><div class="en">KNIT</div><p>니트에는 둥근 끝(FFG/SES류)이 흔함. 날카로운 끝은 원단 손상·스킵을 키울 수 있음(공개 개념).</p></div>
+  <div class="card"><b>본봉 — DBx1이 흔하다</b><div class="en">LOCKSTITCH</div><p>사이즈·점도는 원단·작지. 이 페이지로 공장 규격을 정하지 않는다.</p></div>
+  <div class="card"><b>커버/후락 — UY128GAS가 흔하다</b><div class="en">COVER</div><p>2/3바늘 모두. 공개에서 자주 봄.</p></div>
+  <div class="card"><b>니트 — 둥근 끝(볼포인트)</b><div class="en">KNIT</div><p>니트에는 둥근 끝(FFG/SES류)이 흔하다. 날카로운 끝은 원단 손상·스킵을 키울 수 있음(공개 개념).</p></div>
 </div>
 
 <h2 id="shop">현장말 <span>현장말</span></h2>
-<p>작지=현장말, 바이어·교재=교육말. 나란히 적는다.</p>
+<p>작지=현장말, 바이어·자료=교육말. 나란히 적는다.</p>
 <div style="overflow:auto"><table>
 <thead><tr><th>현장말</th><th>쉬운 말 / 교육말</th><th>메모</th><th>어디</th></tr></thead>
 <tbody>
@@ -174,11 +163,11 @@ html{background:var(--paper)}
 </tbody></table></div>
 
 <h2 id="warn">주의 <span>주의</span></h2>
-<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어·설비 목록을 본다. 공개 업계 개념만.</p>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다. 보유 기종은 설비 목록을 본다.</p>
 <div class="grid">
   <div class="card"><b>공장 보유·댓수</b><div class="en">NO INVENTORY</div><p>몇 대 있다 / 어떤 모델은 설비 목록·작지를 본다.</p></div>
   <div class="card"><b>실 브랜드</b><div class="en">NO BRAND</div><p>Coats/A&amp;E는 스티치 이름 인용용. 공장 사용 브랜드가 아니다.</p></div>
-  <div class="card"><b>장력 숫자</b><div class="en">NO TENSION</div><p>장력·바늘땀 숫자창을 공장 규격으로 쓰지 말 것.</p></div>
+  <div class="card"><b>장력 숫자</b><div class="en">NO TENSION</div><p>장력·바늘땀 숫자 범위를 공장 규격으로 쓰지 않는다.</p></div>
 </div>
 
 <h2 id="vid">영상 <span>영상</span></h2>
@@ -186,17 +175,17 @@ html{background:var(--paper)}
 
 <h2 id="quiz">퀴즈 <span>확인</span></h2>
 <div class="q" data-a="0"><b>1. 3실 오버록 실 가닥 수는?</b><button data-j="0">3 = 바늘1+루퍼2</button><button data-j="1">2</button><button data-j="2">5</button><p class="why">3실 = 바늘1 + 루퍼2 = 3가닥.</p></div>
-<div class="q" data-a="1"><b>2. 4실 오버록 구성은?</b><button data-j="0">바늘1+루퍼3</button><button data-j="1">바늘2+루퍼2</button><button data-j="2">바늘3+루퍼1</button><p class="why">4실 = 바늘2 + 루퍼2. 니트 티 어깨·사이드 흔함.</p></div>
+<div class="q" data-a="1"><b>2. 4실 오버록 구성은?</b><button data-j="0">바늘1+루퍼3</button><button data-j="1">바늘2+루퍼2</button><button data-j="2">바늘3+루퍼1</button><p class="why">4실 = 바늘2 + 루퍼2. 니트 티 어깨·사이드 흔하다.</p></div>
 <div class="q" data-a="0"><b>3. 커버 2바늘(406) 실 가닥 수는?</b><button data-j="0">3 = 바늘2+루퍼1</button><button data-j="1">2</button><button data-j="2">5</button><p class="why">406 = 바늘2 + 루퍼1 = 3가닥.</p></div>
 <div class="q" data-a="2"><b>4. 탑커버 605 실 가닥 수는?</b><button data-j="0">3</button><button data-j="1">4</button><button data-j="2">5 = 바늘3+루퍼1+탑1</button><p class="why">605 = 바늘3 + 루퍼1 + 탑커버 1 = 5가닥.</p></div>
 <div class="q" data-a="2"><b>5. 본봉 실 경로는?</b><button data-j="0">콘 1만</button><button data-j="1">루퍼 3</button><button data-j="2">위실 + 보빈 = 경로 2</button><p class="why">본봉은 위실+보빈. 보빈은 콘에서 감음.</p></div>
 <div class="q" data-a="0"><b>6. 티셔츠 어깨·사이드에 흔한 기는?</b><button data-j="0">오버록 4실</button><button data-j="1">본봉만</button><button data-j="2">블라인드만</button><p class="why">니트 티 솔기는 오버록 4실 예가 흔함(공개).</p></div>
 <div class="q" data-a="1"><b>7. 현장말 '후락'에 가까운 쉬운 말은?</b><button data-j="0">일반 솔기 301</button><button data-j="1">단 접어 두줄(커버계)</button><button data-j="2">바택</button><p class="why">후락·플랫락·커버 = 단 접어 두줄. 406·407=Class 400, 602·605=Class 600.</p></div>
 <div class="q" data-a="2"><b>8. 커버 바늘로 공개에서 흔한 것은?</b><button data-j="0">DBx1</button><button data-j="1">TVJx1</button><button data-j="2">UY128GAS</button><p class="why">UY128GAS = 커버 흔함(공개). DBx1은 본봉.</p></div>
-<div class="q" data-a="1"><b>9. 5실 안전바누기를 티에 필수라고 보면?</b><button data-j="0">올바름(공개 필수)</button><button data-j="1">안 됨 — 우븐/고강도 쪽. 티 필수 아님</button><button data-j="2">본봉과 동일</button><p class="why">5실은 우븐/고강도 흔. 티 필수라고 보지 말 것.</p></div>
+<div class="q" data-a="1"><b>9. 5실 안전바누기를 티에 필수라고 보면?</b><button data-j="0">올바름(공개 필수)</button><button data-j="1">안 된다 — 우븐/고강도 쪽. 티 필수가 아니다</button><button data-j="2">본봉과 동일</button><p class="why">5실은 우븐/고강도에 흔하다. 티 필수라고 보지 않는다.</p></div>
 <div class="q" data-a="0"><b>10. 블라인드스티치는 티셔츠에서?</b><button data-j="0">드묾(우븐 헴 위주)</button><button data-j="1">본선 헴</button><button data-j="2">라벨 전용</button><p class="why">블라인드는 우븐 헴 위주. 티(니트)에서 드묾.</p></div>
 <div class="q" data-a="2"><b>11. 체인스티치 401 실 가닥 수는?</b><button data-j="0">1</button><button data-j="1">4</button><button data-j="2">2 = 바늘1+루퍼1</button><p class="why">401 = 바늘1 + 루퍼1 = 2가닥.</p></div>
-<div class="q" data-a="1"><b>12. 이 페이지에서 공장 보유 기종 댓수를 정해도 되나?</b><button data-j="0">된다</button><button data-j="1">안 됨 — 보유·댓수·브랜드는 설비·작지를 본다</button><button data-j="2">이미지에 써 있음</button><p class="why">이 페이지로 공장 보유·댓수·실 브랜드·장력 숫자를 정하지 않는다.</p></div>
+<div class="q" data-a="1"><b>12. 이 페이지에서 공장 보유 기종 댓수를 정해도 되나?</b><button data-j="0">된다</button><button data-j="1">안 된다 — 보유·댓수·브랜드는 설비·작지를 본다</button><button data-j="2">이미지에 써 있다</button><p class="why">이 페이지로 공장 보유·댓수·실 브랜드·장력 숫자를 정하지 않는다.</p></div>
 <footer>교육자료 · 봉제기기</footer>
 </div>
 <script src="_edu.js"></script>

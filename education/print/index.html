@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -79,7 +79,7 @@ html{background:var(--paper)}
 <div class="wrap">
 <p class="kicker">교육자료 · 프린트</p>
 <h1>프린트</h1>
-<p class="lede">그림 찍는 세 길이 다르다. 쉬운 말: 원단 롤에 찍기(DTP), 필름에 찍고 붙이기(DTF), 완성 티에 바로(DTG).</p>
+<p class="lede">그림 찍는 세 길이 다르다. 원단 롤에 찍기(DTP), 필름에 찍고 붙이기(DTF), 완성 티에 바로(DTG).</p>
 <p class="note caution">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
 
 <div class="pills">
@@ -88,20 +88,15 @@ html{background:var(--paper)}
   <span class="pill">재단 전 vs 봉제 후</span>
 </div>
 
-<figure class="hero">
-  <img src="img/print-three-hq.png" alt="프린트 세 길">
-  <figcaption>그림 A. 쉬운 말 세 길. DTF의 F는 Film.</figcaption>
-</figure>
+<p class="src">세 가지 방식: DTP — 원단 롤에 바로 찍는다 · DTF — 필름에 찍어 열프레스로 옷에 옮긴다 · DTG — 완성 티에 바로 분사한다.</p>
+<figure class="pic"><img src="img/screen-print-squeegee.jpg" alt="실크스크린 틀 위에 검은 잉크를 펴 놓고, 두 손으로 나무 손잡이 스퀴지를 잡고 미는 사진."><figcaption>사진. 스크린 프린트. 틀에 맨 망 위에 잉크를 올리고 스퀴지로 꾹 눌러 밀면, 무늬 구멍으로만 잉크가 빠져 아래 천에 찍힌다. 사진: Ahmad Ali Karim, CC0, 위키미디어 공용</figcaption></figure>
 
-<figure class="hero">
-  <img src="img/print-process-map.png" alt="티셔츠 프린트 맵 — DTP 원단 롤, DTF 필름 전사, DTG 완성 티 직접 분사">
-  <figcaption>그림 1. 티셔츠 프린트 맵 — DTP · DTF · DTG. DTF는 Direct-to-Fabric이 아니다. 이미지 영문은 도식용. 한글 명칭은 본문.</figcaption>
-</figure>
+<p class="src">티셔츠에서 프린트 위치: 원단 롤(DTP) → 재단 패널(스크린·DTF, 봉제 전) → 완성 티(DTG·작은 로고 전사, 봉제 뒤).</p>
 
-<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<h2 id="why">왜 배우나 <span>왜</span></h2>
 <div class="grid">
-  <div class="card"><b>원단 롤에 찍기</b><div class="en">DTP</div><p>쉬운 말: 재단 전 긴 원단에 잉크젯으로 찍는다.<br><span class="src">이름: DTP · digital textile printing</span></p></div>
-  <div class="card"><b>필름에 찍고 붙이기</b><div class="en">DTF</div><p>쉬운 말: 필름에 찍은 뒤 옷에 열로 붙인다. F는 Film.<br><span class="src">이름: DTF · direct to film</span></p></div>
+  <div class="card"><b>원단 롤에 찍기</b><div class="en">DTP</div><p>재단 전 긴 원단에 잉크젯으로 찍는다.<br><span class="src">이름: DTP · digital textile printing</span></p></div>
+  <div class="card"><b>필름에 찍고 붙이기</b><div class="en">DTF</div><p>필름에 찍은 뒤 옷에 열로 붙인다. F는 Film.<br><span class="src">이름: DTF · direct to film</span></p></div>
   <div class="card"><b>완성 티 직접 분사</b><div class="en">DTG</div><p>Direct to Garment. 봉제된 티를 플래튼에 올려 수성 안료를 뿌린다. 면이 본선. 어두운 티는 전처리+화이트 언더베이스.</p></div>
 </div>
 <p class="fix">DTF를 Direct-to-Fabric으로 풀면 틀림. Direct-to-Fabric은 원단 직접(DTP 쪽)이다. 샵에서 DTP라고 부르는 완성 티 출력은 대개 DTG다. 공장(mill) DTP는 원단 롤 디지털 날염.</p>
@@ -115,13 +110,13 @@ html{background:var(--paper)}
 <tr><td>DTP</td><td>digital textile printing</td><td>원단 롤 (재단 전)</td><td>면=반응/안료, 폴리=디스퍼스·승화</td><td>전처리 패딩 + 증열/수세 또는 텐터 큐어</td></tr>
 <tr><td>DTF</td><td>direct to film</td><td>필름 → 완성 의류</td><td>면·폴리·혼방·나일론</td><td>의류 전처리 없음. 파우더가 접착</td></tr>
 <tr><td>DTG</td><td>direct to garment</td><td>완성 티 플래튼</td><td>면·고면혼방</td><td>다크는 전처리+화이트. 폴리 단독은 약함</td></tr>
-<tr><td>로터리 / 스크린</td><td>rotary / screen</td><td>원단 또는 완성 티</td><td>대량 동일 그래픽</td><td>판 만들고 색마다 스크린. 디지털 dump 아님</td></tr>
-<tr><td>승화 / DSP</td><td>dye-sub / DSP</td><td>전사지 또는 폴리 원단</td><td>폴리에스터</td><td>면 저지 코어 아님</td></tr>
+<tr><td>로터리 / 스크린</td><td>rotary / screen</td><td>원단 또는 완성 티</td><td>대량 동일 그래픽</td><td>판 만들고 색마다 스크린. 디지털 프린트와 다르다</td></tr>
+<tr><td>승화 / DSP</td><td>dye-sub / DSP</td><td>전사지 또는 폴리 원단</td><td>폴리에스터</td><td>면 저지 주력이 아니다</td></tr>
 </tbody>
 </table>
 </div>
 
-<h2 id="when">공정을 넣는 칸 <span>언제</span></h2>
+<h2 id="when">공정 순서 <span>언제</span></h2>
 <div class="grid">
   <div class="card"><b>안료 DTP</b><div class="en">1 DTP PIGMENT</div><p>전처리 패딩 → 잉크젯 → 텐터 큐어. 수세가 거의 없다. 촉감·마찰견뢰는 바인더가 가른다.</p></div>
   <div class="card"><b>반응성 DTP</b><div class="en">2 DTP REACTIVE</div><p>면·레이온. 전처리 → 프린트 → 증열 → 수세 → 건조. 손맛은 좋으나 물·염이 따른다.</p></div>
@@ -130,31 +125,28 @@ html{background:var(--paper)}
   <div class="card"><b>전처리 → 분사 → 큐어</b><div class="en">5 DTG</div><p>라이트는 CMYK만, 다크는 전처리 건조 후 화이트+컬러. 큐어는 히트프레스 또는 터널. 전처리 과다하면 황변·끈적.</p></div>
   <div class="card"><b>언제 아날로그</b><div class="en">6 VOLUME</div><p>동일 그래픽 대량은 로터리·스크린이 단가·속도에서 이긴다. 디지털은 소롯·사진·전환.</p></div>
 </div>
-<p class="note">DTF 프레스 160°C·15초, DTG 전처리 160°C 전후는 공개 벤더 창이다. 필름·잉크·원단마다 다르다. 공장 창으로 쓰지 말 것.</p>
+<p class="note">DTF 프레스 160°C·15초, DTG 전처리 160°C 전후는 업체가 공개한 범위다. 필름·잉크·원단마다 다르다. 공장 기준으로 쓰지 않는다.</p>
 
 <h2 id="gloss">구 → 신 <span>용어</span></h2>
 <div style="overflow:auto">
 <table>
 <thead><tr><th>헷갈리는 말</th><th>지금</th><th>English</th><th>근거</th></tr></thead>
 <tbody>
-<tr><td>날염 dump</td><td class="new">원단 DTP vs 의류 DTF·DTG vs 로터리</td><td>separate lines</td><td>설비가 갈린다</td></tr>
+<tr><td>날염을 한데 묶음</td><td class="new">원단 DTP vs 의류 DTF·DTG vs 로터리</td><td>separate lines</td><td>설비가 갈린다</td></tr>
 <tr><td>DTF = Direct-to-Fabric</td><td class="new">DTF = Direct to Film</td><td>film transfer</td><td>원단 직접은 DTP</td></tr>
 <tr><td>샵 DTP = 공장 DTP</td><td class="new">공장 DTP = 원단 롤 디지털 날염</td><td>R2R inkjet</td><td>샵 DTP는 대개 DTG</td></tr>
 <tr><td>DTG = 원단 프린터</td><td class="new">완성 티 플래튼</td><td>garment platen</td><td>롤 고속기는 DTP</td></tr>
-<tr><td>승화 = 면 티 기본</td><td class="new">폴리 전용</td><td>dye-sub / DSP</td><td>면 저지 코어 아님</td></tr>
+<tr><td>승화 = 면 티 기본</td><td class="new">폴리 전용</td><td>dye-sub / DSP</td><td>면 저지 주력이 아니다</td></tr>
 <tr><td>디지털이면 전처리 없음</td><td class="new">DTG 다크·DTP 안료/반응은 전처리</td><td>pretreat / pad</td><td>DTF만 의류 전처리 생략</td></tr>
 </tbody>
 </table>
 </div>
 
 <h2 id="art">그림 <span>그림</span></h2>
-<figure class="hero">
-  <img src="img/dtf-steps.png" alt="DTF 공정 6단계 — 필름 출력, 파우더, 셰이크, 큐어, 열프레스, 필">
-  <figcaption>그림 2. DTF 공정. 그림에 적힌 160°C·15초는 예시. 필름 스펙을 따른다. 이미지 영문은 도식용. 한글 명칭은 본문.</figcaption>
-</figure>
+<p class="src">DTF 순서: 필름 출력 → 파우더 뿌리기 → 남은 가루 털기 → 큐어(오븐) → 열프레스 → 필름 떼기. 온도·시간은 필름 스펙.</p>
 <div class="grid">
-  <figure class="pic"><img src="img/digital-print.jpg" alt="Stork 디지털 텍스타일 프린터"><figcaption>그림 3. 원단 디지털 잉크젯 (Stork). DTP 단. Joop Anker, CC BY-SA 2.0.</figcaption></figure>
-  <figure class="pic"><img src="img/garment-print.jpg" alt="완성 의류 캐러셀 프린트"><figcaption>그림 4. 완성 의류 캐러셀. DTG/DTF와 같은 의류 단. 스크린일 수 있음. Fahad Faisal, CC BY-SA 4.0.</figcaption></figure>
+  <figure class="pic"><img src="img/digital-print.jpg" alt="디지털 텍스타일 프린터"><figcaption>그림 1. 원단 디지털 잉크젯. DTP 단. Joop Anker, CC BY-SA 2.0.</figcaption></figure>
+  <figure class="pic"><img src="img/garment-print.jpg" alt="완성 의류 캐러셀 프린트"><figcaption>그림 2. 완성 의류 캐러셀. DTG/DTF와 같은 의류 단. 스크린일 수 있다. Fahad Faisal, CC BY-SA 4.0.</figcaption></figure>
 </div>
 
 <h2 id="vid">영상 <span>영상</span></h2>

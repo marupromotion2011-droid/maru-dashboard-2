@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -70,6 +70,43 @@ html{background:var(--paper)}
 .fold-nav{position:relative}
 .sec-nav{top:0}
 </style>
+<style id="v5viz">
+.vz{background:radial-gradient(120% 90% at 30% 0%,#fffdf8 0%,#f4f0e8 70%);padding:30px 28px 26px;color:#1c3558;font-size:17px;line-height:1.45;border-bottom:1px solid #e4dccd}
+.vz *{box-sizing:border-box}
+.vz .ttl{font-weight:800;font-size:18px;margin:0 0 14px}
+.vz .row{display:grid;grid-template-columns:120px 1fr 120px;gap:16px;align-items:center;margin:18px 0}
+.vz .lab{font-weight:800}.vz .val{font-weight:700;color:#c45c26;text-align:right}
+.vz .sub{display:block;font-weight:500;color:#5c6570;font-size:14px}
+.vz .yarn{border-radius:999px;box-shadow:0 6px 10px -4px rgba(28,53,88,.45);background:repeating-linear-gradient(118deg,rgba(255,255,255,.0) 0 7px,rgba(255,255,255,.35) 7px 9px,rgba(0,0,0,.08) 9px 12px),linear-gradient(180deg,#fffef9 0%,#efe6d3 45%,#cdbf9f 100%)}
+.vz .seg{height:46px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;position:relative}
+.vz .cot{background:repeating-linear-gradient(118deg,transparent 0 7px,rgba(255,255,255,.45) 7px 9px,rgba(0,0,0,.07) 9px 12px),linear-gradient(180deg,#fffef9 0%,#efe6d3 45%,#cbbd9c 100%);color:#1c3558}
+.vz .pol{background:repeating-linear-gradient(118deg,transparent 0 7px,rgba(255,255,255,.18) 7px 9px,rgba(0,0,0,.18) 9px 12px),linear-gradient(180deg,#5a7cab 0%,#1c3558 55%,#0f2140 100%);color:#fff}
+.vz .org{background:linear-gradient(180deg,#f0a06c 0%,#c45c26 55%,#8f3f15 100%);color:#fff}
+.vz .track{position:relative;border-radius:999px;display:flex;overflow:hidden;box-shadow:0 8px 14px -6px rgba(28,53,88,.5),inset 0 0 0 1px rgba(28,53,88,.15)}
+.vz .half{position:absolute;top:-8px;bottom:-8px;left:50%;border-left:3px dashed #c45c26}
+.vz .leg{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;color:#5c6570;margin-top:10px}
+.vz .leg i{display:inline-block;width:26px;height:16px;border-radius:8px;vertical-align:-2px;margin-right:6px}
+.vz .ball{display:inline-block;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 6%,#f6b48a 14%,#c45c26 52%,#7a3410 100%);box-shadow:0 4px 6px rgba(0,0,0,.25)}
+.vz .xs{border-radius:50%;background:radial-gradient(circle at 34% 30%,#fffef9 0 10%,#efe6d3 40%,#b9a882 100%);box-shadow:0 5px 8px rgba(28,53,88,.35);margin:auto}
+.vz .card{background:#fffcf7;border:1px solid #e4dccd;border-radius:16px;padding:18px;box-shadow:0 10px 20px -12px rgba(28,53,88,.35)}
+.vz .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vz .ruler{height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,#1c3558 0 2px,transparent 2px 10%),linear-gradient(180deg,#f3e2b3,#d9c07e);box-shadow:0 3px 5px rgba(0,0,0,.2)}
+.vz .note2{font-size:15px;color:#5c6570;margin-top:12px}
+.vz .row4{display:grid;grid-template-columns:120px 1fr 90px 130px;gap:16px;align-items:center;margin:18px 0}
+.vz .rowf{grid-template-columns:130px 1fr 170px}
+.vz .seg .st{position:relative;z-index:2;white-space:nowrap;padding:2px 8px;border-radius:999px}
+.vz .cot .st{background:rgba(255,253,248,.85)}
+.vz .half{z-index:1}
+.vz .plist{display:none;margin-top:10px;font-weight:800;color:#c45c26;font-size:15px}
+.vz .therm{display:grid;grid-template-columns:60px repeat(4,1fr);gap:10px;align-items:end}
+.vz .tube{height:300px}.vz .tsc{height:300px}
+@media(max-width:640px){.vz{padding:22px 14px}.vz .row,.vz .row4,.vz .rowf{grid-template-columns:1fr auto;gap:8px 12px;margin:14px 0}
+.vz .row .lab,.vz .row4 .lab,.vz .rowf .lab{grid-column:1/-1}
+.vz .row4 .xsw{display:none}.vz .two{grid-template-columns:1fr}
+.vz .seg{font-size:13px}.vz .seg .st{padding:1px 5px}
+.vz .pl{display:none}.vz .plist{display:block}
+.vz .therm{grid-template-columns:repeat(2,1fr);gap:22px 10px}.vz .tscw{display:none}.vz .tube{height:200px}}
+</style>
 </head>
 <body>
 <nav class="sec-nav"><div class="in">
@@ -87,26 +124,21 @@ html{background:var(--paper)}
   <span class="pill">합격=계약</span>
 </div>
 
-<figure class="hero">
-  <img src="img/four-point-plain-hq.png" alt="4점법">
-  <figcaption>그림 A. 쉬운 말: 긴 결함일수록 1–4점. 야드당·한 결함 최대 4. 합격은 계약.</figcaption>
-</figure>
+<figure class="pic"><div class="vz"><div class="row rowf"><div class="lab">3인치 이하</div><div style="position:relative;height:40px;border-radius:10px;background:repeating-linear-gradient(90deg,#efe6d3 0 3px,#f8f2e6 3px 6px);box-shadow:inset 0 2px 5px rgba(0,0,0,.12)"><div style="position:absolute;left:4%;top:16px;height:8px;width:22.5%;border-radius:4px;background:linear-gradient(180deg,#5a7cab,#1c3558 60%,#0f2140);box-shadow:0 3px 5px rgba(0,0,0,.3)"></div></div><div class="val"><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="sub">1점</span></div></div><div class="row rowf"><div class="lab">3–6인치</div><div style="position:relative;height:40px;border-radius:10px;background:repeating-linear-gradient(90deg,#efe6d3 0 3px,#f8f2e6 3px 6px);box-shadow:inset 0 2px 5px rgba(0,0,0,.12)"><div style="position:absolute;left:4%;top:16px;height:8px;width:45.0%;border-radius:4px;background:linear-gradient(180deg,#5a7cab,#1c3558 60%,#0f2140);box-shadow:0 3px 5px rgba(0,0,0,.3)"></div></div><div class="val"><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="sub">2점</span></div></div><div class="row rowf"><div class="lab">6–9인치</div><div style="position:relative;height:40px;border-radius:10px;background:repeating-linear-gradient(90deg,#efe6d3 0 3px,#f8f2e6 3px 6px);box-shadow:inset 0 2px 5px rgba(0,0,0,.12)"><div style="position:absolute;left:4%;top:16px;height:8px;width:67.5%;border-radius:4px;background:linear-gradient(180deg,#5a7cab,#1c3558 60%,#0f2140);box-shadow:0 3px 5px rgba(0,0,0,.3)"></div></div><div class="val"><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="sub">3점</span></div></div><div class="row rowf"><div class="lab">9인치 넘음</div><div style="position:relative;height:40px;border-radius:10px;background:repeating-linear-gradient(90deg,#efe6d3 0 3px,#f8f2e6 3px 6px);box-shadow:inset 0 2px 5px rgba(0,0,0,.12)"><div style="position:absolute;left:4%;top:16px;height:8px;width:90.0%;border-radius:4px;background:linear-gradient(180deg,#5a7cab,#1c3558 60%,#0f2140);box-shadow:0 3px 5px rgba(0,0,0,.3)"></div></div><div class="val"><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="ball" style="width:24px;height:24px;margin-left:6px"></span><span class="sub">4점</span></div></div><div class="note2">남색 막대 = 원단 위 결함 길이(눈금 비율 그대로). 주황 구슬 = 그 결함의 점수. 한 결함은 4점까지, 같은 1야드 안에서도 4점까지만 센다(ASTM D5430 계열 공개 규칙).</div></div><figcaption>그림 1. 4점법 점수. 결함 길이 3인치 이하 1점 · 3–6인치 2점 · 6–9인치 3점 · 9인치 넘으면 4점이다(막대 길이 비율 그대로). 한 결함은 최대 4점. 합격 점수는 계약을 본다.</figcaption></figure>
 
-<figure class="hero">
-  <img src="img/fabric-4point-map.png" alt="ASTM D5430 4점법 맵">
-  <figcaption>그림 1. 4점법 맵. HTML 표 공식 Points/100 yd² = (Total × 3600) / (width_in × length_yd)가 기준. 환산은 아래 HTML 표 공식. 이미지 영문·다른 식은 도식용. 한글 명칭은 본문.</figcaption>
-</figure>
+<p class="src">4점법 흐름: 원단 롤 → 검단기에서 결함 찾기 → 결함마다 점수(1–4점) → 100 yd²로 환산해 판정. 환산 식은 아래 표. 검단기 실물은 아래 사진.</p>
+<figure class="pic"><img src="img/inspection-machine.jpg" alt="원단이 롤에서 풀려 비스듬한 회색 판 위로 지나가는 검단기 사진. 앞쪽 아래에 감긴 원단이 보인다."><figcaption>사진. 검단기. 원단을 롤에서 풀어 비스듬한 판 위로 천천히 넘기면서 사람이 눈으로 결함을 찾는다. 다 본 원단은 다시 감는다. 사진: Jamain, CC BY-SA 4.0, 위키미디어 공용</figcaption></figure>
 
-<h2 id="why">왜 이 칸 <span>왜</span></h2>
+<h2 id="why">왜 배우나 <span>왜</span></h2>
 <div class="grid">
-  <div class="card"><b>재단 전에 롤을 눈으로</b><div class="en">VISUAL GATE</div><p>쉬운 말: 조명 밖에서 표면 흐을 찾고 점수를 매긴다. 재단 넣기 전 검문.</p></div>
-  <div class="card"><b>랩 테스트와는 다른 칸</b><div class="en">LAB GATE</div><p>색 빠짐·수축·무게(GSM)은 실험실. 이 칸은 눈으로 보는 검사. 둘 다 필요.</p></div>
-  <div class="card"><b>합격 문턱=계약</b><div class="en">CONTRACT</div><p>공개 업계 예(~40, ~20-28) 있으나 공장 합격점이 아님. 바이어 스펙.</p></div>
+  <div class="card"><b>재단 전에 롤을 눈으로</b><div class="en">VISUAL GATE</div><p>조명 밖에서 표면 흠을 찾고 점수를 매긴다. 재단 넣기 전 검문.</p></div>
+  <div class="card"><b>랩 테스트와는 다른 검사</b><div class="en">LAB GATE</div><p>색 빠짐·수축·무게(GSM)은 실험실. 이 페이지는 눈으로 보는 검사. 둘 다 필요.</p></div>
+  <div class="card"><b>합격 문턱=계약</b><div class="en">CONTRACT</div><p>공개 업계 예(~40, ~20-28) 있으나 공장 합격점이 아니다. 바이어 스펙.</p></div>
 </div>
 <p class="warn">공장 합격점·검사 속도·보유 검사기는 이 페이지로 정하지 않는다. 작지·QC를 본다.</p>
 
 <h2 id="points">결함 길이로 점수 <span>점수</span></h2>
-<p>쉬운 말: 긴 흐일수록 점수를 더 줍니다. 이름: 4점법.</p>
+<p>긴 흠일수록 점수를 더 준다. 이름: 4점법.</p>
 <p class="src">ASTM D5430 공개 관행. 최장측(날 또는 폭).</p>
 <div style="overflow:auto">
 <table>
@@ -139,7 +171,7 @@ html{background:var(--paper)}
 </table>
 </div>
 <p class="note">이미지에 다른 식이 있어도 환산·정산은 위 HTML 표 공식만 쓴다.</p>
-<p class="warn">공개 업계 예: 일반 ~40/100 yd², 프리미엄 ~20-28. <b>공장 합격점 아님</b>. 계약 문턱.</p>
+<p class="warn">공개 업계 예: 일반 ~40/100 yd², 프리미엄 ~20-28. <b>공장 합격점이 아니다</b>. 계약 문턱.</p>
 
 <h2 id="defects">니트 티 흔한 시각 결함 <span>결함</span></h2>
 <p class="src">공개 목록. 공장 코드표가 아니다. 작지·QC를 본다.</p>
@@ -173,8 +205,8 @@ html{background:var(--paper)}
   <div class="card"><b>재단 투입</b><div class="en">6</div><p>통과분만.</p></div>
 </div>
 
-<h2 id="vs">원단스펙 칸과의 관계 <span>가름</span></h2>
-<p><a href="../fabric-spec/index.html">원단스펙</a>은 <b>표 읽는 법</b>. 이 칸은 <b>롤 시각 검사</b>. 둘 다 필요. 하나가 다른 하나를 대신하지 않는다.</p>
+<h2 id="vs">원단스펙 페이지와의 관계 <span>가름</span></h2>
+<p><a href="../fabric-spec/index.html">원단스펙</a>은 <b>표 읽는 법</b>. 이 페이지는 <b>롤 시각 검사</b>. 둘 다 필요. 하나가 다른 하나를 대신하지 않는다.</p>
 
 <h2 id="shop">현장말 · 교육말 <span>현장말</span></h2>
 <div style="overflow:auto">
@@ -192,14 +224,8 @@ html{background:var(--paper)}
 <p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
 
 
-<figure class="pic">
-  <img src="img/four-point-large.png" alt="4점법 결함 점수 도식">
-  <figcaption>그림. 4점법 점수 도식(영문 라벨). ASTM D5430 계열 공개 예. 공장 합격점 아님.</figcaption>
-</figure>
-<figure class="pic">
-  <img src="img/four-point-inspect-real.png" alt="원단 검단 실사">
-  <figcaption>그림. 원단 검단 실사 참고. 합격점은 작지·바이어.</figcaption>
-</figure>
+
+
 
 <h2 id="caution">주의 <span>주의</span></h2>
 <p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다.</p>
@@ -218,7 +244,7 @@ html{background:var(--paper)}
 <p class="why">Points/100 yd². 환산은 HTML 표 공식.</p></div>
 <div class="q" data-a="2"><b>5. ~40, ~20-28 /100 yd²는?</b>
 <button data-j="0">공장 공식 합격점</button><button data-j="1">ASTM 강제 법정치</button><button data-j="2">공개 업계 예. 문턱은 바이어 계약</button>
-<p class="why">공장 합격점 아님.</p></div>
+<p class="why">공장 합격점이 아니다.</p></div>
 <div class="q" data-a="1"><b>6. 시각 4점과 랩은?</b>
 <button data-j="0">한 검사로 충분</button><button data-j="1">별개 게이트. 둘 다 필요</button><button data-j="2">랩만 하면 롤 검사 생략</button>
 <p class="why">표면 vs 공학. 둘 다 게이트.</p></div>

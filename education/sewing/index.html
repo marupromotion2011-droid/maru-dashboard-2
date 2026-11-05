@@ -46,8 +46,8 @@ figure.hero img{min-height:220px;object-fit:contain}
 figure.pic{background:var(--panel);border:1px solid var(--line)}
 figure.pic img{background:#ddd;max-height:640px;min-height:320px;object-fit:contain}
 /* 사진 그리드: 칸 좁아서 작아지던 문제 → 한·두 열 */
-.grid:has(> figure.pic){grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-figcaption{padding:10px 14px;color:#c9d2de;font-size:14px;line-height:1.5}
+.grid:has(> figure.pic){grid-template-columns:1fr;gap:16px}
+figcaption{padding:12px 16px;color:#c9d2de;font-size:17px;line-height:1.6}
 figure.pic figcaption{color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel)}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -76,12 +76,12 @@ html{background:var(--paper)}
 <div class="wrap">
 <p class="kicker">교육자료 · 봉제</p>
 <h1>봉제</h1>
-<p class="lede">티셔츠를 실로 이어 붙이는 칸. 먼저 쉬운 말 — 가장자리 감침, 단 접어 두줄, 일반 솔기. 이름은 그다음에.</p>
+<p class="lede">티셔츠를 실로 이어 붙이는 일을 다룬다. 먼저 쉬운 말 — 가장자리 감침, 단 접어 두줄, 일반 솔기. 이름은 그다음에.</p>
 <div class="pills"><span class="pill">신입용</span><span class="pill">가장자리·단·솔기</span><span class="pill">티셔츠 중심</span></div>
 
 <figure class="hero">
-  <img src="img/sew-three-hq.png" alt="티셔츠 봉제 세 가지 쉬운 말">
-  <figcaption>그림 1. 가장자리 감침 · 단 접어 두줄 · 일반 솔기. 나중에 붙는 이름: 오버록·커버·본봉. 라인 배치는 작지·바이어를 본다.</figcaption>
+  <img src="img/sew-three.jpg" alt="세 칸. 원단 가장자리를 감싼 파란 오버록 땀 사진, 커버 땀 구조 선그림, 두 장을 박은 곧은 한 줄 땀 사진">
+  <figcaption>그림 1. 왼쪽 가장자리 감침(오버록, 실이 원단 끝을 감싸며 박음) · 가운데 커버 땀 구조(단 윗면에 평행한 바늘 땀 두 줄, 아래에서 루퍼 실이 엮음) · 오른쪽 일반 솔기(본봉, 곧은 땀 한 줄). 티셔츠는 어깨·옆선을 오버록, 소매·밑단을 커버로 한다. 라인 배치는 작지·바이어. 사진·그림: 왼쪽 Seniorcrochet, 퍼블릭 도메인 · 가운데 Elkagye, CC BY-SA 4.0 · 오른쪽 Jonn Leffmann, CC BY 3.0 · 위키미디어 공용</figcaption>
 </figure>
 
 <h2 id="machines">본선 세 칸 <span>기기</span></h2>
@@ -94,15 +94,8 @@ html{background:var(--paper)}
 <p class="note">니트 옆솔기를 일반 솔기(본봉)만으로 돌리면, 늘어날 때 실이 터질 수 있다(공개 업계). 라인 배치는 작지·바이어를 본다.</p>
 <p class="note">기종·실이 몇 가닥 들어가는지(콘수)는 <a href="../sew-machines/index.html">봉제기기</a>를 본다.</p>
 
-<figure class="pic">
-  <img src="img/sew-line-large.png" alt="티셔츠 봉제 세 역할과 라인 순서">
-  <figcaption>그림 2. 큰 그림: 가장자리 감침·단 접어 두줄·일반 솔기 + 라운드넥 공개 순서 예. 라인은 작지·바이어.</figcaption>
-
-</figure>
-<figure class="pic">
-  <img src="img/sew-overlock-photo.png" alt="가장자리 감침(오버록) 실사">
-  <figcaption>그림 4. 가장자리 감침 실사(education). 기종·라인은 작지·바이어.</figcaption>
-</figure>
+<p class="src">라운드넥 공개 순서 예: 양 어깨 → 목 → 소매(몸판과 소매가 만나는 곡선) → 옆선(겨드랑이에서 밑단까지) → 밑단. 프린트·전사는 보통 재단 패널에 먼저 하고 봉제한다. 라인은 작지·바이어.</p>
+<p class="src">오버록 실물은 그림 1 왼쪽 사진을 본다.</p>
 
 
 <h2 id="iso">스티치 이름표 <span>스티치</span></h2>
@@ -119,7 +112,7 @@ html{background:var(--paper)}
 </tbody></table></div>
 
 <h2 id="flow">라운드넥 티 공개 순서 <span>흐름</span></h2>
-<p class="note">공장마다 다름, 예시. 공개 apparel 라인 시퀀스. 특정 공장 OB 아님.</p>
+<p class="note">공장마다 다르다, 예시. 공개 apparel 라인 시퀀스. 특정 공장 OB가 아니다.</p>
 <div class="grid">
   <div class="card"><b>앞뒤 맞추기</b><div class="en">STEP 1</div><p>앞판·뒤판 음영 맞추기</p></div>
   <div class="card"><b>어깨 잇기</b><div class="en">STEP 2</div><p>가장자리 감침(오버록)</p></div>
@@ -135,7 +128,7 @@ html{background:var(--paper)}
 <h2 id="shop">현장말 vs 쉬운 말 <span>현장말</span></h2>
 <p>작지·봉제 지시는 현장말. 바이어 스펙·이 교육은 둘을 나란히. 한쪽으로만 덮지 않는다.</p>
 <div style="overflow:auto"><table>
-<thead><tr><th>현장말</th><th>쉬운 말 / 교육말</th><th>쓰면 안 되는 덤프</th><th>어디</th></tr></thead>
+<thead><tr><th>현장말</th><th>쉬운 말 / 교육말</th><th>한데 묶으면 안 되는 말</th><th>어디</th></tr></thead>
 <tbody>
 <tr><td>에리</td><td class="new">깃/칼라</td><td>넥·칼라 단</td><td>작지 / 교육 둘 다</td></tr>
 <tr><td>소데</td><td class="new">소매</td><td>—</td><td>작지 / 교육 둘 다</td></tr>
@@ -154,7 +147,7 @@ html{background:var(--paper)}
 <tr><td>후락·플랫락·커버</td><td class="new">단 접어 두줄(커버; 406은 Class 400)</td><td>오버록과 한 줄로 덮음</td><td>헴</td></tr>
 <tr><td>본봉·플레인·싱글</td><td class="new">일반 솔기 / Class 301</td><td>니트 사이드 본봉만</td><td>라벨·탑</td></tr>
 </tbody></table></div>
-<p class="note">교육말은 바이어·교재 영문. 현장말은 작지. 이 칸은 둘을 같이 적는다.</p>
+<p class="note">교육말은 바이어·자료 영문. 현장말은 작지. 이 페이지는 둘을 같이 적는다.</p>
 
 <h2 id="defect">봉제 불량 공개 예 <span>결함</span></h2>
 <div class="grid">
@@ -169,10 +162,10 @@ html{background:var(--paper)}
 <h2 id="spi">인치당 바늘땀 수 <span>바늘땀</span></h2>
 <div class="grid">
   <div class="card"><b>인치당 바늘땀 수</b><div class="en">SPI</div><p>1인치 안에 바늘땀이 몇 개인지. 바이어 스펙에 적힌다. (SPI = stitches per inch)</p></div>
-  <div class="card"><b>니트 헴·솔기</b><div class="en">KNIT HEM</div><p>공개 창은 바이어 스펙. 공장 바늘땀 수는 이 페이지로 정하지 않는다.</p></div>
+  <div class="card"><b>니트 헴·솔기</b><div class="en">KNIT HEM</div><p>공개 범위는 바이어 스펙. 공장 바늘땀 수는 이 페이지로 정하지 않는다.</p></div>
   <div class="card"><b>클래스 인용</b><div class="en">ISO CLASS</div><p>이 페이지는 공개 스티치 클래스 이름을 쓴다. QC 수식을 바늘땀 수로 대체하지 않는다.</p></div>
 </div>
-<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다. 바늘땀 숫자창을 공장 공수로 쓰지 말 것.</p>
+<p class="warn">이 페이지 숫자로 공장 규격을 정하지 않는다. 작지·바이어 스펙을 본다. 바늘땀 숫자 범위를 공장 공수로 쓰지 않는다.</p>
 
 <h2 id="vid">영상 <span>영상</span></h2>
 <p class="src">교육용 영상은 이 페이지에 아직 없다.</p>
@@ -185,7 +178,7 @@ html{background:var(--paper)}
 <div class="q" data-a="0"><b>5. 에리의 쉬운 말은?</b><button data-j="0">깃/칼라</button><button data-j="1">소매</button><button data-j="2">옆솔기</button><p class="why">에리 = 깃/칼라. 소데=소매, 와끼=옆솔기.</p></div>
 <div class="q" data-a="1"><b>6. SPI는 쉬운 말로?</b><button data-j="0">공장 공수 단위</button><button data-j="1">인치당 바늘땀 수</button><button data-j="2">SAM 코드</button><p class="why">SPI = stitches per inch = 인치당 바늘땀 수. 바이어 스펙. 공장 값은 이 페이지로 정하지 않는다.</p></div>
 <div class="q" data-a="2"><b>7. 베이컨넥은?</b><button data-j="0">라벨 색깔</button><button data-j="1">바늘땀 빠짐</button><button data-j="2">넥 물결(넥 파도)</button><p class="why">베이컨넥 = 넥 물결. 공개 불량 예.</p></div>
-<div class="q" data-a="0"><b>8. 라운드넥 티 공개 순서에서 밑단은 보통?</b><button data-j="0">단 접어 두줄(커버; 406은 Class 400)</button><button data-j="1">본봉 301</button><button data-j="2">바택만</button><p class="why">밑단·소매 헴은 커버 예시. 공장마다 다름.</p></div>
+<div class="q" data-a="0"><b>8. 라운드넥 티 공개 순서에서 밑단은 보통?</b><button data-j="0">단 접어 두줄(커버; 406은 Class 400)</button><button data-j="1">본봉 301</button><button data-j="2">바택만</button><p class="why">밑단·소매 헴은 커버 예시. 공장마다 다르다.</p></div>
 <div class="q" data-a="1"><b>9. 406·407과 602·605는?</b><button data-j="0">둘 다 Class 600</button><button data-j="1">406·407=Class 400, 602·605=Class 600</button><button data-j="2">둘 다 Class 300</button><p class="why">하단 커버 406·407은 Class 400. 탑커버 602·605는 Class 600.</p></div>
 <footer>교육자료 · 봉제</footer>
 </div>
